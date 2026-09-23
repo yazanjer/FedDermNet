@@ -445,6 +445,8 @@ def main() -> None:
                 cfg, ds, tags, labs,
                 f"{nice}: aggregation rules, each with its validation-selected setting from an equal three-point "
                 r"grid ($\alpha{=}0.5$, $K{=}10$, $E{=}2$).", f"tab:{ds[-2:]}-strategy", ci[ds]))
+        if runs[(runs.dataset == ds) & (runs.tag == ref)].empty or runs[(runs.dataset == ds) & (runs.tag == "centralized")].empty:
+            continue
         txt, pcd = per_class_table(res, runs, ds, ref, "centralized",
                                    f"{nice}: per-class test sensitivity, specificity, F1, AUROC and AUPRC (\\%, mean $\\pm$ s.d. over three seeds).",
                                    f"tab:{ds[-2:]}-perclass")
@@ -457,6 +459,8 @@ def main() -> None:
     plt = mpl_setup()
     F = out / "figs"
     for ds, nice in (("isic2019", "ISIC 2019"), ("isic2018", "ISIC 2018")):
+        if runs[runs.dataset == ds].empty:
+            continue
         fig_sweep(plt, res, runs, ds, ["fedavg_a0.1_K10_E2", ref, "fedavg_a1_K10_E2", "fedavg_a100_K10_E2", "centralized"],
                   [r"$\alpha=0.1$", r"$\alpha=0.5$", r"$\alpha=1.0$", r"$\alpha=100$", "Centralized"], f"{ds}_partition_curves", F,
                   f"{nice}: label-skew sweep")
