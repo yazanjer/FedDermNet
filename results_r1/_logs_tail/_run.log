@@ -1,5 +1,3 @@
-      "NV": 1288,
-      "BCC": 332,
       "AK": 87,
       "BKL": 262,
       "DF": 24,
@@ -197,4 +195,6 @@ cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
 [queue] isic2019_fedadam_a0.5_K10_E2_eta0.001_s44: rc=0 64.6 min
 cannot delete non-empty directory: _logs_tail
+cannot delete non-empty directory: _logs_tail
+[queue] isic2019_centralized_s42: rc=0 59.4 min
 cannot delete non-empty directory: _logs_tail
