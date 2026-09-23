@@ -174,6 +174,9 @@ def main() -> None:
     ap.add_argument("--size", type=int, default=288)
     ap.add_argument("--workers", type=int, default=os.cpu_count() or 8)
     ap.add_argument("--no-api", action="store_true", help="skip ISIC API lesion lookup")
+    ap.add_argument("--manifests-from", default="",
+                    help="directory with isic2019_manifest.csv / isic2018_manifest.csv to reuse "
+                         "verbatim (guarantees identical splits across machines)")
     args = ap.parse_args()
     root = Path(args.data_root)
 
@@ -199,6 +202,16 @@ def main() -> None:
         resize_tree(folder, args.size, args.workers)
 
     import pandas as pd
+
+    if args.manifests_from:
+        src = Path(args.manifests_from)
+        for ds, folder in (("isic2019", "ISIC2019"), ("isic2018", "ISIC2018")):
+            shutil.copy(src / f"{ds}_manifest.csv", root / folder / "manifest.csv")
+            a = src.parent / f"split_audit_{ds}.json"
+            if a.is_file():
+                shutil.copy(a, root / folder / "split_audit.json")
+        log.info("Reused manifests from %s", src)
+        return
 
     if not args.no_api:
         ids19 = pd.read_csv(root / "ISIC2019" / "ISIC_2019_Training_GroundTruth.csv")["image"].astype(str).tolist()
