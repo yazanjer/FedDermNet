@@ -71,7 +71,12 @@ def load_preds(res: Path, run: str):
 
 
 def macro_f1(y, p, k):
-    return f1_score(y, p, average="macro", labels=list(range(k)), zero_division=0)
+    """Macro-F1 over classes 0..k-1 (identical to sklearn with zero_division=0)."""
+    cm = np.bincount(y * k + p, minlength=k * k).reshape(k, k)
+    tp = np.diag(cm).astype(float)
+    denom = cm.sum(0) + cm.sum(1)
+    f1 = np.divide(2 * tp, denom, out=np.zeros(k), where=denom > 0)
+    return float(f1.mean())
 
 
 # ── bootstrap ─────────────────────────────────────────────────────────────────
