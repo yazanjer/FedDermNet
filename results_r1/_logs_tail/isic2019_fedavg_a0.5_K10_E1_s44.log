@@ -1,40 +1,40 @@
-[21:04:43] INFO       Client 3 done | train_loss=0.6569 |        simulate.py:283
+[21:09:06] INFO       Client 3 done | train_loss=0.7861 |        simulate.py:283
                     n_train=453 | local_test_macro_f1=nan                       
            INFO       Client 6 training ...                      simulate.py:277
-[21:04:49] INFO       Client 6 done | train_loss=0.2466 |        simulate.py:283
+[21:09:10] INFO       Client 6 done | train_loss=0.2479 |        simulate.py:283
                     n_train=1999 | local_test_macro_f1=nan                      
-           INFO       Client 2 training ...                      simulate.py:277
-[21:04:54] INFO       Client 2 done | train_loss=0.3479 |        simulate.py:283
-                    n_train=874 | local_test_macro_f1=nan                       
            INFO       Aggregating (fedavg)                       simulate.py:301
-[21:05:23] INFO     Round  31 | val F1=0.4943 acc=0.5326 |     server_app.py:144
-                    test F1=0.4608 acc=0.5221                                   
-FL rounds | isic2019_fedavg_a0.5_K10_E1_s44:  62%|██████▏   | 31/50 [34:33<18:42, 59.10s/round] , tF1=0.461, vF1=0.494           INFO     Round 32/50 | sampled clients (5/10): 3, 6,  simulate.py:264
-                    7, 0, 9                                                     
-           INFO       Client 3 training ...                      simulate.py:277
-[21:05:25] INFO       Client 3 done | train_loss=0.7689 |        simulate.py:283
-                    n_train=453 | local_test_macro_f1=nan                       
-           INFO       Client 6 training ...                      simulate.py:277
-[21:05:31] INFO       Client 6 done | train_loss=0.2442 |        simulate.py:283
-                    n_train=1999 | local_test_macro_f1=nan                      
-           INFO       Client 7 training ...                      simulate.py:277
-[21:05:38] INFO       Client 7 done | train_loss=0.1484 |        simulate.py:283
-                    n_train=2594 | local_test_macro_f1=nan                      
+[21:09:27] INFO     Round  37 | val F1=0.5065 acc=0.7169 |     server_app.py:144
+                    test F1=0.5062 acc=0.7135                                   
+FL rounds | isic2019_fedavg_a0.5_K10_E1_s44:  74%|███████▍  | 37/50 [38:37<11:05, 51.19s/round] , tF1=0.506, vF1=0.507           INFO     Round 38/50 | sampled clients (5/10): 5, 0,  simulate.py:264
+                    3, 9, 1                                                     
+           INFO       Client 5 training ...                      simulate.py:277
+[21:09:29] INFO       Client 5 done | train_loss=0.6554 |        simulate.py:283
+                    n_train=893 | local_test_macro_f1=nan                       
            INFO       Client 0 training ...                      simulate.py:277
-[21:05:40] INFO       Client 0 done | train_loss=0.6021 |        simulate.py:283
+[21:09:31] INFO       Client 0 done | train_loss=0.4716 |        simulate.py:283
                     n_train=394 | local_test_macro_f1=nan                       
+           INFO       Client 3 training ...                      simulate.py:277
+[21:09:32] INFO       Client 3 done | train_loss=0.7925 |        simulate.py:283
+                    n_train=453 | local_test_macro_f1=nan                       
            INFO       Client 9 training ...                      simulate.py:277
-[21:05:49] INFO       Client 9 done | train_loss=0.2012 |        simulate.py:283
+[21:09:39] INFO       Client 9 done | train_loss=0.1708 |        simulate.py:283
                     n_train=3683 | local_test_macro_f1=nan                      
-           INFO       Aggregating (fedavg)                       simulate.py:301
-[21:06:17] INFO     Round  32 | val F1=0.4854 acc=0.5618 |     server_app.py:144
-                    test F1=0.4902 acc=0.5556                                   
-FL rounds | isic2019_fedavg_a0.5_K10_E1_s44:  64%|██████▍   | 32/50 [35:27<17:35, 58.64s/round] , tF1=0.490, vF1=0.485           INFO     Round 33/50 | sampled clients (5/10): 4, 1,  simulate.py:264
-                    8, 9, 0                                                     
-           INFO       Client 4 training ...                      simulate.py:277
-[21:06:27] INFO       Client 4 done | train_loss=0.1203 |        simulate.py:283
-                    n_train=4251 | local_test_macro_f1=nan                      
            INFO       Client 1 training ...                      simulate.py:277
-[21:06:30] INFO       Client 1 done | train_loss=0.5142 |        simulate.py:283
+[21:09:41] INFO       Client 1 done | train_loss=0.6213 |        simulate.py:283
                     n_train=702 | local_test_macro_f1=nan                       
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[21:09:58] INFO     Round  38 | val F1=0.5199 acc=0.6790 |     server_app.py:144
+                    test F1=0.5327 acc=0.6859                                   
+FL rounds | isic2019_fedavg_a0.5_K10_E1_s44:  76%|███████▌  | 38/50 [39:08<09:53, 49.49s/round] , tF1=0.533, vF1=0.520           INFO     Round 39/50 | sampled clients (5/10): 4, 7,  simulate.py:264
+                    3, 8, 5                                                     
+           INFO       Client 4 training ...                      simulate.py:277
+[21:10:14] INFO       Client 4 done | train_loss=0.1277 |        simulate.py:283
+                    n_train=4251 | local_test_macro_f1=nan                      
+           INFO       Client 7 training ...                      simulate.py:277
+[21:10:20] INFO       Client 7 done | train_loss=0.1481 |        simulate.py:283
+                    n_train=2594 | local_test_macro_f1=nan                      
+           INFO       Client 3 training ...                      simulate.py:277
+[21:10:21] INFO       Client 3 done | train_loss=0.9872 |        simulate.py:283
+                    n_train=453 | local_test_macro_f1=nan                       
            INFO       Client 8 training ...                      simulate.py:277
