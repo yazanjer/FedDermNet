@@ -34,3 +34,5 @@ cannot delete non-empty directory: _logs_tail
 [queue] isic2019_fedavg_a0.5_K10_E10_s44: rc=0 313.5 min
 [queue] isic2019_fedavg_a0.5_K10_E5_s42: rc=0 179.3 min
 cannot delete non-empty directory: _logs_tail
+[queue] isic2018_fedavg_a0.5_K10_E10_s42: rc=0 185.8 min
+cannot delete non-empty directory: _logs_tail
