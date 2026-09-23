@@ -1,5 +1,3 @@
-      "AK": 87,
-      "BKL": 262,
       "DF": 24,
       "VASC": 25,
       "SCC": 63
@@ -197,4 +195,6 @@ cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
 [queue] isic2019_centralized_s42: rc=0 59.4 min
+cannot delete non-empty directory: _logs_tail
+[queue] isic2019_centralized_s43: rc=0 59.3 min
 cannot delete non-empty directory: _logs_tail
