@@ -1,8 +1,3 @@
-      "MEL": 452,
-      "NV": 1288,
-      "BCC": 333,
-      "AK": 87,
-      "BKL": 262,
       "DF": 24,
       "VASC": 26,
       "SCC": 62
@@ -197,4 +192,9 @@ cannot delete non-empty directory: _logs_tail
 [queue] isic2018_fedadam_a0.5_K10_E2_eta0.001_s44: rc=0 40.6 min
 [queue] isic2018_centralized_s42: rc=0 27.9 min
 [queue] isic2018_centralized_s43: rc=0 27.5 min
+cannot delete non-empty directory: _logs_tail
+[queue] isic2018_centralized_s44: rc=0 26.1 min
+seed 42: 2019->2018 F1=0.6861 | 2018->2019 F1=0.3758
+seed 43: 2019->2018 F1=0.6900 | 2018->2019 F1=0.4113
+seed 44: 2019->2018 F1=0.6447 | 2018->2019 F1=0.4110
 cannot delete non-empty directory: _logs_tail
