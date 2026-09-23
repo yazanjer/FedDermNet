@@ -1,6 +1,3 @@
-2026-09-23 11:25:24,375 | INFO | ISIC API lesion ids: 25369 / 27036 images resolved
-2026-09-23 11:25:25,147 | INFO | ISIC2019 manifest already exists at /workspace/data/ISIC2019/manifest.csv (skipping)
-2026-09-23 11:25:25,147 | INFO | ISIC2018 manifest already exists at /workspace/data/ISIC2018/manifest.csv (skipping)
 2026-09-23 11:25:25,147 | INFO | ISIC2019 audit: {
   "n_images": 25331,
   "train": {
@@ -197,4 +194,7 @@ cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
 [queue] isic2018_fedprox_a0.5_K10_E2_mu0.001_s42: rc=0 34.1 min
 cannot delete non-empty directory: _logs_tail
+cannot delete non-empty directory: _logs_tail
+[queue] isic2018_fedprox_a0.5_K10_E2_mu0.01_s42: rc=0 35.0 min
+[queue] isic2018_fedprox_a0.5_K10_E2_mu0.1_s42: rc=0 34.3 min
 cannot delete non-empty directory: _logs_tail
