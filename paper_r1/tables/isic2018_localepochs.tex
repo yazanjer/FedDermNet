@@ -1,0 +1,16 @@
+\begin{table*}[!t]
+\caption{ISIC~2018: local epochs per round ($\alpha{=}0.5$, $K{=}10$, FedAvg).}
+\label{tab:18-localepochs}
+\centering
+\footnotesize
+\begin{tabular}{lccccccc}
+\toprule
+Setting & Acc.\ (\%) & Bal.-acc.\ (\%) & Macro-F1 (\%) & AUROC (\%) & AUPRC (\%) & Loss & Round \\
+\midrule
+$E=1$ & 77.18 $\pm$ 1.45 & 61.15 $\pm$ 6.21 & 62.75 $\pm$ 6.74 [59.7, 65.5] & 94.08 $\pm$ 0.42 & 73.54 $\pm$ 1.83 & 0.659 $\pm$ 0.047 & 31.7 \\
+$E=2$ & 77.27 $\pm$ 1.10 & 61.96 $\pm$ 2.69 & 64.43 $\pm$ 2.64 [61.2, 67.4] & 94.36 $\pm$ 0.32 & 74.54 $\pm$ 1.88 & 0.647 $\pm$ 0.037 & 34.0 \\
+$E=5$ & 76.81 $\pm$ 2.35 & 59.94 $\pm$ 4.91 & 63.14 $\pm$ 3.21 [59.6, 66.1] & 94.22 $\pm$ 0.28 & 74.10 $\pm$ 0.70 & 0.691 $\pm$ 0.022 & 22.3 \\
+$E=10$ & 78.35 $\pm$ 2.40 & 60.72 $\pm$ 4.73 & 64.41 $\pm$ 3.55 [60.9, 67.6] & 94.11 $\pm$ 0.51 & 74.41 $\pm$ 1.08 & 0.681 $\pm$ 0.035 & 21.7 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,2301 @@
+{
+  "tuning_selection": {
+    "isic2019|fedavg": {
+      "param": "lr",
+      "value": 0.0002,
+      "val_macro_f1": 0.5691995984011433,
+      "run": "isic2019_fedavg_a0.5_K10_E2_lr0.0002_s42"
+    },
+    "isic2019|fedprox": {
+      "param": "fedprox_mu",
+      "value": 0.1,
+      "val_macro_f1": 0.5634948283999283,
+      "run": "isic2019_fedprox_a0.5_K10_E2_mu0.1_s42"
+    },
+    "isic2019|fedadam": {
+      "param": "fedadam_eta",
+      "value": 0.001,
+      "val_macro_f1": 0.544697942063634,
+      "run": "isic2019_fedadam_a0.5_K10_E2_eta0.001_s42"
+    },
+    "isic2018|fedavg": {
+      "param": "lr",
+      "value": 0.0001,
+      "val_macro_f1": 0.6871068290366485,
+      "run": "isic2018_fedavg_a0.5_K10_E2_s42"
+    },
+    "isic2018|fedprox": {
+      "param": "fedprox_mu",
+      "value": 0.001,
+      "val_macro_f1": 0.6766011213772408,
+      "run": "isic2018_fedprox_a0.5_K10_E2_mu0.001_s42"
+    },
+    "isic2018|fedadam": {
+      "param": "fedadam_eta",
+      "value": 0.001,
+      "val_macro_f1": 0.6170494864612512,
+      "run": "isic2018_fedadam_a0.5_K10_E2_eta0.001_s42"
+    }
+  },
+  "configs": {
+    "isic2018|centralized": {
+      "dataset": "isic2018",
+      "tag": "centralized",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7881393298059964,
+      "accuracy_sd": 0.033498095085048654,
+      "balanced_accuracy_mean": 0.7048302625750652,
+      "balanced_accuracy_sd": 0.019820918339324995,
+      "macro_f1_mean": 0.7114716980245105,
+      "macro_f1_sd": 0.025666858635897995,
+      "auroc_mean": 0.955546080726481,
+      "auroc_sd": 0.002903170858397654,
+      "auprc_mean": 0.8049621953984607,
+      "auprc_sd": 0.010371502384057147,
+      "loss_mean": 0.6027945478757223,
+      "loss_sd": 0.05482269687678136,
+      "best_round_mean": 22.333333333333332,
+      "best_round_sd": 20.79262689833426,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.8047770012099082,
+      "val_macro_f1_sd": 0.0404051168450745
+    },
+    "isic2018|fedadam_a0.5_K10_E2_eta0.0001": {
+      "dataset": "isic2018",
+      "tag": "fedadam_a0.5_K10_E2_eta0.0001",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.7037037037037037,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.5131867931024273,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.46169103059619704,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.9181905086296288,
+      "auroc_sd": null,
+      "auprc_mean": 0.6235321803818934,
+      "auprc_sd": null,
+      "loss_mean": 0.9852564334869385,
+      "loss_sd": null,
+      "best_round_mean": 50.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.5160435188568181,
+      "val_macro_f1_sd": null
+    },
+    "isic2018|fedadam_a0.5_K10_E2_eta0.001": {
+      "dataset": "isic2018",
+      "tag": "fedadam_a0.5_K10_E2_eta0.001",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7740299823633157,
+      "accuracy_sd": 0.013364589564574694,
+      "balanced_accuracy_mean": 0.6201590125174842,
+      "balanced_accuracy_sd": 0.04353944448045353,
+      "macro_f1_mean": 0.6331287998855046,
+      "macro_f1_sd": 0.02766063437125625,
+      "auroc_mean": 0.9423419286746867,
+      "auroc_sd": 0.004403997192768706,
+      "auprc_mean": 0.7208797885810453,
+      "auprc_sd": 0.01148147752160588,
+      "loss_mean": 0.6480679313341776,
+      "loss_sd": 0.01456418163277374,
+      "best_round_mean": 40.666666666666664,
+      "best_round_sd": 7.371114795831994,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.6570754002583273,
+      "val_macro_f1_sd": 0.047025043124893716
+    },
+    "isic2018|fedadam_a0.5_K10_E2_eta1e-5": {
+      "dataset": "isic2018",
+      "tag": "fedadam_a0.5_K10_E2_eta1e-5",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.05886243386243386,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.1921265087606178,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.0935962716783569,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.664765325460463,
+      "auroc_sd": null,
+      "auprc_mean": 0.23118242663130023,
+      "auprc_sd": null,
+      "loss_mean": 1.9436051845550537,
+      "loss_sd": null,
+      "best_round_mean": 47.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.04924242424242425,
+      "val_macro_f1_sd": null
+    },
+    "isic2018|fedavg_a0.1_K10_E2": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.1_K10_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.6723985890652558,
+      "accuracy_sd": 0.06475517358190212,
+      "balanced_accuracy_mean": 0.5091519989388738,
+      "balanced_accuracy_sd": 0.03286955544277168,
+      "macro_f1_mean": 0.48187939510985206,
+      "macro_f1_sd": 0.01683099703694499,
+      "auroc_mean": 0.9075442593950732,
+      "auroc_sd": 0.02975342600809885,
+      "auprc_mean": 0.6117324764986386,
+      "auprc_sd": 0.03247584002182769,
+      "loss_mean": 1.0144915382067363,
+      "loss_sd": 0.18333640687169359,
+      "best_round_mean": 31.0,
+      "best_round_sd": 19.924858845171276,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.524608142613984,
+      "val_macro_f1_sd": 0.06286259298431714
+    },
+    "isic2018|fedavg_a0.5_K10_E1": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.5_K10_E1",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7718253968253969,
+      "accuracy_sd": 0.014505100661019406,
+      "balanced_accuracy_mean": 0.6115320687271062,
+      "balanced_accuracy_sd": 0.06210732015132896,
+      "macro_f1_mean": 0.6275250021213409,
+      "macro_f1_sd": 0.06739536699014353,
+      "auroc_mean": 0.9407826635773673,
+      "auroc_sd": 0.00416861652173441,
+      "auprc_mean": 0.7353872190641267,
+      "auprc_sd": 0.018256666026054944,
+      "loss_mean": 0.6593861778577169,
+      "loss_sd": 0.047100421117473715,
+      "best_round_mean": 31.666666666666668,
+      "best_round_sd": 18.14754345175493,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.6551625838414977,
+      "val_macro_f1_sd": 0.031034417806974534
+    },
+    "isic2018|fedavg_a0.5_K10_E10": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.5_K10_E10",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7835097001763668,
+      "accuracy_sd": 0.024041103845177398,
+      "balanced_accuracy_mean": 0.6072301462995596,
+      "balanced_accuracy_sd": 0.0472927530860351,
+      "macro_f1_mean": 0.6441022738303809,
+      "macro_f1_sd": 0.03553694741255184,
+      "auroc_mean": 0.941129899877419,
+      "auroc_sd": 0.005146112803768965,
+      "auprc_mean": 0.7440878072576876,
+      "auprc_sd": 0.010839241283249923,
+      "loss_mean": 0.6814226309458414,
+      "loss_sd": 0.034649985675514125,
+      "best_round_mean": 21.666666666666668,
+      "best_round_sd": 19.5021366350801,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.6053069143409887,
+      "val_macro_f1_sd": 0.04290090124438724
+    },
+    "isic2018|fedavg_a0.5_K10_E2": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.5_K10_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7727072310405644,
+      "accuracy_sd": 0.010954372353443388,
+      "balanced_accuracy_mean": 0.6196094355176196,
+      "balanced_accuracy_sd": 0.026878875215825652,
+      "macro_f1_mean": 0.6442662185462545,
+      "macro_f1_sd": 0.026384156598121038,
+      "auroc_mean": 0.943589310851403,
+      "auroc_sd": 0.0031882078850815772,
+      "auprc_mean": 0.7454024164054808,
+      "auprc_sd": 0.01884915550600582,
+      "loss_mean": 0.6472671230634054,
+      "loss_sd": 0.03704664129463974,
+      "best_round_mean": 34.0,
+      "best_round_sd": 13.527749258468683,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.6748524801999811,
+      "val_macro_f1_sd": 0.011300128471580441
+    },
+    "isic2018|fedavg_a0.5_K10_E2_lr0.0002": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.5_K10_E2_lr0.0002",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.6501322751322751,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.577639682071256,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.5721751482815346,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.9444442038535679,
+      "auroc_sd": null,
+      "auprc_mean": 0.7305832581468416,
+      "auprc_sd": null,
+      "loss_mean": 0.8203911185264587,
+      "loss_sd": null,
+      "best_round_mean": 11.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.6547677695121994,
+      "val_macro_f1_sd": null
+    },
+    "isic2018|fedavg_a0.5_K10_E2_lr5e-5": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.5_K10_E2_lr5e-5",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.791005291005291,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.6522269844828793,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.6666472523472954,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.9421390520537726,
+      "auroc_sd": null,
+      "auprc_mean": 0.7419666120114117,
+      "auprc_sd": null,
+      "loss_mean": 0.6226613521575928,
+      "loss_sd": null,
+      "best_round_mean": 47.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.6100840336134453,
+      "val_macro_f1_sd": null
+    },
+    "isic2018|fedavg_a0.5_K10_E5": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.5_K10_E5",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7680776014109347,
+      "accuracy_sd": 0.02352614033854342,
+      "balanced_accuracy_mean": 0.5994409767390243,
+      "balanced_accuracy_sd": 0.04905230174371393,
+      "macro_f1_mean": 0.6314499833357736,
+      "macro_f1_sd": 0.032071957907512764,
+      "auroc_mean": 0.9421843985812309,
+      "auroc_sd": 0.0027705841699883485,
+      "auprc_mean": 0.7410410668467584,
+      "auprc_sd": 0.006996791808219639,
+      "loss_mean": 0.6906137863794962,
+      "loss_sd": 0.022380283717561737,
+      "best_round_mean": 22.333333333333332,
+      "best_round_sd": 19.08751773629388,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.6077543658033766,
+      "val_macro_f1_sd": 0.04430519744959963
+    },
+    "isic2018|fedavg_a0.5_K20_E2": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.5_K20_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7954144620811286,
+      "accuracy_sd": 0.012290440797853923,
+      "balanced_accuracy_mean": 0.6792178923726458,
+      "balanced_accuracy_sd": 0.030616640276845818,
+      "macro_f1_mean": 0.694844751695418,
+      "macro_f1_sd": 0.021585860247336015,
+      "auroc_mean": 0.9494661598974826,
+      "auroc_sd": 0.0021913941429616375,
+      "auprc_mean": 0.7757991223950554,
+      "auprc_sd": 0.01059705616347136,
+      "loss_mean": 0.5873668988545736,
+      "loss_sd": 0.015316714442958394,
+      "best_round_mean": 37.0,
+      "best_round_sd": 10.816653826391969,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.7312202557366675,
+      "val_macro_f1_sd": 0.04244593843618456
+    },
+    "isic2018|fedavg_a0.5_K5_E2": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a0.5_K5_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7837301587301587,
+      "accuracy_sd": 0.02478173808888255,
+      "balanced_accuracy_mean": 0.6720356797203076,
+      "balanced_accuracy_sd": 0.04068719504110526,
+      "macro_f1_mean": 0.6786169476849876,
+      "macro_f1_sd": 0.024231481564502895,
+      "auroc_mean": 0.9542917173077337,
+      "auroc_sd": 0.005595563797497704,
+      "auprc_mean": 0.7787134250075404,
+      "auprc_sd": 0.029620425653372334,
+      "loss_mean": 0.6104811429977417,
+      "loss_sd": 0.055612270277773976,
+      "best_round_mean": 23.0,
+      "best_round_sd": 17.349351572897472,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.7470973203746087,
+      "val_macro_f1_sd": 0.034065723033849735
+    },
+    "isic2018|fedavg_a100_K10_E2": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a100_K10_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.8059964726631393,
+      "accuracy_sd": 0.005702168058367552,
+      "balanced_accuracy_mean": 0.7402520952788713,
+      "balanced_accuracy_sd": 0.002377065446204588,
+      "macro_f1_mean": 0.7413253959097905,
+      "macro_f1_sd": 0.0035096338010176783,
+      "auroc_mean": 0.962919624603282,
+      "auroc_sd": 0.0017300639577587738,
+      "auprc_mean": 0.832077716091249,
+      "auprc_sd": 0.010550518725812025,
+      "loss_mean": 0.5288024346033732,
+      "loss_sd": 0.010138549882312385,
+      "best_round_mean": 30.0,
+      "best_round_sd": 9.16515138991168,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.7826381437939084,
+      "val_macro_f1_sd": 0.011164679919328317
+    },
+    "isic2018|fedavg_a1_K10_E2": {
+      "dataset": "isic2018",
+      "tag": "fedavg_a1_K10_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7905643738977073,
+      "accuracy_sd": 0.01054750768422016,
+      "balanced_accuracy_mean": 0.6706266818492961,
+      "balanced_accuracy_sd": 0.030418047899692525,
+      "macro_f1_mean": 0.6828731095995755,
+      "macro_f1_sd": 0.024659666787510547,
+      "auroc_mean": 0.9556986644915672,
+      "auroc_sd": 0.0033180061951238325,
+      "auprc_mean": 0.7897808382854065,
+      "auprc_sd": 0.007879679661858941,
+      "loss_mean": 0.583471953868866,
+      "loss_sd": 0.03724239336521615,
+      "best_round_mean": 27.333333333333332,
+      "best_round_sd": 17.8978583448784,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.7080168120610972,
+      "val_macro_f1_sd": 0.08760591498361159
+    },
+    "isic2018|fedprox_a0.5_K10_E2_mu0.001": {
+      "dataset": "isic2018",
+      "tag": "fedprox_a0.5_K10_E2_mu0.001",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7890211640211641,
+      "accuracy_sd": 0.013666652327891406,
+      "balanced_accuracy_mean": 0.621854981035871,
+      "balanced_accuracy_sd": 0.018402945251300745,
+      "macro_f1_mean": 0.6565408883500425,
+      "macro_f1_sd": 0.03112859619705181,
+      "auroc_mean": 0.9446442467881271,
+      "auroc_sd": 0.0034102558639337896,
+      "auprc_mean": 0.7557390154047097,
+      "auprc_sd": 0.028523523009863896,
+      "loss_mean": 0.623830238978068,
+      "loss_sd": 0.023081897979427047,
+      "best_round_mean": 41.666666666666664,
+      "best_round_sd": 6.110100926607787,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.6444903214269108,
+      "val_macro_f1_sd": 0.04344471040485104
+    },
+    "isic2018|fedprox_a0.5_K10_E2_mu0.01": {
+      "dataset": "isic2018",
+      "tag": "fedprox_a0.5_K10_E2_mu0.01",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.7764550264550265,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.611323074003888,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.6286765679968722,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.9420355083617299,
+      "auroc_sd": null,
+      "auprc_mean": 0.7353126244123797,
+      "auprc_sd": null,
+      "loss_mean": 0.6506853103637695,
+      "loss_sd": null,
+      "best_round_mean": 35.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.6716043416903726,
+      "val_macro_f1_sd": null
+    },
+    "isic2018|fedprox_a0.5_K10_E2_mu0.1": {
+      "dataset": "isic2018",
+      "tag": "fedprox_a0.5_K10_E2_mu0.1",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.783068783068783,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.6372850950393748,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.6526978627286473,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.942638311268427,
+      "auroc_sd": null,
+      "auprc_mean": 0.7363195062825707,
+      "auprc_sd": null,
+      "loss_mean": 0.6274996399879456,
+      "loss_sd": null,
+      "best_round_mean": 46.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.6344046344422897,
+      "val_macro_f1_sd": null
+    },
+    "isic2019|centralized": {
+      "dataset": "isic2019",
+      "tag": "centralized",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.734411996842936,
+      "accuracy_sd": 0.009195880187633003,
+      "balanced_accuracy_mean": 0.5668920061516496,
+      "balanced_accuracy_sd": 0.004177223730292838,
+      "macro_f1_mean": 0.5550752322178497,
+      "macro_f1_sd": 0.017716530604866117,
+      "auroc_mean": 0.9168615766949172,
+      "auroc_sd": 0.008532879877093695,
+      "auprc_mean": 0.5719538791141197,
+      "auprc_sd": 0.017801124222003275,
+      "loss_mean": 0.8868570725123087,
+      "loss_sd": 0.025853796596139667,
+      "best_round_mean": 20.666666666666668,
+      "best_round_sd": 8.020806277010642,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.6143740930488059,
+      "val_macro_f1_sd": 0.004097978348262837
+    },
+    "isic2019|fedadam_a0.5_K10_E2_eta0.0001": {
+      "dataset": "isic2019",
+      "tag": "fedadam_a0.5_K10_E2_eta0.0001",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.632991318074191,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.46707465492353667,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.4090685738619713,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.8841357191682369,
+      "auroc_sd": null,
+      "auprc_mean": 0.48216304734664955,
+      "auprc_sd": null,
+      "loss_mean": 1.1393725872039795,
+      "loss_sd": null,
+      "best_round_mean": 47.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.4610659495826967,
+      "val_macro_f1_sd": null
+    },
+    "isic2019|fedadam_a0.5_K10_E2_eta0.001": {
+      "dataset": "isic2019",
+      "tag": "fedadam_a0.5_K10_E2_eta0.001",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.6988950276243093,
+      "accuracy_sd": 0.005840034959332584,
+      "balanced_accuracy_mean": 0.5144141417909472,
+      "balanced_accuracy_sd": 0.004894674719468759,
+      "macro_f1_mean": 0.5052637183951992,
+      "macro_f1_sd": 0.0023101594824252885,
+      "auroc_mean": 0.9080043220325423,
+      "auroc_sd": 0.00665230235151497,
+      "auprc_mean": 0.5468814683780469,
+      "auprc_sd": 0.012840158178893063,
+      "loss_mean": 0.8750086029370626,
+      "loss_sd": 0.03434600437218017,
+      "best_round_mean": 44.333333333333336,
+      "best_round_sd": 4.163331998932266,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.5628233390049664,
+      "val_macro_f1_sd": 0.015794523646728443
+    },
+    "isic2019|fedadam_a0.5_K10_E2_eta1e-5": {
+      "dataset": "isic2019",
+      "tag": "fedadam_a0.5_K10_E2_eta1e-5",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.26835043409629045,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.1830774098825061,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.1381677780448237,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.5954096770537922,
+      "auroc_sd": null,
+      "auprc_mean": 0.18132450303049977,
+      "auprc_sd": null,
+      "loss_mean": 2.051363945007324,
+      "loss_sd": null,
+      "best_round_mean": 44.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.14600409280279922,
+      "val_macro_f1_sd": null
+    },
+    "isic2019|fedavg_a0.1_K10_E2": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.1_K10_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.6369376479873717,
+      "accuracy_sd": 0.061120994148537756,
+      "balanced_accuracy_mean": 0.4454991833909543,
+      "balanced_accuracy_sd": 0.025719365623529673,
+      "macro_f1_mean": 0.44440685614237424,
+      "macro_f1_sd": 0.018456456910590276,
+      "auroc_mean": 0.8736488918536817,
+      "auroc_sd": 0.013842049453821738,
+      "auprc_mean": 0.5016814171270759,
+      "auprc_sd": 0.014909618412417038,
+      "loss_mean": 1.0722506841023762,
+      "loss_sd": 0.11235080637286417,
+      "best_round_mean": 39.0,
+      "best_round_sd": 10.583005244258363,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.4479107618482901,
+      "val_macro_f1_sd": 0.025176689054041475
+    },
+    "isic2019|fedavg_a0.5_K10_E1": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.5_K10_E1",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7082346750855039,
+      "accuracy_sd": 0.015204043716136966,
+      "balanced_accuracy_mean": 0.5242893949382785,
+      "balanced_accuracy_sd": 0.027761067206017277,
+      "macro_f1_mean": 0.52247112031643,
+      "macro_f1_sd": 0.036312621112144755,
+      "auroc_mean": 0.9131704170251339,
+      "auroc_sd": 0.007648909226298963,
+      "auprc_mean": 0.5597110429727814,
+      "auprc_sd": 0.02748259390539686,
+      "loss_mean": 0.8331369956334432,
+      "loss_sd": 0.03281960849952391,
+      "best_round_mean": 38.0,
+      "best_round_sd": 5.291502622129181,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.558020070896135,
+      "val_macro_f1_sd": 0.013470141078067653
+    },
+    "isic2019|fedavg_a0.5_K10_E10": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.5_K10_E10",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7205998421468035,
+      "accuracy_sd": 0.007114347425935265,
+      "balanced_accuracy_mean": 0.5059592282510257,
+      "balanced_accuracy_sd": 0.024876450678827544,
+      "macro_f1_mean": 0.5065535904226951,
+      "macro_f1_sd": 0.02615908226284644,
+      "auroc_mean": 0.9141582229559475,
+      "auroc_sd": 0.008025162029817845,
+      "auprc_mean": 0.5531340734087457,
+      "auprc_sd": 0.018049008465453473,
+      "loss_mean": 0.960779090722402,
+      "loss_sd": 0.0856981493151386,
+      "best_round_mean": 26.333333333333332,
+      "best_round_sd": 11.50362261782493,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.5556504792829559,
+      "val_macro_f1_sd": 0.013097197205555633
+    },
+    "isic2019|fedavg_a0.5_K10_E2": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.5_K10_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7112601946856091,
+      "accuracy_sd": 0.01598791329043781,
+      "balanced_accuracy_mean": 0.509381052657798,
+      "balanced_accuracy_sd": 0.013206039671794607,
+      "macro_f1_mean": 0.5064772493035922,
+      "macro_f1_sd": 0.016264582242475404,
+      "auroc_mean": 0.9151270773696298,
+      "auroc_sd": 0.005212960631027037,
+      "auprc_mean": 0.5544127441593661,
+      "auprc_sd": 0.016987811302231752,
+      "loss_mean": 0.8523975014686584,
+      "loss_sd": 0.0103674682316983,
+      "best_round_mean": 43.0,
+      "best_round_sd": 8.18535277187245,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.5709383392882651,
+      "val_macro_f1_sd": 0.020364974967781634
+    },
+    "isic2019|fedavg_a0.5_K10_E2_lr0.0002": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.5_K10_E2_lr0.0002",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7134964483030782,
+      "accuracy_sd": 0.004176403016676534,
+      "balanced_accuracy_mean": 0.5191659280331997,
+      "balanced_accuracy_sd": 0.027656172252993896,
+      "macro_f1_mean": 0.524101766717027,
+      "macro_f1_sd": 0.009083133326531526,
+      "auroc_mean": 0.9155744478337384,
+      "auroc_sd": 0.00699815755839951,
+      "auprc_mean": 0.5644218424468685,
+      "auprc_sd": 0.007960494559725431,
+      "loss_mean": 0.8649149537086487,
+      "loss_sd": 0.03735855071183672,
+      "best_round_mean": 37.0,
+      "best_round_sd": 8.54400374531753,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.5660325963575596,
+      "val_macro_f1_sd": 0.021459206044389636
+    },
+    "isic2019|fedavg_a0.5_K10_E2_lr5e-5": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.5_K10_E2_lr5e-5",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.7162588792423047,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.4965278285656046,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.49739716446086446,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.9130295542474476,
+      "auroc_sd": null,
+      "auprc_mean": 0.5443271469105706,
+      "auprc_sd": null,
+      "loss_mean": 0.8431932330131531,
+      "loss_sd": null,
+      "best_round_mean": 49.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.5500530642995556,
+      "val_macro_f1_sd": null
+    },
+    "isic2019|fedavg_a0.5_K10_E5": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.5_K10_E5",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7177058668771377,
+      "accuracy_sd": 0.009876342722807645,
+      "balanced_accuracy_mean": 0.5212284430309871,
+      "balanced_accuracy_sd": 0.006477754585919123,
+      "macro_f1_mean": 0.5207374078968966,
+      "macro_f1_sd": 0.02126584721472105,
+      "auroc_mean": 0.9117180695026669,
+      "auroc_sd": 0.004296782821556784,
+      "auprc_mean": 0.5630675721274224,
+      "auprc_sd": 0.013323965618939003,
+      "loss_mean": 0.8790402412414551,
+      "loss_sd": 0.03915107221887973,
+      "best_round_mean": 34.333333333333336,
+      "best_round_sd": 15.50268793897798,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.5572184488666991,
+      "val_macro_f1_sd": 0.015752435671722253
+    },
+    "isic2019|fedavg_a0.5_K20_E2": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.5_K20_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.6954748750328861,
+      "accuracy_sd": 0.024683759958109924,
+      "balanced_accuracy_mean": 0.5045809574729103,
+      "balanced_accuracy_sd": 0.026322152411763333,
+      "macro_f1_mean": 0.49812768778559313,
+      "macro_f1_sd": 0.027788438542819028,
+      "auroc_mean": 0.9039919896133394,
+      "auroc_sd": 0.0033618376964697676,
+      "auprc_mean": 0.5240379300654586,
+      "auprc_sd": 0.027260936376964785,
+      "loss_mean": 0.8936593731244405,
+      "loss_sd": 0.05818022392002646,
+      "best_round_mean": 17.0,
+      "best_round_sd": 13.45362404707371,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.5329970982863173,
+      "val_macro_f1_sd": 0.014793519973593147
+    },
+    "isic2019|fedavg_a0.5_K5_E2": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a0.5_K5_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7224414627729545,
+      "accuracy_sd": 0.0046246766196387495,
+      "balanced_accuracy_mean": 0.5392753963573611,
+      "balanced_accuracy_sd": 0.01516403650010926,
+      "macro_f1_mean": 0.5379149978441057,
+      "macro_f1_sd": 0.013134726417084172,
+      "auroc_mean": 0.9238596097026175,
+      "auroc_sd": 0.0016575062724535378,
+      "auprc_mean": 0.5795584860338967,
+      "auprc_sd": 0.002551241602508095,
+      "loss_mean": 0.8353667259216309,
+      "loss_sd": 0.008748366285899376,
+      "best_round_mean": 47.333333333333336,
+      "best_round_sd": 3.055050463303893,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.5718813214946027,
+      "val_macro_f1_sd": 0.009282520304984016
+    },
+    "isic2019|fedavg_a100_K10_E2": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a100_K10_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.735858984477769,
+      "accuracy_sd": 0.008512859609241445,
+      "balanced_accuracy_mean": 0.5684080863675616,
+      "balanced_accuracy_sd": 0.006668275657595601,
+      "macro_f1_mean": 0.5664284718518849,
+      "macro_f1_sd": 0.00467321116260828,
+      "auroc_mean": 0.9257361310221682,
+      "auroc_sd": 0.0019996401872631607,
+      "auprc_mean": 0.6019255712761223,
+      "auprc_sd": 0.003976701409920897,
+      "loss_mean": 0.8027588129043579,
+      "loss_sd": 0.01637019888798375,
+      "best_round_mean": 31.333333333333332,
+      "best_round_sd": 9.865765724632496,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.618277528536494,
+      "val_macro_f1_sd": 0.013734548638382632
+    },
+    "isic2019|fedavg_a1_K10_E2": {
+      "dataset": "isic2019",
+      "tag": "fedavg_a1_K10_E2",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7367797947908445,
+      "accuracy_sd": 0.007308705279183921,
+      "balanced_accuracy_mean": 0.5497017693198217,
+      "balanced_accuracy_sd": 0.010403475062402528,
+      "macro_f1_mean": 0.5533214465727397,
+      "macro_f1_sd": 0.012793530725578034,
+      "auroc_mean": 0.9247756517558208,
+      "auroc_sd": 0.0036419752680506945,
+      "auprc_mean": 0.5814470426317152,
+      "auprc_sd": 0.002691136371961478,
+      "loss_mean": 0.7961561481157938,
+      "loss_sd": 0.008307106582901048,
+      "best_round_mean": 32.666666666666664,
+      "best_round_sd": 8.144527815247079,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.5777563824885448,
+      "val_macro_f1_sd": 0.011379590030041086
+    },
+    "isic2019|fedprox_a0.5_K10_E2_mu0.001": {
+      "dataset": "isic2019",
+      "tag": "fedprox_a0.5_K10_E2_mu0.001",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.7213891081294396,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.5217522217512015,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.5021317551456757,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.9183128059434524,
+      "auroc_sd": null,
+      "auprc_mean": 0.5547395901940241,
+      "auprc_sd": null,
+      "loss_mean": 0.818506121635437,
+      "loss_sd": null,
+      "best_round_mean": 43.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.5582650830217819,
+      "val_macro_f1_sd": null
+    },
+    "isic2019|fedprox_a0.5_K10_E2_mu0.01": {
+      "dataset": "isic2019",
+      "tag": "fedprox_a0.5_K10_E2_mu0.01",
+      "n_seeds": 1.0,
+      "accuracy_mean": 0.72336227308603,
+      "accuracy_sd": null,
+      "balanced_accuracy_mean": 0.5101108836644797,
+      "balanced_accuracy_sd": null,
+      "macro_f1_mean": 0.5037515102786891,
+      "macro_f1_sd": null,
+      "auroc_mean": 0.9201995661736629,
+      "auroc_sd": null,
+      "auprc_mean": 0.5643495489409163,
+      "auprc_sd": null,
+      "loss_mean": 0.8100204467773438,
+      "loss_sd": null,
+      "best_round_mean": 43.0,
+      "best_round_sd": null,
+      "last_round_mean": 50.0,
+      "last_round_sd": null,
+      "val_macro_f1_mean": 0.5480898255634858,
+      "val_macro_f1_sd": null
+    },
+    "isic2019|fedprox_a0.5_K10_E2_mu0.1": {
+      "dataset": "isic2019",
+      "tag": "fedprox_a0.5_K10_E2_mu0.1",
+      "n_seeds": 3.0,
+      "accuracy_mean": 0.7041568008418837,
+      "accuracy_sd": 0.006907016886516758,
+      "balanced_accuracy_mean": 0.5056470659492847,
+      "balanced_accuracy_sd": 0.017764182101129275,
+      "macro_f1_mean": 0.4999429816963242,
+      "macro_f1_sd": 0.025201589611885126,
+      "auroc_mean": 0.910104489160379,
+      "auroc_sd": 0.0065330347841469965,
+      "auprc_mean": 0.5502466265188097,
+      "auprc_sd": 0.016568068911928316,
+      "loss_mean": 0.8579637010892233,
+      "loss_sd": 0.012539568564177553,
+      "best_round_mean": 37.333333333333336,
+      "best_round_sd": 2.0816659994661326,
+      "last_round_mean": 50.0,
+      "last_round_sd": 0.0,
+      "val_macro_f1_mean": 0.558198757799201,
+      "val_macro_f1_sd": 0.004823473680593492
+    }
+  },
+  "paired_vs_reference": {
+    "isic2019|centralized": {
+      "diff": 0.04859798291425751,
+      "ci": [
+        0.02966985390144965,
+        0.06717145126364425
+      ],
+      "per_seed": [
+        0.07444768687230474,
+        0.044197930928928764,
+        0.02714833094153901
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedadam_a0.5_K10_E2_eta0.0001": {
+      "diff": -0.08065224857973158,
+      "ci": [
+        -0.11341928342374659,
+        -0.05030545243157011
+      ],
+      "per_seed": [
+        -0.08065224857973158
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedadam_a0.5_K10_E2_eta0.001": {
+      "diff": -0.0012135309083929346,
+      "ci": [
+        -0.016896832853278747,
+        0.015373473551352343
+      ],
+      "per_seed": [
+        0.014606179995468649,
+        -0.014305630304479955,
+        -0.003941142416167498
+      ],
+      "distinguishable": false
+    },
+    "isic2019|fedadam_a0.5_K10_E2_eta1e-5": {
+      "diff": -0.3515530443968792,
+      "ci": [
+        -0.381342849929262,
+        -0.3193450836841698
+      ],
+      "per_seed": [
+        -0.3515530443968792
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedavg_a0.1_K10_E2": {
+      "diff": -0.062070393161217964,
+      "ci": [
+        -0.08852347530905097,
+        -0.03788140507174406
+      ],
+      "per_seed": [
+        -0.05772930805407955,
+        -0.08658739920704916,
+        -0.04189447222252518
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedavg_a0.5_K10_E1": {
+      "diff": 0.015993871012837686,
+      "ci": [
+        -0.0027285006776911844,
+        0.033514909633694086
+      ],
+      "per_seed": [
+        0.003125400012288393,
+        0.04078068858218309,
+        0.004075524444041578
+      ],
+      "distinguishable": false
+    },
+    "isic2019|fedavg_a0.5_K10_E10": {
+      "diff": 7.634111910294801e-05,
+      "ci": [
+        -0.014121985346048353,
+        0.013025847104952972
+      ],
+      "per_seed": [
+        0.004357582512980518,
+        0.014414262913166276,
+        -0.01854282206883795
+      ],
+      "distinguishable": false
+    },
+    "isic2019|fedavg_a0.5_K10_E2_lr0.0002": {
+      "diff": 0.017624517413434737,
+      "ci": [
+        0.0011261737492641974,
+        0.03423778358838458
+      ],
+      "per_seed": [
+        0.03934611728647053,
+        0.007419279745642049,
+        0.006108155208191635
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedavg_a0.5_K10_E2_lr5e-5": {
+      "diff": 0.007676342019161564,
+      "ci": [
+        -0.022483860640213776,
+        0.03476354394656241
+      ],
+      "per_seed": [
+        0.007676342019161564
+      ],
+      "distinguishable": false
+    },
+    "isic2019|fedavg_a0.5_K10_E5": {
+      "diff": 0.014260158593304428,
+      "ci": [
+        -0.0010056656879326895,
+        0.028545003228161177
+      ],
+      "per_seed": [
+        0.012216220553101786,
+        0.0216169700802189,
+        0.008947285146592598
+      ],
+      "distinguishable": false
+    },
+    "isic2019|fedavg_a0.5_K20_E2": {
+      "diff": -0.008349561517999093,
+      "ci": [
+        -0.03169145869208205,
+        0.013811912760746971
+      ],
+      "per_seed": [
+        -0.02239824432609866,
+        -0.0008935400964316109,
+        -0.0017569001314670096
+      ],
+      "distinguishable": false
+    },
+    "isic2019|fedavg_a0.5_K5_E2": {
+      "diff": 0.031437748540513434,
+      "ci": [
+        0.011391823951167678,
+        0.052028477720192416
+      ],
+      "per_seed": [
+        0.052238282343037956,
+        0.026351377631413042,
+        0.01572358564708931
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedavg_a100_K10_E2": {
+      "diff": 0.059951222548292805,
+      "ci": [
+        0.03785784750139693,
+        0.0811836039716531
+      ],
+      "per_seed": [
+        0.07639435659387783,
+        0.04904969591888564,
+        0.05440961513211495
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedavg_a1_K10_E2": {
+      "diff": 0.046844197269147604,
+      "ci": [
+        0.0280398711542158,
+        0.06572255142567164
+      ],
+      "per_seed": [
+        0.049226752831817655,
+        0.041260307697517984,
+        0.05004553127810718
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedprox_a0.5_K10_E2_mu0.001": {
+      "diff": 0.012410932703972755,
+      "ci": [
+        -0.007067707282729046,
+        0.0317954218266637
+      ],
+      "per_seed": [
+        0.012410932703972755
+      ],
+      "distinguishable": false
+    },
+    "isic2019|fedprox_a0.5_K10_E2_mu0.01": {
+      "diff": 0.014030687836986244,
+      "ci": [
+        -0.00891892770406007,
+        0.038298742568131434
+      ],
+      "per_seed": [
+        0.014030687836986244
+      ],
+      "distinguishable": false
+    },
+    "isic2019|fedprox_a0.5_K10_E2_mu0.1": {
+      "diff": -0.0065342676072680335,
+      "ci": [
+        -0.02362684915993266,
+        0.011174000678667086
+      ],
+      "per_seed": [
+        -0.005577961238009244,
+        0.006805638453602603,
+        -0.02083048003739746
+      ],
+      "distinguishable": false
+    },
+    "isic2018|centralized": {
+      "diff": 0.06720547947825584,
+      "ci": [
+        0.04398297608986207,
+        0.09051653663832558
+      ],
+      "per_seed": [
+        0.0676702398142065,
+        0.06406430688365683,
+        0.06988189173690418
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedadam_a0.5_K10_E2_eta0.0001": {
+      "diff": -0.15251633441782336,
+      "ci": [
+        -0.19709948745038325,
+        -0.10249037793664939
+      ],
+      "per_seed": [
+        -0.15251633441782336
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedadam_a0.5_K10_E2_eta0.001": {
+      "diff": -0.011137418660749946,
+      "ci": [
+        -0.028443615109743945,
+        0.007290860124826379
+      ],
+      "per_seed": [
+        0.007302123147443607,
+        0.0011101929821900614,
+        -0.04182457211188351
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedadam_a0.5_K10_E2_eta1e-5": {
+      "diff": -0.5206110933356635,
+      "ci": [
+        -0.5655513845477695,
+        -0.47307542113221424
+      ],
+      "per_seed": [
+        -0.5206110933356635
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedavg_a0.1_K10_E2": {
+      "diff": -0.16238682343640257,
+      "ci": [
+        -0.18920802165907455,
+        -0.13559300713798336
+      ],
+      "per_seed": [
+        -0.14465248875370817,
+        -0.16253805923371312,
+        -0.17996992232178638
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedavg_a0.5_K10_E1": {
+      "diff": -0.0167412164249137,
+      "ci": [
+        -0.03425658379840854,
+        0.0011608315365232956
+      ],
+      "per_seed": [
+        0.05544091407543561,
+        -0.00046142912437430184,
+        -0.10520313422580241
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedavg_a0.5_K10_E10": {
+      "diff": -0.0001639447158737021,
+      "ci": [
+        -0.024724538448140376,
+        0.020975139505267786
+      ],
+      "per_seed": [
+        -0.010205020081798244,
+        0.008099917020330749,
+        0.0016132689138463885
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedavg_a0.5_K10_E2_lr0.0002": {
+      "diff": -0.042032216732485805,
+      "ci": [
+        -0.08360036226293803,
+        0.0003447545538650379
+      ],
+      "per_seed": [
+        -0.042032216732485805
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedavg_a0.5_K10_E2_lr5e-5": {
+      "diff": 0.05243988733327498,
+      "ci": [
+        0.026694192471814697,
+        0.08029263280846828
+      ],
+      "per_seed": [
+        0.05243988733327498
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedavg_a0.5_K10_E5": {
+      "diff": -0.01281623521048103,
+      "ci": [
+        -0.03232314803120527,
+        0.007704633075072218
+      ],
+      "per_seed": [
+        -0.00599772791568709,
+        0.004447008631717875,
+        -0.03689798634747388
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedavg_a0.5_K20_E2": {
+      "diff": 0.05057853314916342,
+      "ci": [
+        0.029602358227226958,
+        0.07337195387977816
+      ],
+      "per_seed": [
+        0.10544529192813468,
+        0.016755456815311986,
+        0.029534850704043603
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedavg_a0.5_K5_E2": {
+      "diff": 0.034350729138732904,
+      "ci": [
+        0.012354127757631273,
+        0.05667024635816968
+      ],
+      "per_seed": [
+        0.06332233966533085,
+        -0.008646246324066964,
+        0.04837609407493482
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedavg_a100_K10_E2": {
+      "diff": 0.09705917736353586,
+      "ci": [
+        0.07610194715956947,
+        0.11942923482280922
+      ],
+      "per_seed": [
+        0.13102452737968284,
+        0.07671231881635154,
+        0.08344068589457321
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedavg_a1_K10_E2": {
+      "diff": 0.03860689105332086,
+      "ci": [
+        0.015355300178564693,
+        0.0618627632098699
+      ],
+      "per_seed": [
+        0.0925819099163735,
+        0.020704663261719602,
+        0.0025340999818694865
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedprox_a0.5_K10_E2_mu0.001": {
+      "diff": 0.012274669803787922,
+      "ci": [
+        -9.005491331754803e-06,
+        0.02450267497267094
+      ],
+      "per_seed": [
+        0.007165027080021535,
+        0.004099382818166686,
+        0.025559599513175546
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedprox_a0.5_K10_E2_mu0.01": {
+      "diff": 0.014469202982851814,
+      "ci": [
+        -0.0031735028981164314,
+        0.03518950715577644
+      ],
+      "per_seed": [
+        0.014469202982851814
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedprox_a0.5_K10_E2_mu0.1": {
+      "diff": 0.03849049771462687,
+      "ci": [
+        0.009266539594270979,
+        0.06826835441929072
+      ],
+      "per_seed": [
+        0.03849049771462687
+      ],
+      "distinguishable": true
+    }
+  },
+  "ci_macro_f1": {
+    "isic2019|centralized": [
+      0.5550752322178497,
+      0.525113885170702,
+      0.5810334823865702
+    ],
+    "isic2019|fedadam_a0.5_K10_E2_eta0.0001": [
+      0.4090685738619713,
+      0.37777691101107025,
+      0.4396054034084357
+    ],
+    "isic2019|fedadam_a0.5_K10_E2_eta0.001": [
+      0.5052637183951992,
+      0.4789808806432382,
+      0.528095492926227
+    ],
+    "isic2019|fedadam_a0.5_K10_E2_eta1e-5": [
+      0.1381677780448237,
+      0.12518055320935254,
+      0.15212761227213983
+    ],
+    "isic2019|fedavg_a0.1_K10_E2": [
+      0.44440685614237424,
+      0.4202910842392724,
+      0.4672842757993532
+    ],
+    "isic2019|fedavg_a0.5_K10_E1": [
+      0.52247112031643,
+      0.49262158665784067,
+      0.548023011470123
+    ],
+    "isic2019|fedavg_a0.5_K10_E10": [
+      0.5065535904226951,
+      0.4784868822594489,
+      0.5317166604487444
+    ],
+    "isic2019|fedavg_a0.5_K10_E2": [
+      0.5064772493035922,
+      0.4776262025201972,
+      0.5322701762525188
+    ],
+    "isic2019|fedavg_a0.5_K10_E2_lr0.0002": [
+      0.524101766717027,
+      0.4938777465125447,
+      0.549929485680249
+    ],
+    "isic2019|fedavg_a0.5_K10_E2_lr5e-5": [
+      0.49739716446086446,
+      0.46765140634091834,
+      0.5243158674423523
+    ],
+    "isic2019|fedavg_a0.5_K10_E5": [
+      0.5207374078968966,
+      0.49183380391916487,
+      0.5462450506026474
+    ],
+    "isic2019|fedavg_a0.5_K20_E2": [
+      0.49812768778559313,
+      0.46985052918675757,
+      0.5231441287842054
+    ],
+    "isic2019|fedavg_a0.5_K5_E2": [
+      0.5379149978441057,
+      0.5090832879128616,
+      0.5646655916903964
+    ],
+    "isic2019|fedavg_a100_K10_E2": [
+      0.5664284718518849,
+      0.5336841907866072,
+      0.5935440928310871
+    ],
+    "isic2019|fedavg_a1_K10_E2": [
+      0.5533214465727399,
+      0.5225319072514144,
+      0.5803104121801798
+    ],
+    "isic2019|fedprox_a0.5_K10_E2_mu0.001": [
+      0.5021317551456757,
+      0.4700635758979195,
+      0.5320416850628706
+    ],
+    "isic2019|fedprox_a0.5_K10_E2_mu0.01": [
+      0.5037515102786891,
+      0.474655437240446,
+      0.5312311504399384
+    ],
+    "isic2019|fedprox_a0.5_K10_E2_mu0.1": [
+      0.4999429816963242,
+      0.4701813746637797,
+      0.5234983151978324
+    ],
+    "isic2018|centralized": [
+      0.7114716980245105,
+      0.6803514216678168,
+      0.7381709993282509
+    ],
+    "isic2018|fedadam_a0.5_K10_E2_eta0.0001": [
+      0.46169103059619704,
+      0.4240359348341579,
+      0.5001231550976495
+    ],
+    "isic2018|fedadam_a0.5_K10_E2_eta0.001": [
+      0.6331287998855046,
+      0.6019984058064041,
+      0.6592008698622581
+    ],
+    "isic2018|fedadam_a0.5_K10_E2_eta1e-5": [
+      0.0935962716783569,
+      0.07009730162817658,
+      0.11659227392189793
+    ],
+    "isic2018|fedavg_a0.1_K10_E2": [
+      0.48187939510985206,
+      0.45455059522130936,
+      0.5054287252184266
+    ],
+    "isic2018|fedavg_a0.5_K10_E1": [
+      0.6275250021213409,
+      0.596538811080584,
+      0.6553719372545466
+    ],
+    "isic2018|fedavg_a0.5_K10_E10": [
+      0.6441022738303809,
+      0.6087729711755493,
+      0.6757532196455819
+    ],
+    "isic2018|fedavg_a0.5_K10_E2": [
+      0.6442662185462547,
+      0.6117118341207636,
+      0.674062960604665
+    ],
+    "isic2018|fedavg_a0.5_K10_E2_lr0.0002": [
+      0.5721751482815346,
+      0.5254017978441881,
+      0.6135345871224884
+    ],
+    "isic2018|fedavg_a0.5_K10_E2_lr5e-5": [
+      0.6666472523472954,
+      0.6257621229360301,
+      0.701781537670379
+    ],
+    "isic2018|fedavg_a0.5_K10_E5": [
+      0.6314499833357736,
+      0.5960158700647872,
+      0.6612468008311524
+    ],
+    "isic2018|fedavg_a0.5_K20_E2": [
+      0.694844751695418,
+      0.6607767855188802,
+      0.7238709193869126
+    ],
+    "isic2018|fedavg_a0.5_K5_E2": [
+      0.6786169476849876,
+      0.6461373482624704,
+      0.7080289474052663
+    ],
+    "isic2018|fedavg_a100_K10_E2": [
+      0.7413253959097905,
+      0.7111368627060161,
+      0.769168506101916
+    ],
+    "isic2018|fedavg_a1_K10_E2": [
+      0.6828731095995755,
+      0.6488445841558576,
+      0.7101556111896844
+    ],
+    "isic2018|fedprox_a0.5_K10_E2_mu0.001": [
+      0.6565408883500425,
+      0.6220425192160668,
+      0.6855068846113587
+    ],
+    "isic2018|fedprox_a0.5_K10_E2_mu0.01": [
+      0.6286765679968722,
+      0.5882043520582861,
+      0.6645696696975071
+    ],
+    "isic2018|fedprox_a0.5_K10_E2_mu0.1": [
+      0.6526978627286473,
+      0.6132578013315487,
+      0.6899381943835442
+    ]
+  },
+  "strategy_pairs": {
+    "isic2019|fedavg_a0.5_K10_E2_lr0.0002 - fedprox_a0.5_K10_E2_mu0.1": {
+      "diff": 0.02415878502070277,
+      "ci": [
+        0.005272673202935538,
+        0.043091902986447474
+      ],
+      "per_seed": [
+        0.04492407852447977,
+        0.0006136412920394463,
+        0.026938635245589093
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedavg_a0.5_K10_E2_lr0.0002 - fedadam_a0.5_K10_E2_eta0.001": {
+      "diff": 0.018838048321827672,
+      "ci": [
+        0.0007572789349837569,
+        0.03693334503930072
+      ],
+      "per_seed": [
+        0.02473993729100188,
+        0.021724910050122004,
+        0.010049297624359133
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedprox_a0.5_K10_E2_mu0.1 - fedadam_a0.5_K10_E2_eta0.001": {
+      "diff": -0.005320736698875099,
+      "ci": [
+        -0.021872777607170265,
+        0.010253629980720614
+      ],
+      "per_seed": [
+        -0.020184141233477892,
+        0.021111268758082558,
+        -0.01688933762122996
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedavg_a0.5_K10_E2 - fedprox_a0.5_K10_E2_mu0.001": {
+      "diff": -0.012274669803787922,
+      "ci": [
+        -0.02488518550975458,
+        -0.0002307595983010126
+      ],
+      "per_seed": [
+        -0.007165027080021535,
+        -0.004099382818166686,
+        -0.025559599513175546
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedavg_a0.5_K10_E2 - fedadam_a0.5_K10_E2_eta0.001": {
+      "diff": 0.011137418660749946,
+      "ci": [
+        -0.00740826511744448,
+        0.029541260211523857
+      ],
+      "per_seed": [
+        -0.007302123147443607,
+        -0.0011101929821900614,
+        0.04182457211188351
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedprox_a0.5_K10_E2_mu0.001 - fedadam_a0.5_K10_E2_eta0.001": {
+      "diff": 0.023412088464537868,
+      "ci": [
+        0.0039445422527118554,
+        0.04178553985442071
+      ],
+      "per_seed": [
+        -0.00013709606742207114,
+        0.0029891898359766245,
+        0.06738417162505905
+      ],
+      "distinguishable": true
+    }
+  },
+  "strategy_tags": {
+    "isic2019": {
+      "fedavg": "fedavg_a0.5_K10_E2_lr0.0002",
+      "fedprox": "fedprox_a0.5_K10_E2_mu0.1",
+      "fedadam": "fedadam_a0.5_K10_E2_eta0.001"
+    },
+    "isic2018": {
+      "fedavg": "fedavg_a0.5_K10_E2",
+      "fedprox": "fedprox_a0.5_K10_E2_mu0.001",
+      "fedadam": "fedadam_a0.5_K10_E2_eta0.001"
+    }
+  },
+  "fed_vs_central": {
+    "isic2019|fedavg_a0.5_K10_E2": {
+      "diff": -0.04859798291425751,
+      "ci": [
+        -0.06838153900144654,
+        -0.029255685120276504
+      ],
+      "per_seed": [
+        -0.07444768687230474,
+        -0.044197930928928764,
+        -0.02714833094153901
+      ],
+      "distinguishable": true
+    },
+    "isic2019|fedavg_a100_K10_E2": {
+      "diff": 0.011353239634035303,
+      "ci": [
+        -0.011215344448596424,
+        0.034300301199260606
+      ],
+      "per_seed": [
+        0.001946669721573091,
+        0.004851764989956875,
+        0.02726128419057594
+      ],
+      "distinguishable": false
+    },
+    "isic2018|fedavg_a0.5_K10_E2": {
+      "diff": -0.06720547947825584,
+      "ci": [
+        -0.09116824932208677,
+        -0.04475413772981886
+      ],
+      "per_seed": [
+        -0.0676702398142065,
+        -0.06406430688365683,
+        -0.06988189173690418
+      ],
+      "distinguishable": true
+    },
+    "isic2018|fedavg_a100_K10_E2": {
+      "diff": 0.02985369788528003,
+      "ci": [
+        0.00926467765822661,
+        0.048641232828034245
+      ],
+      "per_seed": [
+        0.06335428756547634,
+        0.012648011932694714,
+        0.01355879415766903
+      ],
+      "distinguishable": true
+    }
+  },
+  "cross": {
+    "isic2019_to_isic2018": {
+      "accuracy": [
+        0.7881393298059965,
+        0.00425205060008511
+      ],
+      "balanced_accuracy": [
+        0.6412008179955367,
+        0.05049569043215923
+      ],
+      "macro_f1": [
+        0.6736167787677237,
+        0.02510284221331027
+      ],
+      "auroc": [
+        0.9465335245809268,
+        0.0022432231951070194
+      ],
+      "auprc": [
+        0.7510378642707533,
+        0.00933643312250208
+      ],
+      "loss": [
+        0.6186376015345255,
+        0.0046287364964582925
+      ],
+      "n_test": 1512,
+      "meta": {
+        "n_test": 1512,
+        "n_test_before_filter": 1512,
+        "n_dropped_seen_image": 0,
+        "n_dropped_seen_lesion_only": 0
+      },
+      "macro_f1_ci": [
+        0.6736167787677237,
+        0.6392049351749515,
+        0.7040645213211427
+      ]
+    },
+    "isic2018_to_isic2019": {
+      "accuracy": [
+        0.5572335303129788,
+        0.019613886367462943
+      ],
+      "balanced_accuracy": [
+        0.4175460675696699,
+        0.026637846696679523
+      ],
+      "macro_f1": [
+        0.3993906904193398,
+        0.020450773552648727
+      ],
+      "auroc": [
+        0.8404191335994629,
+        0.016359327285329333
+      ],
+      "auprc": [
+        0.44983335937953567,
+        0.02303454449744105
+      ],
+      "loss": [
+        1.2362275123596191,
+        0.0693684892252028
+      ],
+      "n_test": 1523,
+      "meta": {
+        "n_dropped_seen_image": 949,
+        "n_dropped_seen_lesion_only": 0,
+        "n_test": 1523,
+        "n_test_before_filter": 2534,
+        "n_scc_dropped": 62
+      },
+      "macro_f1_ci": [
+        0.3993906904193398,
+        0.35830083424790954,
+        0.4290917399946618
+      ]
+    }
+  },
+  "split_audit_isic2019": {
+    "n_images": 25331,
+    "train": {
+      "images": 20264,
+      "unique_lesions": 11146,
+      "images_with_lesion_id": 18939,
+      "per_class_images": {
+        "MEL": 3618,
+        "NV": 10299,
+        "BCC": 2658,
+        "AK": 693,
+        "BKL": 2100,
+        "DF": 191,
+        "VASC": 202,
+        "SCC": 503
+      },
+      "per_class_lesions": {
+        "MEL": 1342,
+        "NV": 6914,
+        "BCC": 1047,
+        "AK": 259,
+        "BKL": 1175,
+        "DF": 90,
+        "VASC": 109,
+        "SCC": 210
+      }
+    },
+    "val": {
+      "images": 2533,
+      "unique_lesions": 1392,
+      "images_with_lesion_id": 2362,
+      "per_class_images": {
+        "MEL": 452,
+        "NV": 1288,
+        "BCC": 332,
+        "AK": 87,
+        "BKL": 262,
+        "DF": 24,
+        "VASC": 25,
+        "SCC": 63
+      },
+      "per_class_lesions": {
+        "MEL": 167,
+        "NV": 865,
+        "BCC": 131,
+        "AK": 32,
+        "BKL": 146,
+        "DF": 12,
+        "VASC": 13,
+        "SCC": 26
+      }
+    },
+    "test": {
+      "images": 2534,
+      "unique_lesions": 1393,
+      "images_with_lesion_id": 2363,
+      "per_class_images": {
+        "MEL": 452,
+        "NV": 1288,
+        "BCC": 333,
+        "AK": 87,
+        "BKL": 262,
+        "DF": 24,
+        "VASC": 26,
+        "SCC": 62
+      },
+      "per_class_lesions": {
+        "MEL": 167,
+        "NV": 865,
+        "BCC": 132,
+        "AK": 33,
+        "BKL": 146,
+        "DF": 11,
+        "VASC": 13,
+        "SCC": 26
+      }
+    },
+    "lesion_overlap_train_val": 0,
+    "image_overlap_train_val": 0,
+    "lesion_overlap_train_test": 0,
+    "image_overlap_train_test": 0,
+    "lesion_overlap_val_test": 0,
+    "image_overlap_val_test": 0,
+    "lesion_key_source_counts": {
+      "isic_api": 23664,
+      "singleton": 1667
+    }
+  },
+  "split_audit_isic2018": {
+    "n_images": 11720,
+    "train": {
+      "images": 10015,
+      "unique_lesions": 7470,
+      "images_with_lesion_id": 10015,
+      "per_class_images": {
+        "MEL": 1113,
+        "NV": 6705,
+        "BCC": 514,
+        "AKIEC": 327,
+        "BKL": 1099,
+        "DF": 115,
+        "VASC": 142
+      },
+      "per_class_lesions": {
+        "MEL": 614,
+        "NV": 5403,
+        "BCC": 327,
+        "AKIEC": 228,
+        "BKL": 727,
+        "DF": 73,
+        "VASC": 98
+      }
+    },
+    "val": {
+      "images": 193,
+      "unique_lesions": 145,
+      "images_with_lesion_id": 193,
+      "per_class_images": {
+        "MEL": 21,
+        "NV": 123,
+        "BCC": 15,
+        "AKIEC": 8,
+        "BKL": 22,
+        "DF": 1,
+        "VASC": 3
+      },
+      "per_class_lesions": {
+        "MEL": 11,
+        "NV": 104,
+        "BCC": 7,
+        "AKIEC": 5,
+        "BKL": 15,
+        "DF": 1,
+        "VASC": 2
+      }
+    },
+    "test": {
+      "images": 1512,
+      "unique_lesions": 1223,
+      "images_with_lesion_id": 1512,
+      "per_class_images": {
+        "MEL": 171,
+        "NV": 909,
+        "BCC": 93,
+        "AKIEC": 43,
+        "BKL": 217,
+        "DF": 44,
+        "VASC": 35
+      },
+      "per_class_lesions": {
+        "MEL": 109,
+        "NV": 771,
+        "BCC": 73,
+        "AKIEC": 31,
+        "BKL": 169,
+        "DF": 40,
+        "VASC": 30
+      }
+    },
+    "lesion_overlap_train_val": 0,
+    "image_overlap_train_val": 0,
+    "lesion_overlap_train_test": 0,
+    "image_overlap_train_test": 0,
+    "lesion_overlap_val_test": 0,
+    "image_overlap_val_test": 0,
+    "lesion_key_source_counts": {
+      "isic_api": 11720
+    },
+    "n_train_removed_for_overlap": 0
+  },
+  "per_class_isic2019": {
+    "fedavg_a0.5_K10_E2": {
+      "per_class_sensitivity": [
+        [
+          0.5435103244837758,
+          0.8449792960662524,
+          0.8208208208208209,
+          0.3409961685823755,
+          0.5165394402035624,
+          0.13888888888888887,
+          0.7564102564102564,
+          0.11290322580645161
+        ],
+        [
+          0.10518354651867005,
+          0.07185907488812115,
+          0.05374732235699223,
+          0.09361526224421929,
+          0.030613764416071155,
+          0.06364688465216445,
+          0.09679274917013782,
+          0.05815405283006434
+        ]
+      ],
+      "per_class_specificity": [
+        [
+          0.9186679474863912,
+          0.8488496522204386,
+          0.9297289111010146,
+          0.9771148344912138,
+          0.9533450704225351,
+          0.994820717131474,
+          0.9970760233918129,
+          0.9850323624595468
+        ],
+        [
+          0.03863216428269142,
+          0.07255293635391766,
+          0.0139322376278745,
+          0.012582594457164397,
+          0.010572545906218603,
+          0.002612525308486898,
+          0.0027140587262974377,
+          0.013039451020458033
+        ]
+      ],
+      "per_class_f1": [
+        [
+          0.5641461904414586,
+          0.8481739204770995,
+          0.7184053288801601,
+          0.34150600316187735,
+          0.5378692280814922,
+          0.1626643073811931,
+          0.7460939931528167,
+          0.13295902285263989
+        ],
+        [
+          0.028597995199182994,
+          0.011379914336666005,
+          0.02189398926508406,
+          0.01908782125816113,
+          0.005939898622317054,
+          0.06059080000583546,
+          0.043725135626638593,
+          0.07143432783618943
+        ]
+      ],
+      "per_class_auroc": [
+        [
+          0.8406479261771782,
+          0.9344488283833318,
+          0.9619583236121173,
+          0.9037651859263122,
+          0.8857375327025769,
+          0.9112771137671536,
+          0.984577556945978,
+          0.8986041514423914
+        ],
+        [
+          0.010690156100334015,
+          0.0026077784139024846,
+          0.0034418464718830154,
+          0.004038247146287668,
+          0.003591408798946341,
+          0.03293707861988291,
+          0.0073812294815347465,
+          0.015831519022928876
+        ]
+      ],
+      "per_class_auprc": [
+        [
+          0.6307803832848542,
+          0.9367170486205215,
+          0.7925255528415688,
+          0.3870188869189091,
+          0.5422622305121999,
+          0.18059232824460195,
+          0.7953554516135232,
+          0.1700500712387509
+        ],
+        [
+          0.021777524520504597,
+          0.005172660951927055,
+          0.02848144326289691,
+          0.016909512746242746,
+          0.0246599569365831,
+          0.04864028840842218,
+          0.02820781202296817,
+          0.05221948074615788
+        ]
+      ]
+    },
+    "centralized": {
+      "per_class_sensitivity": [
+        [
+          0.5715339233038348,
+          0.8462732919254657,
+          0.8308308308308309,
+          0.44061302681992337,
+          0.6030534351145039,
+          0.19444444444444445,
+          0.8333333333333334,
+          0.21505376344086022
+        ],
+        [
+          0.035490293261109036,
+          0.01734340675752228,
+          0.024458041487228455,
+          0.02392719539616245,
+          0.03124180447279561,
+          0.08673608331108888,
+          0.02220577958421636,
+          0.05184758473652125
+        ]
+      ],
+      "per_class_specificity": [
+        [
+          0.9164265129682997,
+          0.8812199036918139,
+          0.9451764349538089,
+          0.9790219316169458,
+          0.9443955399061034,
+          0.9925630810092961,
+          0.9960127591706539,
+          0.9902912621359222
+        ],
+        [
+          0.001663833628788576,
+          0.021993883797824586,
+          0.009180944762215766,
+          0.004909636641040721,
+          0.001984704996841094,
+          0.0033173960150854535,
+          0.0017379979838678778,
+          0.0038589773520102885
+        ]
+      ],
+      "per_class_f1": [
+        [
+          0.5839419699809508,
+          0.8630154396806576,
+          0.7578636646199662,
+          0.4346900771481777,
+          0.5782298545835801,
+          0.202321083172147,
+          0.753968253968254,
+          0.26657151458906453
+        ],
+        [
+          0.025908229571464506,
+          0.0008248158595795854,
+          0.015242795510900478,
+          0.019085759458881284,
+          0.02308206856315221,
+          0.09441211667210012,
+          0.04827589309760494,
+          0.035958946649656334
+        ]
+      ],
+      "per_class_auroc": [
+        [
+          0.8332325608743578,
+          0.9379256893280029,
+          0.9685473751807235,
+          0.901515187100633,
+          0.894786178905494,
+          0.9085657370517928,
+          0.9888970678444363,
+          0.9014228172738977
+        ],
+        [
+          0.01799446416597526,
+          0.0019312783408495222,
+          0.0014408229301218335,
+          0.019767457549298397,
+          0.006556121472538415,
+          0.01956888287204011,
+          0.004231637021808473,
+          0.007629129185062674
+        ]
+      ],
+      "per_class_auprc": [
+        [
+          0.6338001831150364,
+          0.9416529949382952,
+          0.8113547777624862,
+          0.40015752629510454,
+          0.5742096510922629,
+          0.185122867449944,
+          0.8231253484572809,
+          0.20620768380254717
+        ],
+        [
+          0.025681473106867317,
+          0.0038897622518457966,
+          0.006146878044496431,
+          0.03253089432487226,
+          0.009046215181425527,
+          0.07778514929517184,
+          0.016644577682553247,
+          0.006328538039990511
+        ]
+      ]
+    }
+  },
+  "per_class_isic2018": {
+    "fedavg_a0.5_K10_E2": {
+      "per_class_sensitivity": [
+        [
+          0.442495126705653,
+          0.9156582324899157,
+          0.7777777777777778,
+          0.4728682170542636,
+          0.5637480798771121,
+          0.5075757575757576,
+          0.6571428571428571
+        ],
+        [
+          0.208431203713566,
+          0.06747839620642235,
+          0.09932907857025818,
+          0.2210322082074923,
+          0.06222620307382205,
+          0.013121597027036937,
+          0.11428571428571432
+        ]
+      ],
+      "per_class_specificity": [
+        [
+          0.9405915983097191,
+          0.747927031509121,
+          0.9741602067183462,
+          0.9854776491944633,
+          0.9649935649935649,
+          0.9965940054495913,
+          0.9975174904084857
+        ],
+        [
+          0.050009068023642515,
+          0.11944904215833571,
+          0.013228008668359034,
+          0.011599163076135316,
+          0.019170703919037753,
+          0.0013623978201635079,
+          0.0007817877714145501
+        ]
+      ],
+      "per_class_f1": [
+        [
+          0.4449899779476392,
+          0.8790878828268713,
+          0.7170637715034966,
+          0.46350778416328753,
+          0.6357020196943052,
+          0.626533631009803,
+          0.7429784626783794
+        ],
+        [
+          0.0994087591108653,
+          0.002927483755766042,
+          0.02538885107813981,
+          0.0829645166895399,
+          0.024433565213609034,
+          0.027834540064124197,
+          0.09384612659845225
+        ]
+      ],
+      "per_class_auroc": [
+        [
+          0.8584498781131303,
+          0.9398521388899531,
+          0.9773276652496458,
+          0.9534778180590076,
+          0.9245093678273402,
+          0.9636435884732887,
+          0.9878647193474547
+        ],
+        [
+          0.015626411765847954,
+          0.0011619036011428295,
+          0.001139700019908479,
+          0.01232231833617623,
+          0.008580969483882359,
+          0.010626425265669738,
+          0.006050828738486892
+        ]
+      ],
+      "per_class_auprc": [
+        [
+          0.5315329086567262,
+          0.9575400801042931,
+          0.8117053665697173,
+          0.586934430456325,
+          0.7490071781754365,
+          0.7465483208960574,
+          0.8345486299798112
+        ],
+        [
+          0.048884711671733784,
+          0.001581875669059399,
+          0.028014739971047236,
+          0.06264349796058685,
+          0.01769364086757877,
+          0.041535236459218965,
+          0.05811706722244997
+        ]
+      ]
+    },
+    "centralized": {
+      "per_class_sensitivity": [
+        [
+          0.6491228070175438,
+          0.8437843784378437,
+          0.7598566308243727,
+          0.689922480620155,
+          0.7619047619047619,
+          0.5530303030303031,
+          0.6761904761904761
+        ],
+        [
+          0.025490637096729073,
+          0.06600660066006597,
+          0.031040337053205656,
+          0.11933956835922985,
+          0.03864745199818467,
+          0.06560798513518476,
+          0.06598288790738582
+        ]
+      ],
+      "per_class_specificity": [
+        [
+          0.9125031071339796,
+          0.8767274737423992,
+          0.9800328870096312,
+          0.9843430905377808,
+          0.9444015444015444,
+          0.9977293369663941,
+          0.998645903859174
+        ],
+        [
+          0.03318488912732106,
+          0.05721593318131017,
+          0.01076480078683543,
+          0.008901767753997316,
+          0.00967564794296652,
+          0.0007865807482147927,
+          0.001172681657121761
+        ]
+      ],
+      "per_class_f1": [
+        [
+          0.5599073570076176,
+          0.8756377092135311,
+          0.738580712978275,
+          0.6217385405791203,
+          0.7279133449434346,
+          0.6774236923490654,
+          0.779100529100529
+        ],
+        [
+          0.051960036186220554,
+          0.02132145445998863,
+          0.04077735825311994,
+          0.05160193573456362,
+          0.03226560182544,
+          0.04378453029755936,
+          0.025201797464626495
+        ]
+      ],
+      "per_class_auroc": [
+        [
+          0.8928369477841592,
+          0.9486651816093716,
+          0.9841955438354538,
+          0.9603062780671343,
+          0.9381895391111982,
+          0.973520972669474,
+          0.9911081020085759
+        ],
+        [
+          0.008082859926166317,
+          0.0006153080519275562,
+          0.0043884048797926374,
+          0.01137892881947734,
+          0.014482217762283816,
+          0.0032204115078916197,
+          0.005507514547772272
+        ]
+      ],
+      "per_class_auprc": [
+        [
+          0.6408500476659515,
+          0.9645285971228491,
+          0.8426013324146072,
+          0.7248259598746998,
+          0.8184069019954343,
+          0.7758756101729541,
+          0.8676469185427284
+        ],
+        [
+          0.05081428116252858,
+          0.0017699260532041336,
+          0.046303416517530616,
+          0.073872723539112,
+          0.02700578246307905,
+          0.010888614613471083,
+          0.02528239745842994
+        ]
+      ]
+    }
+  }
+}

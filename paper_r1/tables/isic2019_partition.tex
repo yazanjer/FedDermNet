@@ -1,0 +1,16 @@
+\begin{table*}[!t]
+\caption{ISIC~2019: label-skew sweep ($K{=}10$, $E{=}2$, FedAvg).}
+\label{tab:19-partition}
+\centering
+\footnotesize
+\begin{tabular}{lccccccc}
+\toprule
+Setting & Acc.\ (\%) & Bal.-acc.\ (\%) & Macro-F1 (\%) & AUROC (\%) & AUPRC (\%) & Loss & Round \\
+\midrule
+$\alpha=0.1$ & 63.69 $\pm$ 6.11 & 44.55 $\pm$ 2.57 & 44.44 $\pm$ 1.85 [42.0, 46.7] & 87.36 $\pm$ 1.38 & 50.17 $\pm$ 1.49 & 1.072 $\pm$ 0.112 & 39.0 \\
+$\alpha=0.5$ & 71.13 $\pm$ 1.60 & 50.94 $\pm$ 1.32 & 50.65 $\pm$ 1.63 [47.8, 53.2] & 91.51 $\pm$ 0.52 & 55.44 $\pm$ 1.70 & 0.852 $\pm$ 0.010 & 43.0 \\
+$\alpha=1.0$ & 73.68 $\pm$ 0.73 & 54.97 $\pm$ 1.04 & 55.33 $\pm$ 1.28 [52.3, 58.0] & 92.48 $\pm$ 0.36 & 58.14 $\pm$ 0.27 & 0.796 $\pm$ 0.008 & 32.7 \\
+$\alpha=100$ & 73.59 $\pm$ 0.85 & 56.84 $\pm$ 0.67 & 56.64 $\pm$ 0.47 [53.4, 59.4] & 92.57 $\pm$ 0.20 & 60.19 $\pm$ 0.40 & 0.803 $\pm$ 0.016 & 31.3 \\
+\bottomrule
+\end{tabular}
+\end{table*}

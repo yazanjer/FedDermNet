@@ -1,0 +1,15 @@
+\begin{table*}[!t]
+\caption{ISIC~2018: aggregation rules, each with its validation-selected setting from an equal three-point grid ($\alpha{=}0.5$, $K{=}10$, $E{=}2$).}
+\label{tab:18-strategy}
+\centering
+\footnotesize
+\begin{tabular}{lccccccc}
+\toprule
+Setting & Acc.\ (\%) & Bal.-acc.\ (\%) & Macro-F1 (\%) & AUROC (\%) & AUPRC (\%) & Loss & Round \\
+\midrule
+FedAvg (client lr$=$0.0001) & 77.27 $\pm$ 1.10 & 61.96 $\pm$ 2.69 & 64.43 $\pm$ 2.64 [61.2, 67.4] & 94.36 $\pm$ 0.32 & 74.54 $\pm$ 1.88 & 0.647 $\pm$ 0.037 & 34.0 \\
+FedProx ($\mu$$=$0.001) & 78.90 $\pm$ 1.37 & 62.19 $\pm$ 1.84 & 65.65 $\pm$ 3.11 [62.2, 68.6] & 94.46 $\pm$ 0.34 & 75.57 $\pm$ 2.85 & 0.624 $\pm$ 0.023 & 41.7 \\
+FedAdam ($\eta$$=$0.001) & 77.40 $\pm$ 1.34 & 62.02 $\pm$ 4.35 & 63.31 $\pm$ 2.77 [60.2, 65.9] & 94.23 $\pm$ 0.44 & 72.09 $\pm$ 1.15 & 0.648 $\pm$ 0.015 & 40.7 \\
+\bottomrule
+\end{tabular}
+\end{table*}

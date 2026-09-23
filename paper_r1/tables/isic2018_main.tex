@@ -1,0 +1,15 @@
+\begin{table*}[!t]
+\caption{ISIC~2018: federated reference setting, near-IID federation and centralized reference (test split, mean $\pm$ s.d. over three seeds; bracket: 95\% bootstrap CI of the seed-averaged macro-F1).}
+\label{tab:18-main}
+\centering
+\footnotesize
+\begin{tabular}{lccccccc}
+\toprule
+Setting & Acc.\ (\%) & Bal.-acc.\ (\%) & Macro-F1 (\%) & AUROC (\%) & AUPRC (\%) & Loss & Round \\
+\midrule
+Federated, $\alpha{=}0.5$ (reference) & 77.27 $\pm$ 1.10 & 61.96 $\pm$ 2.69 & 64.43 $\pm$ 2.64 [61.2, 67.4] & 94.36 $\pm$ 0.32 & 74.54 $\pm$ 1.88 & 0.647 $\pm$ 0.037 & 34.0 \\
+Federated, $\alpha{=}100$ (near-IID) & 80.60 $\pm$ 0.57 & 74.03 $\pm$ 0.24 & 74.13 $\pm$ 0.35 [71.1, 76.9] & 96.29 $\pm$ 0.17 & 83.21 $\pm$ 1.06 & 0.529 $\pm$ 0.010 & 30.0 \\
+Centralized reference & 78.81 $\pm$ 3.35 & 70.48 $\pm$ 1.98 & 71.15 $\pm$ 2.57 [68.0, 73.8] & 95.55 $\pm$ 0.29 & 80.50 $\pm$ 1.04 & 0.603 $\pm$ 0.055 & 22.3 \\
+\bottomrule
+\end{tabular}
+\end{table*}
