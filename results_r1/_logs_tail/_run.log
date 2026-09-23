@@ -1,0 +1,26 @@
+remote: 
+remote: Create a pull request for 'results-r1-p3' on GitHub by visiting:        
+remote:      https://github.com/yazanjer/FedDermNet/pull/new/results-r1-p3        
+remote: 
+2026-09-23 11:30:29,623 | INFO | downloaded ISIC_2019_Training_Input.zip (9771.6 MB)
+2026-09-23 11:33:20,477 | INFO | unzipped ISIC_2019_Training_Input.zip
+2026-09-23 11:33:22,328 | INFO | downloaded ISIC_2019_Training_GroundTruth.csv (1.3 MB)
+2026-09-23 11:33:22,929 | INFO | downloaded ISIC_2019_Training_Metadata.csv (1.2 MB)
+2026-09-23 11:34:22,314 | INFO | downloaded ISIC2018_Task3_Training_Input.zip (2771.7 MB)
+2026-09-23 11:35:16,534 | INFO | unzipped ISIC2018_Task3_Training_Input.zip
+2026-09-23 11:35:17,315 | INFO | downloaded ISIC2018_Task3_Training_GroundTruth.zip (0.0 MB)
+2026-09-23 11:35:17,342 | INFO | unzipped ISIC2018_Task3_Training_GroundTruth.zip
+2026-09-23 11:35:17,876 | INFO | downloaded ISIC2018_Task3_Training_LesionGroupings.csv (0.5 MB)
+2026-09-23 11:35:19,737 | INFO | downloaded ISIC2018_Task3_Validation_Input.zip (53.3 MB)
+2026-09-23 11:35:20,790 | INFO | unzipped ISIC2018_Task3_Validation_Input.zip
+2026-09-23 11:35:21,140 | INFO | downloaded ISIC2018_Task3_Validation_GroundTruth.zip (0.0 MB)
+2026-09-23 11:35:21,160 | INFO | unzipped ISIC2018_Task3_Validation_GroundTruth.zip
+2026-09-23 11:35:29,765 | INFO | downloaded ISIC2018_Task3_Test_Input.zip (420.6 MB)
+2026-09-23 11:35:38,484 | INFO | unzipped ISIC2018_Task3_Test_Input.zip
+2026-09-23 11:35:38,812 | INFO | downloaded ISIC2018_Task3_Test_GroundTruth.zip (0.0 MB)
+2026-09-23 11:35:38,831 | INFO | unzipped ISIC2018_Task3_Test_GroundTruth.zip
+2026-09-23 11:36:02,684 | INFO | resized 25331 / 25331 images in ISIC_2019_Training_Input
+2026-09-23 11:36:09,162 | INFO | resized 10015 / 10015 images in ISIC2018_Task3_Training_Input
+2026-09-23 11:36:10,763 | INFO | resized 193 / 193 images in ISIC2018_Task3_Validation_Input
+2026-09-23 11:36:12,587 | INFO | resized 1512 / 1512 images in ISIC2018_Task3_Test_Input
+2026-09-23 11:36:13,012 | INFO | Reused manifests from /workspace/p1_results/results_r1/manifests
