@@ -1,0 +1,40 @@
+                    Device: cuda                                                
+           INFO     Client 2 | train=1087 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:12] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 3 | train=524 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:14] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 4 | train=863 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:15] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 5 | train=326 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:17] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 6 | train=1129 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:19] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 7 | train=338 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:20] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 8 | train=2368 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:22] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 9 | train=1591 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+           INFO     Running initial centralized evaluation       simulate.py:194
+                    (Round 0)                                                   
