@@ -1,0 +1,200 @@
+2026-09-23 09:50:27,252 | INFO | ISIC API lesion ids: 25369 / 27036 images resolved
+2026-09-23 09:50:28,085 | INFO | Building ISIC2019 manifest...
+2026-09-23 09:50:28,085 | INFO | Loading ISIC2019 ground truth from /workspace/data/ISIC2019/ISIC_2019_Training_GroundTruth.csv
+2026-09-23 09:50:28,117 | INFO | Loading ISIC2019 metadata from /workspace/data/ISIC2019/ISIC_2019_Training_Metadata.csv
+2026-09-23 09:50:32,317 | INFO | ISIC2019 split: 20264 train | 2533 val | 2534 test
+2026-09-23 09:50:32,325 | INFO |   Train class AK: 693 samples
+2026-09-23 09:50:32,325 | INFO |   Train class BCC: 2658 samples
+2026-09-23 09:50:32,325 | INFO |   Train class BKL: 2100 samples
+2026-09-23 09:50:32,325 | INFO |   Train class DF: 191 samples
+2026-09-23 09:50:32,325 | INFO |   Train class MEL: 3618 samples
+2026-09-23 09:50:32,325 | INFO |   Train class NV: 10299 samples
+2026-09-23 09:50:32,326 | INFO |   Train class SCC: 503 samples
+2026-09-23 09:50:32,326 | INFO |   Train class VASC: 202 samples
+2026-09-23 09:50:32,449 | INFO | Split audit -> /workspace/data/ISIC2019/split_audit.json | lesion overlaps train/val=0 train/test=0 val/test=0
+2026-09-23 09:50:32,449 | INFO | Saved: /workspace/data/ISIC2019/manifest.csv
+2026-09-23 09:50:32,450 | INFO | Building ISIC2018 manifest...
+2026-09-23 09:50:32,450 | INFO | Loading ISIC2018 lesion groupings from /workspace/data/ISIC2018/ISIC2018_Task3_Training_LesionGroupings.csv
+2026-09-23 09:50:32,460 | INFO | Loading ISIC2018 train ground truth from /workspace/data/ISIC2018/ISIC2018_Task3_Training_GroundTruth.csv
+2026-09-23 09:50:32,523 | INFO | Loading ISIC2018 val ground truth from /workspace/data/ISIC2018/ISIC2018_Task3_Validation_GroundTruth.csv
+2026-09-23 09:50:32,527 | INFO | Loading ISIC2018 test ground truth from /workspace/data/ISIC2018/ISIC2018_Task3_Test_GroundTruth.csv
+2026-09-23 09:50:32,662 | INFO | ISIC2018 split: 10015 train | 193 val | 1512 test
+2026-09-23 09:50:32,665 | INFO |   Train class AKIEC: 327 samples
+2026-09-23 09:50:32,665 | INFO |   Train class BCC: 514 samples
+2026-09-23 09:50:32,666 | INFO |   Train class BKL: 1099 samples
+2026-09-23 09:50:32,666 | INFO |   Train class DF: 115 samples
+2026-09-23 09:50:32,666 | INFO |   Train class MEL: 1113 samples
+2026-09-23 09:50:32,666 | INFO |   Train class NV: 6705 samples
+2026-09-23 09:50:32,666 | INFO |   Train class VASC: 142 samples
+2026-09-23 09:50:32,715 | INFO | Split audit -> /workspace/data/ISIC2018/split_audit.json | lesion overlaps train/val=0 train/test=0 val/test=0
+2026-09-23 09:50:32,715 | INFO | Saved: /workspace/data/ISIC2018/manifest.csv
+2026-09-23 09:50:32,716 | INFO | ISIC2019 audit: {
+  "n_images": 25331,
+  "train": {
+    "images": 20264,
+    "unique_lesions": 11146,
+    "images_with_lesion_id": 18939,
+    "per_class_images": {
+      "MEL": 3618,
+      "NV": 10299,
+      "BCC": 2658,
+      "AK": 693,
+      "BKL": 2100,
+      "DF": 191,
+      "VASC": 202,
+      "SCC": 503
+    },
+    "per_class_lesions": {
+      "MEL": 1342,
+      "NV": 6914,
+      "BCC": 1047,
+      "AK": 259,
+      "BKL": 1175,
+      "DF": 90,
+      "VASC": 109,
+      "SCC": 210
+    }
+  },
+  "val": {
+    "images": 2533,
+    "unique_lesions": 1392,
+    "images_with_lesion_id": 2362,
+    "per_class_images": {
+      "MEL": 452,
+      "NV": 1288,
+      "BCC": 332,
+      "AK": 87,
+      "BKL": 262,
+      "DF": 24,
+      "VASC": 25,
+      "SCC": 63
+    },
+    "per_class_lesions": {
+      "MEL": 167,
+      "NV": 865,
+      "BCC": 131,
+      "AK": 32,
+      "BKL": 146,
+      "DF": 12,
+      "VASC": 13,
+      "SCC": 26
+    }
+  },
+  "test": {
+    "images": 2534,
+    "unique_lesions": 1393,
+    "images_with_lesion_id": 2363,
+    "per_class_images": {
+      "MEL": 452,
+      "NV": 1288,
+      "BCC": 333,
+      "AK": 87,
+      "BKL": 262,
+      "DF": 24,
+      "VASC": 26,
+      "SCC": 62
+    },
+    "per_class_lesions": {
+      "MEL": 167,
+      "NV": 865,
+      "BCC": 132,
+      "AK": 33,
+      "BKL": 146,
+      "DF": 11,
+      "VASC": 13,
+      "SCC": 26
+    }
+  },
+  "lesion_overlap_train_val": 0,
+  "image_overlap_train_val": 0,
+  "lesion_overlap_train_test": 0,
+  "image_overlap_train_test": 0,
+  "lesion_overlap_val_test": 0,
+  "image_overlap_val_test": 0,
+  "lesion_key_source_counts": {
+    "isic_api": 23664,
+    "singleton": 1667
+  }
+}
+2026-09-23 09:50:32,716 | INFO | ISIC2018 audit: {
+  "n_images": 11720,
+  "train": {
+    "images": 10015,
+    "unique_lesions": 7470,
+    "images_with_lesion_id": 10015,
+    "per_class_images": {
+      "MEL": 1113,
+      "NV": 6705,
+      "BCC": 514,
+      "AKIEC": 327,
+      "BKL": 1099,
+      "DF": 115,
+      "VASC": 142
+    },
+    "per_class_lesions": {
+      "MEL": 614,
+      "NV": 5403,
+      "BCC": 327,
+      "AKIEC": 228,
+      "BKL": 727,
+      "DF": 73,
+      "VASC": 98
+    }
+  },
+  "val": {
+    "images": 193,
+    "unique_lesions": 145,
+    "images_with_lesion_id": 193,
+    "per_class_images": {
+      "MEL": 21,
+      "NV": 123,
+      "BCC": 15,
+      "AKIEC": 8,
+      "BKL": 22,
+      "DF": 1,
+      "VASC": 3
+    },
+    "per_class_lesions": {
+      "MEL": 11,
+      "NV": 104,
+      "BCC": 7,
+      "AKIEC": 5,
+      "BKL": 15,
+      "DF": 1,
+      "VASC": 2
+    }
+  },
+  "test": {
+    "images": 1512,
+    "unique_lesions": 1223,
+    "images_with_lesion_id": 1512,
+    "per_class_images": {
+      "MEL": 171,
+      "NV": 909,
+      "BCC": 93,
+      "AKIEC": 43,
+      "BKL": 217,
+      "DF": 44,
+      "VASC": 35
+    },
+    "per_class_lesions": {
+      "MEL": 109,
+      "NV": 771,
+      "BCC": 73,
+      "AKIEC": 31,
+      "BKL": 169,
+      "DF": 40,
+      "VASC": 30
+    }
+  },
+  "lesion_overlap_train_val": 0,
+  "image_overlap_train_val": 0,
+  "lesion_overlap_train_test": 0,
+  "image_overlap_train_test": 0,
+  "lesion_overlap_val_test": 0,
+  "image_overlap_val_test": 0,
+  "lesion_key_source_counts": {
+    "isic_api": 11720
+  },
+  "n_train_removed_for_overlap": 0
+}
