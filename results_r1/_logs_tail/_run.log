@@ -1,5 +1,3 @@
-      "AK": 259,
-      "BKL": 1175,
       "DF": 90,
       "VASC": 109,
       "SCC": 210
@@ -197,4 +195,6 @@ cannot delete non-empty directory: _logs_tail
 [queue] isic2019_fedavg_a0.5_K10_E2_lr0.0002_s42: rc=0 0.0 min
 [queue] isic2019_fedprox_a0.5_K10_E2_mu0.1_s42: rc=0 0.0 min
 [queue] isic2019_fedadam_a0.5_K10_E2_eta0.001_s42: rc=0 0.0 min
+cannot delete non-empty directory: _logs_tail
+[queue] isic2019_fedavg_a0.5_K10_E2_lr0.0002_s43: rc=0 67.9 min
 cannot delete non-empty directory: _logs_tail
