@@ -166,11 +166,10 @@ def fig_sweep(plt, res, runs_df, ds, tags, labels, name, out, title):
             if len(cs) > 1:
                 ax.fill_between(rr, M.min(0), M.max(0), color=MUTED[c % len(MUTED)], alpha=0.15, lw=0)
         ax.set_xlabel("Communication round")
-        ax.set_title(f"{'Validation' if split == 'val' else 'Test'} macro-F1", loc="left")
+        ax.set_title(f"({'a' if split == 'val' else 'b'}) {'Validation' if split == 'val' else 'Test'} split", loc="left")
         ax.grid(axis="y", lw=0.3, alpha=0.5)
     axes[0].set_ylabel("Macro-F1 (%)")
     axes[1].legend(frameon=False, loc="lower right")
-    fig.suptitle(title, x=0.01, ha="left", fontsize=8)
     save(fig, out, name)
     plt.close(fig)
 
