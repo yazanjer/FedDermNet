@@ -1,14 +1,3 @@
-                    9, 3, 2                                                     
-           INFO       Client 5 training ...                      simulate.py:277
-[12:31:47] INFO       Client 5 done | train_loss=0.7419 |        simulate.py:283
-                    n_train=3672 | local_test_macro_f1=nan                      
-           INFO       Client 8 training ...                      simulate.py:277
-[12:31:58] INFO       Client 8 done | train_loss=0.9316 |        simulate.py:283
-                    n_train=1288 | local_test_macro_f1=nan                      
-           INFO       Client 9 training ...                      simulate.py:277
-[12:32:08] INFO       Client 9 done | train_loss=0.8574 |        simulate.py:283
-                    n_train=1514 | local_test_macro_f1=nan                      
-           INFO       Client 3 training ...                      simulate.py:277
 [12:32:14] INFO       Client 3 done | train_loss=0.9149 |        simulate.py:283
                     n_train=713 | local_test_macro_f1=nan                       
            INFO       Client 2 training ...                      simulate.py:277
@@ -38,3 +27,14 @@
 [12:34:12] INFO     Round  50 | val F1=0.4481 acc=0.6557 |     server_app.py:144
                     test F1=0.4023 acc=0.6342                                   
 FL rounds | isic2019_fedadam_a0.5_K10_E2_eta0.0001_s42: 100%|██████████| 50/50 [1:07:18<00:00, 83.49s/round] , tF1=0.402, vF1=0.448FL rounds | isic2019_fedadam_a0.5_K10_E2_eta0.0001_s42: 100%|██████████| 50/50 [1:07:18<00:00, 80.77s/round] , tF1=0.402, vF1=0.448
+[12:34:26] INFO     Selected round 47 (best validation macro-F1) simulate.py:336
+                    | val F1=0.4611 | test F1=0.4091 acc=0.6330                 
+           INFO     Results saved to                            strategies.py:93
+                    /workspace/results_r1/isic2019_fedadam_a0.5                 
+                    _K10_E2_eta0.0001_s42/summary.json                          
+           INFO     Simulation complete. Results in              simulate.py:369
+                    /workspace/results_r1/isic2019_fedadam_a0.5_                
+                    K10_E2_eta0.0001_s42/                                       
+           INFO     Done. Results in                    experiment_runner.py:321
+                    /workspace/results_r1/isic2019_feda                         
+                    dam_a0.5_K10_E2_eta0.0001_s42/                              

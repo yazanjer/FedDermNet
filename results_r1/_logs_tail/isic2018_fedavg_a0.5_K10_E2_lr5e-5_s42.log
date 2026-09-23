@@ -1,0 +1,17 @@
+
+=== attempt 1 Wed Sep 23 12:34:26 2026 ===
+[12:34:26] INFO     Experiment:                         experiment_runner.py:287
+                    isic2018_fedavg_a0.5_K10_E2_lr5e-5_                         
+                    s42                                                         
+[12:34:27] INFO     ISIC2018 manifest already exists at    manifest_build.py:365
+                    /workspace/data/ISIC2018/manifest.csv                       
+                    (skipping)                                                  
+[12:34:28] INFO     Dirichlet(alpha=0.50) partition: 10         partition.py:175
+                    clients, sizes={0: 755, 1: 1034, 2: 1087,                   
+                    3: 524, 4: 863, 5: 326, 6: 1129, 7: 338, 8:                 
+                    2368, 9: 1591}                                              
+           INFO     Partition 'dirichlet' applied       experiment_runner.py:115
+                    (alpha=0.50, K=10, seed=42) ->                              
+                    /workspace/data/ISIC2018/partitions                         
+                    /isic2018_fedavg_a0.5_K10_E2_lr5e-5                         
+                    _s42.csv                                                    
