@@ -66,3 +66,7 @@ python scripts/r1_cross_eval.py --data-root "$W/data" --results-dir "$RESULTS_DI
 touch "$RESULTS_DIR/ALL_DONE"
 bash scripts/sync_results.sh all-done
 echo "ALL DONE $(date)"
+# ── stop this pod (compute billing ends; /workspace volume keeps checkpoints) ─
+if [ "${AUTO_STOP:-1}" = "1" ] && command -v runpodctl >/dev/null && [ -n "${RUNPOD_POD_ID:-}" ]; then
+  runpodctl stop pod "$RUNPOD_POD_ID" || true
+fi
