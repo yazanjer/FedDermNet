@@ -27,3 +27,4 @@ remote:
 [queue] 12 jobs, 4 concurrent
 cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
+cannot delete non-empty directory: _logs_tail
