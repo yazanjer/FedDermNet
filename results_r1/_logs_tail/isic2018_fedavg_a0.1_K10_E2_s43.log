@@ -1,40 +1,40 @@
-[17:53:46] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     resume=True but no valid checkpoint;         simulate.py:155
-                    starting from scratch.                                      
-[17:53:48] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 0 | train=237 local_test=0          client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[17:53:50] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 1 | train=1862 local_test=0         client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[17:53:51] WARNING  Warning: You are sending unauthenticated        _http.py:993
-                    requests to the HF Hub. Please set a HF_TOKEN               
-                    to enable higher rate limits and faster                     
-                    downloads.                                                  
-[17:53:52] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 2 | train=677 local_test=0          client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[17:53:54] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 3 | train=155 local_test=0          client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[17:53:56] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 4 | train=606 local_test=0          client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[17:53:58] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 5 | train=4556 local_test=0         client_app.py:155
-                    (fraction=0.00) | device=cuda                               
+[18:20:29] INFO     Round  34 | val F1=0.2734 acc=0.6580 |     server_app.py:144
+                    test F1=0.1878 acc=0.6098                                   
+FL rounds | isic2018_fedavg_a0.1_K10_E2_s43:  68%|██████▊   | 34/50 [26:15<12:30, 46.90s/round] , tF1=0.188, vF1=0.273           INFO     Round 35/50 | sampled clients (5/10): 8, 4,  simulate.py:264
+                    1, 6, 7                                                     
+           INFO       Client 8 training ...                      simulate.py:277
+[18:20:31] INFO       Client 8 done | train_loss=2.4229 |        simulate.py:283
+                    n_train=116 | local_test_macro_f1=nan                       
+           INFO       Client 4 training ...                      simulate.py:277
+[18:20:36] INFO       Client 4 done | train_loss=0.5860 |        simulate.py:283
+                    n_train=606 | local_test_macro_f1=nan                       
+           INFO       Client 1 training ...                      simulate.py:277
+[18:20:49] INFO       Client 1 done | train_loss=0.1432 |        simulate.py:283
+                    n_train=1862 | local_test_macro_f1=nan                      
+           INFO       Client 6 training ...                      simulate.py:277
+[18:20:53] INFO       Client 6 done | train_loss=1.2692 |        simulate.py:283
+                    n_train=618 | local_test_macro_f1=nan                       
+           INFO       Client 7 training ...                      simulate.py:277
+[18:21:02] INFO       Client 7 done | train_loss=0.4385 |        simulate.py:283
+                    n_train=1011 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[18:21:09] INFO     Round  35 | val F1=0.5482 acc=0.7927 |     server_app.py:144
+                    test F1=0.4835 acc=0.7097                                   
+FL rounds | isic2018_fedavg_a0.1_K10_E2_s43:  70%|███████   | 35/50 [26:55<11:34, 46.31s/round] , tF1=0.484, vF1=0.548           INFO     Round 36/50 | sampled clients (5/10): 1, 6,  simulate.py:264
+                    5, 4, 8                                                     
+           INFO       Client 1 training ...                      simulate.py:277
+[18:21:21] INFO       Client 1 done | train_loss=0.1029 |        simulate.py:283
+                    n_train=1862 | local_test_macro_f1=nan                      
+           INFO       Client 6 training ...                      simulate.py:277
+[18:21:27] INFO       Client 6 done | train_loss=0.8851 |        simulate.py:283
+                    n_train=618 | local_test_macro_f1=nan                       
+           INFO       Client 5 training ...                      simulate.py:277
+[18:21:53] INFO       Client 5 done | train_loss=0.0003 |        simulate.py:283
+                    n_train=4556 | local_test_macro_f1=nan                      
+           INFO       Client 4 training ...                      simulate.py:277
+[18:21:58] INFO       Client 4 done | train_loss=0.5133 |        simulate.py:283
+                    n_train=606 | local_test_macro_f1=nan                       
+           INFO       Client 8 training ...                      simulate.py:277
+[18:22:01] INFO       Client 8 done | train_loss=1.4311 |        simulate.py:283
+                    n_train=116 | local_test_macro_f1=nan                       
+           INFO       Aggregating (fedavg)                       simulate.py:301
