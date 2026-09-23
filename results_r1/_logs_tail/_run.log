@@ -74,3 +74,7 @@ cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
+[queue] isic2018_fedavg_a0.1_K10_E2_s43: rc=0 38.0 min
+[queue] isic2018_fedavg_a1_K10_E2_s43: rc=0 35.8 min
+[queue] isic2018_fedavg_a100_K10_E2_s43: rc=0 35.5 min
+cannot delete non-empty directory: _logs_tail
