@@ -91,7 +91,7 @@ def _emit_notebook_sentinel(marker: str) -> None:
     print(marker, flush=True)
 
 
-def seed_everything(seed: int) -> None:
+def seed_everything(seed: int, deterministic: bool = True) -> None:
     """Set Python, NumPy, and PyTorch RNG seeds plus cudnn deterministic flags.
 
     Also disables CUDA TF32 where supported (helps match metrics across Ampere+ GPUs).
@@ -103,8 +103,10 @@ def seed_everything(seed: int) -> None:
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
-        torch.backends.cudnn.deterministic = True
-        torch.backends.cudnn.benchmark = False
+        # deterministic=False enables cuDNN autotuning (faster; results then vary in
+        # the last digits between identical runs, which the multi-seed design absorbs).
+        torch.backends.cudnn.deterministic = bool(deterministic)
+        torch.backends.cudnn.benchmark = not bool(deterministic)
         try:
             torch.backends.cuda.matmul.allow_tf32 = False
             torch.backends.cudnn.allow_tf32 = False
@@ -121,7 +123,7 @@ def run_federated_simulation(cfg: ExperimentConfig) -> None:
         cfg: Fully populated ExperimentConfig.
              Must have run_name set before calling.
     """
-    seed_everything(cfg.seed)
+    seed_everything(cfg.seed, deterministic=cfg.deterministic)
     set_config(cfg)
 
     logger.info(

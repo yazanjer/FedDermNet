@@ -257,6 +257,7 @@ def run_experiment_from_yaml(
         fedadam_beta1=float(exp.get("fedadam_beta1", 0.9)),
         fedadam_beta2=float(exp.get("fedadam_beta2", 0.99)),
         amp=bool(exp.get("amp", True)),
+        deterministic=bool(exp.get("deterministic", True)),
         eval_test_every_round=bool(exp.get("eval_test_every_round", True)),
         lr=float(exp.get("lr", 1e-4)),
         weight_decay=float(exp.get("weight_decay", 1e-4)),

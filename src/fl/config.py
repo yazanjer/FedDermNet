@@ -44,7 +44,7 @@ class ExperimentConfig:
     freeze_rounds: int = 3            # unused: partial freeze applies every FL round / epoch in code
 
     # ── Early stopping ───────────────────────────────────────────────────────
-    early_stop_patience: int = 5
+    early_stop_patience: int = 5       # <= 0 disables early stopping (fixed round budget)
 
     # ── Reproducibility ──────────────────────────────────────────────────────
     seed: int = 42
@@ -79,6 +79,7 @@ class ExperimentConfig:
 
     # ── Revision R1 additions ────────────────────────────────────────────────
     amp: bool = True                   # bf16 autocast on CUDA (speed only)
+    deterministic: bool = True         # cuDNN deterministic kernels (False = autotune)
     eval_test_every_round: bool = True # log test curves; SELECTION always uses val
     run_manifest: str = ""             # per-run partitioned manifest (set by the runner)
     save_best_global: bool = True      # keep weights of the best-validation round

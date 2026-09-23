@@ -24,9 +24,10 @@ Dermoscopic Skin Lesion Classification Under Heterogeneous Clients"* and its rev
   occurs in the official validation or test folders is removed from training. Every build
   writes `split_audit.json` with image and unique-lesion counts per split and class and the
   pairwise lesion/image intersections (all zero by construction).
-* **Model selection on validation only.** The server scores the global model on the
-  validation split after every round; early stopping (patience 5) and the reported
-  checkpoint use validation macro-F1. The test split is evaluated for reporting and curves
+* **Fixed budget, model selection on validation only.** Every run trains for T = 50
+  rounds (no early stopping). The server scores the global model on the validation split
+  after every round and the reported checkpoint is the round with the highest validation
+  macro-F1. The test split is evaluated for reporting and curves
   only. The centralized reference uses the same rule.
 * **Matched sample budget.** One centralized "round" is `fraction_fit × E` epochs over the
   pooled data (one epoch for the default recipe), the expected number of samples processed by

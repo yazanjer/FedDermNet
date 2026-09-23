@@ -36,7 +36,11 @@ if [ -n "${DEPLOY_KEY_B64:-}" ]; then
   fi
 fi
 export RESULTS_REPO="$W/results_repo" RESULTS_DIR="$W/results_r1"
-mkdir -p "$RESULTS_DIR"
+PROTOCOL="T50-fixed-budget-val-selection"
+if [ -d "$RESULTS_DIR" ] && [ "$(cat "$RESULTS_DIR/.protocol" 2>/dev/null)" != "$PROTOCOL" ]; then
+  mv "$RESULTS_DIR" "${RESULTS_DIR}_superseded_$(date +%s)"
+fi
+mkdir -p "$RESULTS_DIR" && echo "$PROTOCOL" > "$RESULTS_DIR/.protocol"
 python - <<'PY' > "$RESULTS_DIR/env.json"
 import json, torch, platform, os
 print(json.dumps({"torch": torch.__version__, "cuda": torch.version.cuda,
