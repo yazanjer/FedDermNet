@@ -1,0 +1,40 @@
+           INFO     Client 4 | train=3342 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[12:32:44] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 5 | train=3672 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[12:32:46] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 6 | train=806 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[12:32:48] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 7 | train=233 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[12:32:50] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 8 | train=1288 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[12:32:52] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 9 | train=1514 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+           INFO     Running initial centralized evaluation       simulate.py:194
+                    (Round 0)                                                   
+[12:33:09] INFO     Round   0 | val F1=0.0380 acc=0.0707 |     server_app.py:144
+                    test F1=0.0421 acc=0.0770                                   
+FL rounds | isic2019_fedadam_a0.5_K10_E2_eta0.001_s42:   0%|          | 0/50 [00:00<?, ?round/s]            INFO     Round 1/50 | sampled clients (5/10): 1, 6,   simulate.py:264
+                    5, 7, 8                                                     
+           INFO       Client 1 training ...                      simulate.py:277
+[12:33:52] INFO       Client 1 done | train_loss=0.8206 |        simulate.py:283
+                    n_train=4791 | local_test_macro_f1=nan                      
+           INFO       Client 6 training ...                      simulate.py:277
+[12:34:06] INFO       Client 6 done | train_loss=1.4431 |        simulate.py:283
+                    n_train=806 | local_test_macro_f1=nan                       
+           INFO       Client 5 training ...                      simulate.py:277
