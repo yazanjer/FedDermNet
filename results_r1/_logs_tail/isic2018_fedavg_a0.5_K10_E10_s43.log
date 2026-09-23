@@ -1,40 +1,40 @@
-[17:11:18] INFO       Client 6 done | train_loss=0.7550 |        simulate.py:283
+[17:34:22] INFO       Client 1 done | train_loss=0.0903 |        simulate.py:283
+                    n_train=2210 | local_test_macro_f1=nan                      
+           INFO       Client 6 training ...                      simulate.py:277
+[17:34:39] INFO       Client 6 done | train_loss=0.3135 |        simulate.py:283
                     n_train=322 | local_test_macro_f1=nan                       
-           INFO       Client 3 training ...                      simulate.py:277
-[17:11:45] INFO       Client 3 done | train_loss=0.9662 |        simulate.py:283
-                    n_train=185 | local_test_macro_f1=nan                       
-[17:11:46] INFO       Client 4 training ...                      simulate.py:277
-[17:12:30] INFO       Client 4 done | train_loss=0.5453 |        simulate.py:283
-                    n_train=782 | local_test_macro_f1=nan                       
-           INFO       Client 5 training ...                      simulate.py:277
-[17:14:14] INFO       Client 5 done | train_loss=0.1187 |        simulate.py:283
-                    n_train=2835 | local_test_macro_f1=nan                      
+           INFO       Client 0 training ...                      simulate.py:277
+[17:34:57] INFO       Client 0 done | train_loss=0.1709 |        simulate.py:283
+                    n_train=380 | local_test_macro_f1=nan                       
            INFO       Client 9 training ...                      simulate.py:277
-[17:14:44] INFO       Client 9 done | train_loss=0.6378 |        simulate.py:283
+[17:35:18] INFO       Client 9 done | train_loss=0.1371 |        simulate.py:283
                     n_train=486 | local_test_macro_f1=nan                       
            INFO       Aggregating (fedavg)                       simulate.py:301
-[17:15:11] INFO     Round   1 | val F1=0.3481 acc=0.7150 |     server_app.py:144
-                    test F1=0.3450 acc=0.6627                                   
-FL rounds | isic2018_fedavg_a0.5_K10_E10_s43:   2%|▏         | 1/50 [04:32<3:42:54, 272.94s/round] , tF1=0.345, vF1=0.348           INFO     Round 2/50 | sampled clients (5/10): 7, 4,   simulate.py:264
-                    3, 2, 9                                                     
-           INFO       Client 7 training ...                      simulate.py:277
-[17:15:50] INFO       Client 7 done | train_loss=0.1832 |        simulate.py:283
-                    n_train=1198 | local_test_macro_f1=nan                      
+[17:35:34] INFO     Round   6 | val F1=0.5508 acc=0.7824 |     server_app.py:144
+                    test F1=0.5444 acc=0.7421                                   
+FL rounds | isic2018_fedavg_a0.5_K10_E10_s43:  12%|█▏        | 6/50 [24:56<3:01:51, 247.98s/round] , tF1=0.544, vF1=0.551           INFO     Round 7/50 | sampled clients (5/10): 4, 0,   simulate.py:264
+                    1, 2, 8                                                     
            INFO       Client 4 training ...                      simulate.py:277
-[17:16:21] INFO       Client 4 done | train_loss=0.2387 |        simulate.py:283
+[17:36:23] INFO       Client 4 done | train_loss=0.1363 |        simulate.py:283
                     n_train=782 | local_test_macro_f1=nan                       
-           INFO       Client 3 training ...                      simulate.py:277
-[17:16:33] INFO       Client 3 done | train_loss=0.1291 |        simulate.py:283
-                    n_train=185 | local_test_macro_f1=nan                       
+           INFO       Client 0 training ...                      simulate.py:277
+[17:36:41] INFO       Client 0 done | train_loss=0.1274 |        simulate.py:283
+                    n_train=380 | local_test_macro_f1=nan                       
+           INFO       Client 1 training ...                      simulate.py:277
+[17:38:12] INFO       Client 1 done | train_loss=0.0608 |        simulate.py:283
+                    n_train=2210 | local_test_macro_f1=nan                      
            INFO       Client 2 training ...                      simulate.py:277
-[17:17:29] INFO       Client 2 done | train_loss=0.1631 |        simulate.py:283
+[17:38:59] INFO       Client 2 done | train_loss=0.0572 |        simulate.py:283
                     n_train=1323 | local_test_macro_f1=nan                      
-           INFO       Client 9 training ...                      simulate.py:277
-[17:18:00] INFO       Client 9 done | train_loss=0.1829 |        simulate.py:283
-                    n_train=486 | local_test_macro_f1=nan                       
+           INFO       Client 8 training ...                      simulate.py:277
+[17:39:15] INFO       Client 8 done | train_loss=0.2779 |        simulate.py:283
+                    n_train=294 | local_test_macro_f1=nan                       
            INFO       Aggregating (fedavg)                       simulate.py:301
-[17:18:17] INFO     Round   2 | val F1=0.5163 acc=0.7668 |     server_app.py:144
-                    test F1=0.4207 acc=0.7063                                   
-FL rounds | isic2018_fedavg_a0.5_K10_E10_s43:   4%|▍         | 2/50 [07:39<3:02:14, 227.80s/round] , tF1=0.421, vF1=0.516           INFO     Round 3/50 | sampled clients (5/10): 2, 5,   simulate.py:264
-                    1, 8, 6                                                     
-           INFO       Client 2 training ...                      simulate.py:277
+[17:39:31] INFO     Round   7 | val F1=0.5383 acc=0.8135 |     server_app.py:144
+                    test F1=0.5686 acc=0.7837                                   
+FL rounds | isic2018_fedavg_a0.5_K10_E10_s43:  14%|█▍        | 7/50 [28:53<2:56:16, 245.96s/round] , tF1=0.569, vF1=0.538           INFO     Round 8/50 | sampled clients (5/10): 3, 0,   simulate.py:264
+                    7, 9, 5                                                     
+           INFO       Client 3 training ...                      simulate.py:277
+[17:39:51] INFO       Client 3 done | train_loss=0.1305 |        simulate.py:283
+                    n_train=185 | local_test_macro_f1=nan                       
+           INFO       Client 0 training ...                      simulate.py:277
