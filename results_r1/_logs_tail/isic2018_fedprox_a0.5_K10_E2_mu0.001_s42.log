@@ -1,40 +1,40 @@
-                    clients, sizes={0: 755, 1: 1034, 2: 1087,                   
-                    3: 524, 4: 863, 5: 326, 6: 1129, 7: 338, 8:                 
-                    2368, 9: 1591}                                              
-           INFO     Partition 'dirichlet' applied       experiment_runner.py:115
-                    (alpha=0.50, K=10, seed=42) ->                              
-                    /workspace/data/ISIC2018/partitions                         
-                    /isic2018_fedprox_a0.5_K10_E2_mu0.0                         
-                    01_s42.csv                                                  
-[13:08:51] INFO     Partition figure saved:             experiment_runner.py:160
-                    /workspace/figures_r1/partition_isi                         
-                    c2018_dirichlet_K10_a0.5.png                                
-           INFO     Running FEDERATED simulation        experiment_runner.py:308
-[13:08:53] INFO     Starting custom simulation | Run:            simulate.py:129
-                    isic2018_fedprox_a0.5_K10_E2_mu0.001_s42 |                  
-                    Dataset: isic2018 | Backbone: vgg16_bn |                    
-                    Clients: 10 | Rounds: 50 | Strategy: fedprox                
-                    | Partition: dirichlet(α=0.50)                              
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[13:08:55] WARNING  Warning: You are sending unauthenticated        _http.py:993
-                    requests to the HF Hub. Please set a HF_TOKEN               
-                    to enable higher rate limits and faster                     
-                    downloads.                                                  
-           INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-[13:08:57] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     resume=True but no valid checkpoint;         simulate.py:155
-                    starting from scratch.                                      
-[13:08:59] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 0 | train=755 local_test=0          client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[13:09:01] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 1 | train=1034 local_test=0         client_app.py:155
-                    (fraction=0.00) | device=cuda                               
+[13:29:47] INFO       Client 7 done | train_loss=0.4230 |        simulate.py:283
+                    n_train=338 | local_test_macro_f1=nan                       
+           INFO       Client 0 training ...                      simulate.py:277
+[13:29:53] INFO       Client 0 done | train_loss=0.1605 |        simulate.py:283
+                    n_train=755 | local_test_macro_f1=nan                       
+           INFO       Client 9 training ...                      simulate.py:277
+[13:30:04] INFO       Client 9 done | train_loss=0.0527 |        simulate.py:283
+                    n_train=1591 | local_test_macro_f1=nan                      
+           INFO       Client 2 training ...                      simulate.py:277
+[13:30:11] INFO       Client 2 done | train_loss=0.0192 |        simulate.py:283
+                    n_train=1087 | local_test_macro_f1=nan                      
+           INFO       Client 1 training ...                      simulate.py:277
+[13:30:18] INFO       Client 1 done | train_loss=0.0775 |        simulate.py:283
+                    n_train=1034 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedprox)                      simulate.py:301
+[13:30:22] INFO     Round  31 | val F1=0.4764 acc=0.7668 |     server_app.py:144
+                    test F1=0.6140 acc=0.7679                                   
+FL rounds | isic2018_fedprox_a0.5_K10_E2_mu0.001_s42:  62%|██████▏   | 31/50 [20:59<12:23, 39.11s/round] , tF1=0.614, vF1=0.476           INFO     Round 32/50 | sampled clients (5/10): 2, 8,  simulate.py:264
+                    0, 3, 7                                                     
+           INFO       Client 2 training ...                      simulate.py:277
+[13:30:29] INFO       Client 2 done | train_loss=0.0152 |        simulate.py:283
+                    n_train=1087 | local_test_macro_f1=nan                      
+           INFO       Client 8 training ...                      simulate.py:277
+[13:30:45] INFO       Client 8 done | train_loss=0.0290 |        simulate.py:283
+                    n_train=2368 | local_test_macro_f1=nan                      
+           INFO       Client 0 training ...                      simulate.py:277
+[13:30:51] INFO       Client 0 done | train_loss=0.1556 |        simulate.py:283
+                    n_train=755 | local_test_macro_f1=nan                       
+           INFO       Client 3 training ...                      simulate.py:277
+[13:30:55] INFO       Client 3 done | train_loss=0.1223 |        simulate.py:283
+                    n_train=524 | local_test_macro_f1=nan                       
+           INFO       Client 7 training ...                      simulate.py:277
+[13:30:59] INFO       Client 7 done | train_loss=0.4323 |        simulate.py:283
+                    n_train=338 | local_test_macro_f1=nan                       
+           INFO       Aggregating (fedprox)                      simulate.py:301
+[13:31:03] INFO     Round  32 | val F1=0.4892 acc=0.7668 |     server_app.py:144
+                    test F1=0.5688 acc=0.7646                                   
+FL rounds | isic2018_fedprox_a0.5_K10_E2_mu0.001_s42:  64%|██████▍   | 32/50 [21:40<11:48, 39.34s/round] , tF1=0.569, vF1=0.489           INFO     Round 33/50 | sampled clients (5/10): 9, 7,  simulate.py:264
+                    2, 4, 6                                                     
+           INFO       Client 9 training ...                      simulate.py:277
