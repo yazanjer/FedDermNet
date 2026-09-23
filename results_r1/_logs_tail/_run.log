@@ -1,5 +1,3 @@
-      "BKL": 169,
-      "DF": 40,
       "VASC": 30
     }
   },
@@ -197,4 +195,6 @@ cannot delete non-empty directory: _logs_tail
 [queue] 18 jobs, 4 concurrent
 cannot delete non-empty directory: _logs_tail
 [queue] isic2019_fedavg_a0.5_K10_E2_lr5e-5_s42: rc=0 67.3 min
+cannot delete non-empty directory: _logs_tail
+[queue] isic2019_fedavg_a0.5_K10_E2_s42: rc=0 67.3 min
 cannot delete non-empty directory: _logs_tail
