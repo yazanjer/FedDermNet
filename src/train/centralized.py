@@ -50,7 +50,7 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
     Returns:
         Final metrics dictionary.
     """
-    seed_everything(cfg.seed)
+    seed_everything(cfg.seed, deterministic=cfg.deterministic)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     num_classes = num_classes_for(cfg.dataset)
 
@@ -157,14 +157,14 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
 
     skip_training = (start_epoch > total_epochs) or (
         resume_payload is not None
-        and patience_counter >= patience
+        and patience > 0 and patience_counter >= patience
         and not cfg.ignore_completed_early_stop
     )
 
     stopped_early = False
     if skip_training:
         if start_epoch <= total_epochs and resume_payload is not None:
-            if patience_counter >= patience and not cfg.ignore_completed_early_stop:
+            if patience > 0 and patience_counter >= patience and not cfg.ignore_completed_early_stop:
                 stopped_early = True
 
     if skip_training:
@@ -265,7 +265,7 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
                     history=history,
                 )
 
-                if patience_counter >= cfg.early_stop_patience:
+                if cfg.early_stop_patience > 0 and patience_counter >= cfg.early_stop_patience:
                     stopped_early = True
                     logger.info("Early stopping at epoch %d (round %d)", epoch, virtual_round)
                     break

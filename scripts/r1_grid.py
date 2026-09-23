@@ -12,6 +12,8 @@ piped into ``scripts/run_queue.py``.
 Design
 - One data split per release (seed 42, lesion-disjoint); the SEED varies the client
   partition, client sampling, initialisation of the head, augmentation and batching.
+- Fixed budget: every run trains for T = 50 rounds (no early stopping); the reported
+  checkpoint is the round with the highest validation macro-F1.
 - Reference federated setting: alpha = 0.5, K = 10, E = 2, FedAvg, client lr 1e-4.
   Every ablation changes exactly one knob relative to this reference.
 - Strategy comparison with an equal validation budget: three candidate settings per
@@ -43,10 +45,10 @@ def base(ds: str) -> dict:
         dataset=ds, backbone="vgg16_bn", partition="dirichlet", alpha=0.5, num_clients=10,
         num_rounds=50, local_epochs=2, fraction_fit=0.5, strategy="fedavg",
         fedprox_mu=0.01, fedadam_eta=1e-3, fedadam_tau=1e-3,
-        lr=1e-4, weight_decay=1e-4, batch_size=32, early_stop_patience=5, seed=42,
+        lr=1e-4, weight_decay=1e-4, batch_size=32, early_stop_patience=0, seed=42,
         mode="federated", use_wandb=False, num_workers=5, resume=True,
         client_local_eval_fraction=0.0, amp=True, eval_test_every_round=True,
-        centralized_best_on="val", show_round_progress=False,
+        centralized_best_on="val", show_round_progress=False, deterministic=False,
     )
 
 

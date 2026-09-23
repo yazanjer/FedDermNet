@@ -7,7 +7,7 @@ RES="${RESULTS_DIR:-/workspace/results_r1}"
 REPO="${RESULTS_REPO:-/workspace/results_repo}"
 [ -d "$REPO/.git" ] || exit 0
 mkdir -p "$REPO/results_r1"
-rsync -a --prune-empty-dirs \
+rsync -a --delete --prune-empty-dirs \
   --include='*/' \
   --include='summary.json' --include='round_[0-9][0-9][0-9].json' \
   --include='client_assignment.csv.gz' --include='test_predictions_best.npz' \

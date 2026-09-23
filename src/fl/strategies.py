@@ -55,7 +55,7 @@ class MetricsTracker:
             self.rounds_without_improvement = 0
         elif server_round > 0:
             self.rounds_without_improvement += 1
-            if self.rounds_without_improvement >= self.patience:
+            if self.patience > 0 and self.rounds_without_improvement >= self.patience:
                 self.should_stop = True
                 logger.info(
                     "Early stopping at round %d (best val macro-F1=%.4f at round %d, patience=%d)",
