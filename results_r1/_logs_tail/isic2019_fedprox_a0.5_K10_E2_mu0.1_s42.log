@@ -1,40 +1,40 @@
-[11:25:46] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
-                    14,789,832 total (14,789,832 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 3 | train=713 local_test=0          client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[11:25:48] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
-                    14,789,832 total (14,789,832 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 4 | train=3342 local_test=0         client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[11:25:49] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
-                    14,789,832 total (14,789,832 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 5 | train=3672 local_test=0         client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[11:25:51] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
-                    14,789,832 total (14,789,832 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 6 | train=806 local_test=0          client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[11:25:52] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
-                    14,789,832 total (14,789,832 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 7 | train=233 local_test=0          client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[11:25:54] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
-                    14,789,832 total (14,789,832 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 8 | train=1288 local_test=0         client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-[11:25:55] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
-                    14,789,832 total (14,789,832 trainable) |                   
-                    Device: cuda                                                
-           INFO     Client 9 | train=1514 local_test=0         client_app.py:155
-                    (fraction=0.00) | device=cuda                               
-           INFO     Skipping Round 0 eval (resumed; last         simulate.py:198
-                    completed round=0).                                         
-FL rounds | isic2019_fedprox_a0.5_K10_E2_mu0.1_s42:   0%|          | 0/50 [00:00<?, ?round/s]            INFO     Round 1/50 | sampled clients (5/10): 1, 6,   simulate.py:264
-                    5, 7, 8                                                     
-           INFO       Client 1 training ...                      simulate.py:277
+[12:29:43] INFO       Client 5 done | train_loss=0.1183 |        simulate.py:283
+                    n_train=3672 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedprox)                      simulate.py:301
+[12:29:54] INFO     Round  47 | val F1=0.5177 acc=0.6992 |     server_app.py:144
+                    test F1=0.4986 acc=0.7103                                   
+FL rounds | isic2019_fedprox_a0.5_K10_E2_mu0.1_s42:  94%|█████████▍| 47/50 [1:03:58<04:08, 82.92s/round] , tF1=0.499, vF1=0.518           INFO     Round 48/50 | sampled clients (5/10): 2, 7,  simulate.py:264
+                    5, 0, 4                                                     
+           INFO       Client 2 training ...                      simulate.py:277
+[12:30:18] INFO       Client 2 done | train_loss=0.1063 |        simulate.py:283
+                    n_train=3523 | local_test_macro_f1=nan                      
+           INFO       Client 7 training ...                      simulate.py:277
+[12:30:21] INFO       Client 7 done | train_loss=1.3077 |        simulate.py:283
+                    n_train=233 | local_test_macro_f1=nan                       
+           INFO       Client 5 training ...                      simulate.py:277
+[12:30:45] INFO       Client 5 done | train_loss=0.1137 |        simulate.py:283
+                    n_train=3672 | local_test_macro_f1=nan                      
+           INFO       Client 0 training ...                      simulate.py:277
+[12:30:49] INFO       Client 0 done | train_loss=0.7421 |        simulate.py:283
+                    n_train=382 | local_test_macro_f1=nan                       
+           INFO       Client 4 training ...                      simulate.py:277
+[12:31:12] INFO       Client 4 done | train_loss=0.2591 |        simulate.py:283
+                    n_train=3342 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedprox)                      simulate.py:301
+[12:31:23] INFO     Round  48 | val F1=0.5150 acc=0.6992 |     server_app.py:144
+                    test F1=0.5057 acc=0.7127                                   
+FL rounds | isic2019_fedprox_a0.5_K10_E2_mu0.1_s42:  96%|█████████▌| 48/50 [1:05:27<02:46, 83.44s/round] , tF1=0.506, vF1=0.515           INFO     Round 49/50 | sampled clients (5/10): 5, 8,  simulate.py:264
+                    9, 3, 2                                                     
+           INFO       Client 5 training ...                      simulate.py:277
+[12:31:48] INFO       Client 5 done | train_loss=0.1148 |        simulate.py:283
+                    n_train=3672 | local_test_macro_f1=nan                      
+           INFO       Client 8 training ...                      simulate.py:277
+[12:31:58] INFO       Client 8 done | train_loss=0.4479 |        simulate.py:283
+                    n_train=1288 | local_test_macro_f1=nan                      
+           INFO       Client 9 training ...                      simulate.py:277
+[12:32:09] INFO       Client 9 done | train_loss=0.3006 |        simulate.py:283
+                    n_train=1514 | local_test_macro_f1=nan                      
+           INFO       Client 3 training ...                      simulate.py:277
+[12:32:14] INFO       Client 3 done | train_loss=0.7251 |        simulate.py:283
+                    n_train=713 | local_test_macro_f1=nan                       
+           INFO       Client 2 training ...                      simulate.py:277
