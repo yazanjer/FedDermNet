@@ -1,4 +1,3 @@
-    "per_class_lesions": {
       "MEL": 109,
       "NV": 771,
       "BCC": 73,
@@ -20,11 +19,15 @@
   "n_train_removed_for_overlap": 0
 }
 [queue] 18 jobs, 4 concurrent
-2026-09-23 09:53:09,894 | INFO | ISIC API lesion lookup: 27036 cached, 0 to fetch
-2026-09-23 09:53:09,910 | INFO | ISIC API lesion ids: 25369 / 27036 images resolved
-2026-09-23 09:53:10,674 | INFO | ISIC2019 manifest already exists at /workspace/data/ISIC2019/manifest.csv (skipping)
-2026-09-23 09:53:10,674 | INFO | ISIC2018 manifest already exists at /workspace/data/ISIC2018/manifest.csv (skipping)
-2026-09-23 09:53:10,674 | INFO | ISIC2019 audit: {
+[queue] isic2019_fedavg_a0.5_K10_E2_lr5e-5_s42: rc=0 12.1 min
+[queue] isic2019_fedavg_a0.5_K10_E2_s42: rc=0 12.0 min
+[queue] isic2019_fedavg_a0.5_K10_E2_lr0.0002_s42: rc=0 11.9 min
+[queue] isic2019_fedprox_a0.5_K10_E2_mu0.001_s42: rc=0 12.3 min
+2026-09-23 10:15:05,726 | INFO | ISIC API lesion lookup: 27036 cached, 0 to fetch
+2026-09-23 10:15:05,743 | INFO | ISIC API lesion ids: 25369 / 27036 images resolved
+2026-09-23 10:15:06,503 | INFO | ISIC2019 manifest already exists at /workspace/data/ISIC2019/manifest.csv (skipping)
+2026-09-23 10:15:06,503 | INFO | ISIC2018 manifest already exists at /workspace/data/ISIC2018/manifest.csv (skipping)
+2026-09-23 10:15:06,503 | INFO | ISIC2019 audit: {
   "n_images": 25331,
   "train": {
     "images": 20264,
@@ -112,7 +115,7 @@
     "singleton": 1667
   }
 }
-2026-09-23 09:53:10,674 | INFO | ISIC2018 audit: {
+2026-09-23 10:15:06,504 | INFO | ISIC2018 audit: {
   "n_images": 11720,
   "train": {
     "images": 10015,
@@ -194,7 +197,4 @@
   },
   "n_train_removed_for_overlap": 0
 }
-[queue] 18 jobs, 4 concurrent
-[queue] isic2019_fedavg_a0.5_K10_E2_lr5e-5_s42: rc=0 12.1 min
-[queue] isic2019_fedavg_a0.5_K10_E2_s42: rc=0 12.0 min
-[queue] isic2019_fedavg_a0.5_K10_E2_lr0.0002_s42: rc=0 11.9 min
+cannot delete non-empty directory: _logs_tail
