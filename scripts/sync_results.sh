@@ -22,4 +22,5 @@ cd "$REPO" || exit 0
 git add -A results_r1 >/dev/null 2>&1
 git -c user.name="FedDermNet RunPod" -c user.email="yazan.aljeroudi@gmail.com" \
   commit -qm "results: ${1:-sync} ($(date -u +%FT%TZ))" >/dev/null 2>&1 || true
-for i in 1 2 3; do git push -q origin HEAD:results-r1 && break; sleep 10; git pull -q --rebase origin results-r1 || true; done
+BR="${RESULTS_BRANCH:-results-r1}"
+for i in 1 2 3; do git push -q origin HEAD:"$BR" && break; sleep 10; git pull -q --rebase origin "$BR" || true; done

@@ -5,6 +5,8 @@
 set -euo pipefail
 export PYTHONUNBUFFERED=1 SKINFL_FORCE_PLAIN_FL_LOG=1
 JOBS="${JOBS:-4}"
+POD_PART="${POD_PART:-p1}"   # p1: tuning + strategies + reference/centralized runs + cross-eval
+if [ "$POD_PART" = "p1" ]; then export RESULTS_BRANCH=results-r1; else export RESULTS_BRANCH="results-r1-$POD_PART"; fi
 W=/workspace
 cd "$W"
 REPO_URL_HTTPS=https://github.com/yazanjer/FedDermNet.git
@@ -24,13 +26,13 @@ if [ -n "${DEPLOY_KEY_B64:-}" ]; then
   if [ ! -d "$W/results_repo/.git" ]; then
     git clone -q "$REPO_URL_SSH" "$W/results_repo"
     cd "$W/results_repo"
-    if git ls-remote --exit-code --heads origin results-r1 >/dev/null 2>&1; then
-      git checkout -q -B results-r1 origin/results-r1
+    if git ls-remote --exit-code --heads origin "$RESULTS_BRANCH" >/dev/null 2>&1; then
+      git checkout -q -B "$RESULTS_BRANCH" origin/"$RESULTS_BRANCH"
     else
-      git checkout -q --orphan results-r1 && git rm -rqf . || true
+      git checkout -q --orphan "$RESULTS_BRANCH" && git rm -rqf . || true
       echo "# FedDermNet R1 result archive (generated on RunPod)" > README.md
       git add README.md && git -c user.name="FedDermNet RunPod" -c user.email="yazan.aljeroudi@gmail.com" commit -qm "init results-r1"
-      git push -q origin results-r1
+      git push -q origin "$RESULTS_BRANCH"
     fi
     cd "$W/FedDermNet"
   fi
@@ -50,7 +52,13 @@ print(json.dumps({"torch": torch.__version__, "cuda": torch.version.cuda,
 PY
 
 # ── data ────────────────────────────────────────────────────────────────────
-python scripts/prepare_data.py --data-root "$W/data"
+if [ "$POD_PART" = "p1" ]; then
+  python scripts/prepare_data.py --data-root "$W/data"
+else
+  # identical splits: reuse pod p1's manifests from the results-r1 branch
+  rm -rf "$W/p1_results" && git clone -q --depth 1 -b results-r1 "$REPO_URL_HTTPS" "$W/p1_results"
+  python scripts/prepare_data.py --data-root "$W/data" --manifests-from "$W/p1_results/results_r1/manifests"
+fi
 cp "$W/data/ISIC2019/split_audit.json" "$RESULTS_DIR/split_audit_isic2019.json"
 cp "$W/data/ISIC2018/split_audit.json" "$RESULTS_DIR/split_audit_isic2018.json"
 mkdir -p "$RESULTS_DIR/manifests"
@@ -59,14 +67,18 @@ cp "$W/data/ISIC2018/manifest.csv" "$RESULTS_DIR/manifests/isic2018_manifest.csv
 bash scripts/sync_results.sh data-ready
 
 Q="python scripts/run_queue.py --jobs $JOBS --data-root $W/data --results-dir $RESULTS_DIR --figures-dir $W/figures_r1 --sync scripts/sync_results.sh"
-# ── phase 1: strategy tuning (seed 42, validation only) ─────────────────────
-python scripts/r1_grid.py tune --out configs/r1 | $Q
-# ── phase 2: all ablations + tuned strategies, 3 seeds ──────────────────────
-python scripts/r1_grid.py strategy --out configs/r1 --results "$RESULTS_DIR" > /tmp/strategy.txt
-python scripts/r1_grid.py main --out configs/r1 > /tmp/main.txt
-cat /tmp/main.txt /tmp/strategy.txt | $Q
-# ── phase 3: cross-release transfer ─────────────────────────────────────────
-python scripts/r1_cross_eval.py --data-root "$W/data" --results-dir "$RESULTS_DIR"
+if [ "$POD_PART" = "p1" ]; then
+  # ── phase 1: strategy tuning (seed 42, validation only) ───────────────────
+  python scripts/r1_grid.py tune --out configs/r1 | $Q
+  # ── phase 2: tuned strategies + this pod's share of the grid, 3 seeds ─────
+  python scripts/r1_grid.py strategy --out configs/r1 --results "$RESULTS_DIR" > /tmp/strategy.txt
+  python scripts/r1_grid.py main --part p1 --out configs/r1 > /tmp/main.txt
+  cat /tmp/main.txt /tmp/strategy.txt | $Q
+  # ── phase 3: cross-release transfer ───────────────────────────────────────
+  python scripts/r1_cross_eval.py --data-root "$W/data" --results-dir "$RESULTS_DIR"
+else
+  python scripts/r1_grid.py main --part "$POD_PART" --out configs/r1 | $Q
+fi
 touch "$RESULTS_DIR/ALL_DONE"
 bash scripts/sync_results.sh all-done
 echo "ALL DONE $(date)"

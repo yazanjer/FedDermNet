@@ -107,6 +107,24 @@ def main_cfgs(seeds=SEEDS) -> list[dict]:
     return cfgs
 
 
+def part_of(c: dict) -> str:
+    """Assignment of main-grid runs to three pods (roughly equal GPU time).
+
+    p1 holds every run the cross-release evaluation needs (reference setting) and the
+    centralized references; p2 the local-epoch runs; p3 the label-skew and
+    federation-size runs.
+    """
+    if c["mode"] == "centralized":
+        return "p1"
+    if c["alpha"] == 0.5 and c["num_clients"] == 10 and c["local_epochs"] == 2:
+        return "p1"
+    if c["local_epochs"] != 2:
+        if c["dataset"] == "isic2019" or c["local_epochs"] == 10:
+            return "p2"
+        return "p3"
+    return "p3"
+
+
 def select_tuned(results: Path) -> dict:
     """Best candidate per (dataset, strategy) by validation macro-F1 at the selected round."""
     chosen: dict = {}
@@ -139,12 +157,14 @@ def main() -> None:
     ap.add_argument("phase", choices=["tune", "main", "strategy"])
     ap.add_argument("--out", default="configs/r1")
     ap.add_argument("--results", default="results_r1")
+    ap.add_argument("--part", default="all", choices=["all", "p1", "p2", "p3"])
     args = ap.parse_args()
     out = Path(args.out)
     if args.phase == "tune":
         paths = write(tune_cfgs(), out)
     elif args.phase == "main":
-        paths = write(main_cfgs(), out)
+        cfgs = [c for c in main_cfgs() if args.part == "all" or part_of(c) == args.part]
+        paths = write(cfgs, out)
     else:
         chosen = select_tuned(Path(args.results))
         (Path(args.results) / "tuning_selection.json").write_text(json.dumps(chosen, indent=2))
