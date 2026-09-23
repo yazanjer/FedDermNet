@@ -1,7 +1,40 @@
-
-=== attempt 1 Wed Sep 23 17:53:34 2026 ===
-[17:53:34] INFO     Experiment:                         experiment_runner.py:287
-                    isic2018_fedavg_a0.1_K10_E2_s43                             
-[17:53:35] INFO     ISIC2018 manifest already exists at    manifest_build.py:365
-                    /workspace/data/ISIC2018/manifest.csv                       
-                    (skipping)                                                  
+[17:53:46] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     resume=True but no valid checkpoint;         simulate.py:155
+                    starting from scratch.                                      
+[17:53:48] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 0 | train=237 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[17:53:50] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 1 | train=1862 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[17:53:51] WARNING  Warning: You are sending unauthenticated        _http.py:993
+                    requests to the HF Hub. Please set a HF_TOKEN               
+                    to enable higher rate limits and faster                     
+                    downloads.                                                  
+[17:53:52] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 2 | train=677 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[17:53:54] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 3 | train=155 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[17:53:56] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 4 | train=606 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[17:53:58] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 5 | train=4556 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
