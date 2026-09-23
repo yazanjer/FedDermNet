@@ -1,6 +1,3 @@
-    }
-  },
-  "val": {
     "images": 2533,
     "unique_lesions": 1392,
     "images_with_lesion_id": 2362,
@@ -197,4 +194,7 @@ cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
 [queue] isic2019_fedprox_a0.5_K10_E2_mu0.1_s43: rc=0 70.6 min
 cannot delete non-empty directory: _logs_tail
+cannot delete non-empty directory: _logs_tail
+[queue] isic2019_fedadam_a0.5_K10_E2_eta0.001_s43: rc=0 68.5 min
+[queue] isic2019_fedavg_a0.5_K10_E2_lr0.0002_s44: rc=0 61.7 min
 cannot delete non-empty directory: _logs_tail
