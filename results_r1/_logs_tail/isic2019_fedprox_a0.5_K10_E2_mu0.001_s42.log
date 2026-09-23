@@ -1,40 +1,40 @@
-                    9, 3, 2                                                     
-           INFO       Client 5 training ...                      simulate.py:277
-[11:22:56] INFO       Client 5 done | train_loss=0.0603 |        simulate.py:283
-                    n_train=3672 | local_test_macro_f1=nan                      
-           INFO       Client 8 training ...                      simulate.py:277
-[11:23:03] INFO       Client 8 done | train_loss=0.3882 |        simulate.py:283
-                    n_train=1288 | local_test_macro_f1=nan                      
-           INFO       Client 9 training ...                      simulate.py:277
-[11:23:11] INFO       Client 9 done | train_loss=0.2264 |        simulate.py:283
-                    n_train=1514 | local_test_macro_f1=nan                      
-           INFO       Client 3 training ...                      simulate.py:277
-[11:23:14] INFO       Client 3 done | train_loss=0.6876 |        simulate.py:283
-                    n_train=713 | local_test_macro_f1=nan                       
-           INFO       Client 2 training ...                      simulate.py:277
-[11:23:34] INFO       Client 2 done | train_loss=0.0609 |        simulate.py:283
-                    n_train=3523 | local_test_macro_f1=nan                      
-           INFO       Aggregating (fedprox)                      simulate.py:301
-[11:23:43] INFO     Round  49 | val F1=0.5362 acc=0.7379 |     server_app.py:144
-                    test F1=0.4987 acc=0.7214                                   
-FL rounds | isic2019_fedprox_a0.5_K10_E2_mu0.001_s42:  98%|█████████▊| 49/50 [1:07:52<01:21, 81.59s/round] , tF1=0.499, vF1=0.536           INFO     Round 50/50 | sampled clients (5/10): 4, 9,  simulate.py:264
-                    2, 0, 5                                                     
-           INFO       Client 4 training ...                      simulate.py:277
-[11:23:59] INFO       Client 4 done | train_loss=0.1742 |        simulate.py:283
-                    n_train=3342 | local_test_macro_f1=nan                      
-           INFO       Client 9 training ...                      simulate.py:277
-[11:24:11] INFO       Client 9 done | train_loss=0.2344 |        simulate.py:283
-                    n_train=1514 | local_test_macro_f1=nan                      
-           INFO       Client 2 training ...                      simulate.py:277
-[11:24:28] INFO       Client 2 done | train_loss=0.0622 |        simulate.py:283
-                    n_train=3523 | local_test_macro_f1=nan                      
-           INFO       Client 0 training ...                      simulate.py:277
-[11:24:31] INFO       Client 0 done | train_loss=0.8435 |        simulate.py:283
-                    n_train=382 | local_test_macro_f1=nan                       
-           INFO       Client 5 training ...                      simulate.py:277
-[11:24:45] INFO       Client 5 done | train_loss=0.0644 |        simulate.py:283
-                    n_train=3672 | local_test_macro_f1=nan                      
-           INFO       Aggregating (fedprox)                      simulate.py:301
-[11:24:54] INFO     Round  50 | val F1=0.5362 acc=0.7426 |     server_app.py:144
-                    test F1=0.5068 acc=0.7297                                   
-FL rounds | isic2019_fedprox_a0.5_K10_E2_mu0.001_s42: 100%|██████████| 50/50 [1:09:03<00:00, 80.74s/round] , tF1=0.507, vF1=0.536FL rounds | isic2019_fedprox_a0.5_K10_E2_mu0.001_s42: 100%|██████████| 50/50 [1:09:03<00:00, 82.87s/round] , tF1=0.507, vF1=0.536
+[11:25:49] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 5 | train=3672 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[11:25:50] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 6 | train=806 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[11:25:52] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 7 | train=233 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[11:25:53] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 8 | train=1288 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[11:25:55] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 9 | train=1514 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+           INFO     Skipping Round 0 eval (resumed; last         simulate.py:198
+                    completed round=50).                                        
+           INFO     Checkpoint already at or past num_rounds=50; simulate.py:210
+                    no FL rounds to run.                                        
+[11:26:07] INFO     Selected round 43 (best validation macro-F1) simulate.py:336
+                    | val F1=0.5583 | test F1=0.5021 acc=0.7214                 
+           INFO     Results saved to                            strategies.py:93
+                    /workspace/results_r1/isic2019_fedprox_a0.5                 
+                    _K10_E2_mu0.001_s42/summary.json                            
+           INFO     Simulation complete. Results in              simulate.py:369
+                    /workspace/results_r1/isic2019_fedprox_a0.5_                
+                    K10_E2_mu0.001_s42/                                         
+           INFO     Done. Results in                    experiment_runner.py:321
+                    /workspace/results_r1/isic2019_fedp                         
+                    rox_a0.5_K10_E2_mu0.001_s42/                                
