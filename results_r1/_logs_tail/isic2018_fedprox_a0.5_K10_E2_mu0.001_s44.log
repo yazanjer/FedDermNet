@@ -1,40 +1,40 @@
-[17:55:00] INFO       Client 2 done | train_loss=0.1347 |        simulate.py:283
+[17:58:12] INFO       Client 1 done | train_loss=0.0130 |        simulate.py:283
+                    n_train=3906 | local_test_macro_f1=nan                      
+           INFO       Client 2 training ...                      simulate.py:277
+[17:58:17] INFO       Client 2 done | train_loss=0.1357 |        simulate.py:283
                     n_train=363 | local_test_macro_f1=nan                       
-           INFO       Client 8 training ...                      simulate.py:277
-[17:55:02] INFO       Client 8 done | train_loss=1.2308 |        simulate.py:283
-                    n_train=104 | local_test_macro_f1=nan                       
            INFO       Aggregating (fedprox)                      simulate.py:301
-[17:55:07] INFO     Round  45 | val F1=0.5262 acc=0.7927 |     server_app.py:144
-                    test F1=0.5890 acc=0.7566                                   
-FL rounds | isic2018_fedprox_a0.5_K10_E2_mu0.001_s44:  90%|█████████ | 45/50 [31:37<03:22, 40.42s/round] , tF1=0.589, vF1=0.526           INFO     Round 46/50 | sampled clients (5/10): 1, 3,  simulate.py:264
-                    5, 0, 8                                                     
-           INFO       Client 1 training ...                      simulate.py:277
-[17:55:31] INFO       Client 1 done | train_loss=0.0137 |        simulate.py:283
-                    n_train=3906 | local_test_macro_f1=nan                      
-           INFO       Client 3 training ...                      simulate.py:277
-[17:55:34] INFO       Client 3 done | train_loss=1.0438 |        simulate.py:283
-                    n_train=153 | local_test_macro_f1=nan                       
+[17:58:22] INFO     Round  49 | val F1=0.5331 acc=0.7927 |     server_app.py:144
+                    test F1=0.5896 acc=0.7632                                   
+FL rounds | isic2018_fedprox_a0.5_K10_E2_mu0.001_s44:  98%|█████████▊| 49/50 [34:53<00:42, 42.78s/round] , tF1=0.590, vF1=0.533           INFO     Round 50/50 | sampled clients (5/10): 6, 5,  simulate.py:264
+                    8, 4, 1                                                     
+           INFO       Client 6 training ...                      simulate.py:277
+[17:58:26] INFO       Client 6 done | train_loss=1.6968 |        simulate.py:283
+                    n_train=289 | local_test_macro_f1=nan                       
            INFO       Client 5 training ...                      simulate.py:277
-[17:55:43] INFO       Client 5 done | train_loss=0.1336 |        simulate.py:283
+[17:58:35] INFO       Client 5 done | train_loss=0.1358 |        simulate.py:283
                     n_train=1288 | local_test_macro_f1=nan                      
-           INFO       Client 0 training ...                      simulate.py:277
-[17:55:52] INFO       Client 0 done | train_loss=0.4068 |        simulate.py:283
-                    n_train=1270 | local_test_macro_f1=nan                      
            INFO       Client 8 training ...                      simulate.py:277
-[17:55:54] INFO       Client 8 done | train_loss=1.6959 |        simulate.py:283
+[17:58:38] INFO       Client 8 done | train_loss=1.3160 |        simulate.py:283
                     n_train=104 | local_test_macro_f1=nan                       
-           INFO       Aggregating (fedprox)                      simulate.py:301
-[17:55:59] INFO     Round  46 | val F1=0.5227 acc=0.7876 |     server_app.py:144
-                    test F1=0.5827 acc=0.7606                                   
-FL rounds | isic2018_fedprox_a0.5_K10_E2_mu0.001_s44:  92%|█████████▏| 46/50 [32:29<02:45, 41.37s/round] , tF1=0.583, vF1=0.523           INFO     Round 47/50 | sampled clients (5/10): 0, 1,  simulate.py:264
-                    8, 7, 2                                                     
-           INFO       Client 0 training ...                      simulate.py:277
-[17:56:10] INFO       Client 0 done | train_loss=0.4449 |        simulate.py:283
-                    n_train=1270 | local_test_macro_f1=nan                      
+           INFO       Client 4 training ...                      simulate.py:277
+[17:58:42] INFO       Client 4 done | train_loss=1.4033 |        simulate.py:283
+                    n_train=258 | local_test_macro_f1=nan                       
            INFO       Client 1 training ...                      simulate.py:277
-[17:56:35] INFO       Client 1 done | train_loss=0.0249 |        simulate.py:283
+[17:59:08] INFO       Client 1 done | train_loss=0.0179 |        simulate.py:283
                     n_train=3906 | local_test_macro_f1=nan                      
-           INFO       Client 8 training ...                      simulate.py:277
-[17:56:38] INFO       Client 8 done | train_loss=1.4398 |        simulate.py:283
-                    n_train=104 | local_test_macro_f1=nan                       
-           INFO       Client 7 training ...                      simulate.py:277
+           INFO       Aggregating (fedprox)                      simulate.py:301
+[17:59:13] INFO     Round  50 | val F1=0.5224 acc=0.7876 |     server_app.py:144
+                    test F1=0.5738 acc=0.7606                                   
+FL rounds | isic2018_fedprox_a0.5_K10_E2_mu0.001_s44: 100%|██████████| 50/50 [35:43<00:00, 43.39s/round] , tF1=0.574, vF1=0.522FL rounds | isic2018_fedprox_a0.5_K10_E2_mu0.001_s44: 100%|██████████| 50/50 [35:43<00:00, 42.87s/round] , tF1=0.574, vF1=0.522
+[17:59:20] INFO     Selected round 43 (best validation macro-F1) simulate.py:336
+                    | val F1=0.5951 | test F1=0.6806 acc=0.8036                 
+           INFO     Results saved to                            strategies.py:93
+                    /workspace/results_r1/isic2018_fedprox_a0.5                 
+                    _K10_E2_mu0.001_s44/summary.json                            
+           INFO     Simulation complete. Results in              simulate.py:369
+                    /workspace/results_r1/isic2018_fedprox_a0.5_                
+                    K10_E2_mu0.001_s44/                                         
+           INFO     Done. Results in                    experiment_runner.py:321
+                    /workspace/results_r1/isic2018_fedp                         
+                    rox_a0.5_K10_E2_mu0.001_s44/                                
