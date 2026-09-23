@@ -1,0 +1,34 @@
+
+=== attempt 1 Wed Sep 23 10:05:17 2026 ===
+[10:05:18] INFO     Experiment:                         experiment_runner.py:286
+                    isic2019_fedadam_a0.5_K10_E2_eta1e-                         
+                    5_s42                                                       
+[10:05:19] INFO     ISIC2019 manifest already exists at    manifest_build.py:352
+                    /workspace/data/ISIC2019/manifest.csv                       
+                    (skipping)                                                  
+           INFO     Dirichlet(alpha=0.50) partition: 10         partition.py:175
+                    clients, sizes={0: 382, 1: 4791, 2: 3523,                   
+                    3: 713, 4: 3342, 5: 3672, 6: 806, 7: 233,                   
+                    8: 1288, 9: 1514}                                           
+[10:05:20] INFO     Partition 'dirichlet' applied       experiment_runner.py:115
+                    (alpha=0.50, K=10, seed=42) ->                              
+                    /workspace/data/ISIC2019/partitions                         
+                    /isic2019_fedadam_a0.5_K10_E2_eta1e                         
+                    -5_s42.csv                                                  
+           INFO     Partition figure saved:             experiment_runner.py:160
+                    /workspace/figures_r1/partition_isi                         
+                    c2019_dirichlet_K10_a0.5.png                                
+           INFO     Running FEDERATED simulation        experiment_runner.py:307
+[10:05:23] INFO     Starting custom simulation | Run:            simulate.py:127
+                    isic2019_fedadam_a0.5_K10_E2_eta1e-5_s42 |                  
+                    Dataset: isic2019 | Backbone: vgg16_bn |                    
+                    Clients: 10 | Rounds: 50 | Strategy: fedadam                
+                    | Partition: dirichlet(α=0.50)                              
+[10:05:25] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+[10:05:27] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     resume=True but no valid checkpoint;         simulate.py:153
+                    starting from scratch.                                      

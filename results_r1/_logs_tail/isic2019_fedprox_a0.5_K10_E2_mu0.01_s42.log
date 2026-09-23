@@ -1,26 +1,40 @@
-
-=== attempt 1 Wed Sep 23 10:05:09 2026 ===
-[10:05:10] INFO     Experiment:                         experiment_runner.py:286
-                    isic2019_fedprox_a0.5_K10_E2_mu0.01                         
-                    _s42                                                        
-           INFO     ISIC2019 manifest already exists at    manifest_build.py:352
-                    /workspace/data/ISIC2019/manifest.csv                       
-                    (skipping)                                                  
-[10:05:11] INFO     Dirichlet(alpha=0.50) partition: 10         partition.py:175
-                    clients, sizes={0: 382, 1: 4791, 2: 3523,                   
-                    3: 713, 4: 3342, 5: 3672, 6: 806, 7: 233,                   
-                    8: 1288, 9: 1514}                                           
-           INFO     Partition 'dirichlet' applied       experiment_runner.py:115
-                    (alpha=0.50, K=10, seed=42) ->                              
-                    /workspace/data/ISIC2019/partitions                         
-                    /isic2019_fedprox_a0.5_K10_E2_mu0.0                         
-                    1_s42.csv                                                   
-[10:05:12] INFO     Partition figure saved:             experiment_runner.py:160
-                    /workspace/figures_r1/partition_isi                         
-                    c2019_dirichlet_K10_a0.5.png                                
-           INFO     Running FEDERATED simulation        experiment_runner.py:307
-[10:05:15] INFO     Starting custom simulation | Run:            simulate.py:127
-                    isic2019_fedprox_a0.5_K10_E2_mu0.01_s42 |                   
-                    Dataset: isic2019 | Backbone: vgg16_bn |                    
                     Clients: 10 | Rounds: 50 | Strategy: fedprox                
                     | Partition: dirichlet(α=0.50)                              
+[10:05:17] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+[10:05:19] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     resume=True but no valid checkpoint;         simulate.py:153
+                    starting from scratch.                                      
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[10:05:20] WARNING  Warning: You are sending unauthenticated        _http.py:993
+                    requests to the HF Hub. Please set a HF_TOKEN               
+                    to enable higher rate limits and faster                     
+                    downloads.                                                  
+[10:05:21] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 0 | train=382 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[10:05:23] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 1 | train=4791 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[10:05:24] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 2 | train=3523 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[10:05:26] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 3 | train=713 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[10:05:28] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 4 | train=3342 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
