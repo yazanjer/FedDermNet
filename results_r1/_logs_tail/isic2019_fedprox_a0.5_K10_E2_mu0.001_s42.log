@@ -1,6 +1,3 @@
-[10:02:35] INFO       Client 2 done | train_loss=0.2494 |        simulate.py:281
-                    n_train=3523 | local_test_macro_f1=nan                      
-           INFO       Client 5 training ...                      simulate.py:275
 [10:03:00] INFO       Client 5 done | train_loss=0.1219 |        simulate.py:281
                     n_train=3672 | local_test_macro_f1=nan                      
            INFO       Aggregating (fedprox)                      simulate.py:299
@@ -38,3 +35,6 @@
 [10:05:03] INFO       Client 1 done | train_loss=0.2675 |        simulate.py:281
                     n_train=4791 | local_test_macro_f1=nan                      
            INFO       Client 8 training ...                      simulate.py:275
+[10:05:10] INFO       Client 8 done | train_loss=0.3721 |        simulate.py:281
+                    n_train=1288 | local_test_macro_f1=nan                      
+           INFO       Client 6 training ...                      simulate.py:275
