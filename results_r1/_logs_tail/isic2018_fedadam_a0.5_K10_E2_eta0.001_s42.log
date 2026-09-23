@@ -1,0 +1,40 @@
+[13:43:33] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     resume=True but no valid checkpoint;         simulate.py:155
+                    starting from scratch.                                      
+[13:43:35] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 0 | train=755 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:37] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 1 | train=1034 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:39] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 2 | train=1087 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:40] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 3 | train=524 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:42] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 4 | train=863 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:43] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 5 | train=326 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:43:45] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 6 | train=1129 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
