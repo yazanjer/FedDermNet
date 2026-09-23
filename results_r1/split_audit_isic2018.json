@@ -1,0 +1,82 @@
+{
+  "n_images": 11720,
+  "train": {
+    "images": 10015,
+    "unique_lesions": 7470,
+    "images_with_lesion_id": 10015,
+    "per_class_images": {
+      "MEL": 1113,
+      "NV": 6705,
+      "BCC": 514,
+      "AKIEC": 327,
+      "BKL": 1099,
+      "DF": 115,
+      "VASC": 142
+    },
+    "per_class_lesions": {
+      "MEL": 614,
+      "NV": 5403,
+      "BCC": 327,
+      "AKIEC": 228,
+      "BKL": 727,
+      "DF": 73,
+      "VASC": 98
+    }
+  },
+  "val": {
+    "images": 193,
+    "unique_lesions": 145,
+    "images_with_lesion_id": 193,
+    "per_class_images": {
+      "MEL": 21,
+      "NV": 123,
+      "BCC": 15,
+      "AKIEC": 8,
+      "BKL": 22,
+      "DF": 1,
+      "VASC": 3
+    },
+    "per_class_lesions": {
+      "MEL": 11,
+      "NV": 104,
+      "BCC": 7,
+      "AKIEC": 5,
+      "BKL": 15,
+      "DF": 1,
+      "VASC": 2
+    }
+  },
+  "test": {
+    "images": 1512,
+    "unique_lesions": 1223,
+    "images_with_lesion_id": 1512,
+    "per_class_images": {
+      "MEL": 171,
+      "NV": 909,
+      "BCC": 93,
+      "AKIEC": 43,
+      "BKL": 217,
+      "DF": 44,
+      "VASC": 35
+    },
+    "per_class_lesions": {
+      "MEL": 109,
+      "NV": 771,
+      "BCC": 73,
+      "AKIEC": 31,
+      "BKL": 169,
+      "DF": 40,
+      "VASC": 30
+    }
+  },
+  "lesion_overlap_train_val": 0,
+  "image_overlap_train_val": 0,
+  "lesion_overlap_train_test": 0,
+  "image_overlap_train_test": 0,
+  "lesion_overlap_val_test": 0,
+  "image_overlap_val_test": 0,
+  "lesion_key_source_counts": {
+    "isic_api": 11720
+  },
+  "n_train_removed_for_overlap": 0
+}
