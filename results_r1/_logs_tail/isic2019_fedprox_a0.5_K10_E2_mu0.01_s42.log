@@ -1,21 +1,40 @@
-
-=== attempt 1 Wed Sep 23 11:22:29 2026 ===
-[11:22:29] INFO     Experiment:                         experiment_runner.py:287
-                    isic2019_fedprox_a0.5_K10_E2_mu0.01                         
-                    _s42                                                        
-[11:22:30] INFO     ISIC2019 manifest already exists at    manifest_build.py:352
-                    /workspace/data/ISIC2019/manifest.csv                       
-                    (skipping)                                                  
-[11:22:31] INFO     Dirichlet(alpha=0.50) partition: 10         partition.py:175
-                    clients, sizes={0: 382, 1: 4791, 2: 3523,                   
-                    3: 713, 4: 3342, 5: 3672, 6: 806, 7: 233,                   
-                    8: 1288, 9: 1514}                                           
-           INFO     Partition 'dirichlet' applied       experiment_runner.py:115
-                    (alpha=0.50, K=10, seed=42) ->                              
-                    /workspace/data/ISIC2019/partitions                         
-                    /isic2019_fedprox_a0.5_K10_E2_mu0.0                         
-                    1_s42.csv                                                   
-[11:22:32] INFO     Partition figure saved:             experiment_runner.py:160
-                    /workspace/figures_r1/partition_isi                         
-                    c2019_dirichlet_K10_a0.5.png                                
-           INFO     Running FEDERATED simulation        experiment_runner.py:308
+                    Device: cuda                                                
+           INFO     Client 7 | train=233 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[11:22:54] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 8 | train=1288 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[11:22:55] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 9 | train=1514 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+           INFO     Running initial centralized evaluation       simulate.py:194
+                    (Round 0)                                                   
+[11:23:08] INFO     Round   0 | val F1=0.0375 acc=0.0695 |     server_app.py:144
+                    test F1=0.0423 acc=0.0773                                   
+FL rounds | isic2019_fedprox_a0.5_K10_E2_mu0.01_s42:   0%|          | 0/50 [00:00<?, ?round/s]            INFO     Round 1/50 | sampled clients (5/10): 1, 6,   simulate.py:264
+                    5, 7, 8                                                     
+           INFO       Client 1 training ...                      simulate.py:277
+[11:23:47] INFO       Client 1 done | train_loss=0.9575 |        simulate.py:283
+                    n_train=4791 | local_test_macro_f1=nan                      
+           INFO       Client 6 training ...                      simulate.py:277
+[11:23:59] INFO       Client 6 done | train_loss=1.4708 |        simulate.py:283
+                    n_train=806 | local_test_macro_f1=nan                       
+           INFO       Client 5 training ...                      simulate.py:277
+[11:24:26] INFO       Client 5 done | train_loss=0.9678 |        simulate.py:283
+                    n_train=3672 | local_test_macro_f1=nan                      
+           INFO       Client 7 training ...                      simulate.py:277
+[11:24:34] INFO       Client 7 done | train_loss=1.5369 |        simulate.py:283
+                    n_train=233 | local_test_macro_f1=nan                       
+           INFO       Client 8 training ...                      simulate.py:277
+[11:24:46] INFO       Client 8 done | train_loss=1.3168 |        simulate.py:283
+                    n_train=1288 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedprox)                      simulate.py:301
+[11:24:54] INFO     Round   1 | val F1=0.3639 acc=0.6194 |     server_app.py:144
+                    test F1=0.3326 acc=0.6002                                   
+FL rounds | isic2019_fedprox_a0.5_K10_E2_mu0.01_s42:   2%|▏         | 1/50 [01:46<1:26:51, 106.36s/round] , tF1=0.333, vF1=0.364           INFO     Round 2/50 | sampled clients (5/10): 5, 4,   simulate.py:264
+                    9, 2, 1                                                     
+           INFO       Client 5 training ...                      simulate.py:277
