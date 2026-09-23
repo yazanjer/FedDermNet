@@ -1,0 +1,23 @@
+# Centralized Upper Bound — pools all data, no FL
+
+experiment:
+  resume: true
+  name: centralized_upperbound
+  dataset: isic2019
+  backbone: vgg16_bn
+  partition: iid       # determines how manifest is partitioned (unused for centralized)
+  alpha: 0.5
+  num_clients: 10
+  num_rounds: 50
+  local_epochs: 2
+  seed: 42
+  mode: centralized    # triggers src/train/centralized.py
+  # centralized_best_on: val   # default: pick best_model.pth by validation F1 (honest)
+  centralized_best_on: test # optional: pick by test F1 (matches FL server eval; biased)
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 32
+  early_stop_patience: 5
+  use_wandb: false
+  num_workers: 2
+

@@ -1,0 +1,14 @@
+experiment:
+  resume: true
+  name: "visualization_test"
+  dataset: "isic2019"
+  partition: "iid"
+  num_clients: 2
+  num_rounds: 2
+  local_epochs: 1
+  fraction_fit: 1.0
+  backbone: "vgg16_bn"
+  img_size: 128
+  batch_size: 16
+  show_round_progress: true
+
