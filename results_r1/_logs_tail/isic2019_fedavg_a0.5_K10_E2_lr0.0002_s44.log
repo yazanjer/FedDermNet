@@ -1,0 +1,40 @@
+                    clients, sizes={0: 394, 1: 702, 2: 874, 3:                  
+                    453, 4: 4251, 5: 893, 6: 1999, 7: 2594, 8:                  
+                    4421, 9: 3683}                                              
+[15:17:41] INFO     Partition 'dirichlet' applied       experiment_runner.py:115
+                    (alpha=0.50, K=10, seed=44) ->                              
+                    /workspace/data/ISIC2019/partitions                         
+                    /isic2019_fedavg_a0.5_K10_E2_lr0.00                         
+                    02_s44.csv                                                  
+           INFO     Partition figure saved:             experiment_runner.py:160
+                    /workspace/figures_r1/partition_isi                         
+                    c2019_dirichlet_K10_a0.5.png                                
+           INFO     Running FEDERATED simulation        experiment_runner.py:308
+[15:17:44] INFO     Starting custom simulation | Run:            simulate.py:129
+                    isic2019_fedavg_a0.5_K10_E2_lr0.0002_s44 |                  
+                    Dataset: isic2019 | Backbone: vgg16_bn |                    
+                    Clients: 10 | Rounds: 50 | Strategy: fedavg                 
+                    | Partition: dirichlet(α=0.50)                              
+[15:17:47] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+[15:17:48] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     resume=True but no valid checkpoint;         simulate.py:155
+                    starting from scratch.                                      
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[15:17:50] WARNING  Warning: You are sending unauthenticated        _http.py:993
+                    requests to the HF Hub. Please set a HF_TOKEN               
+                    to enable higher rate limits and faster                     
+                    downloads.                                                  
+[15:17:51] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 0 | train=394 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[15:17:52] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 1 | train=702 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
