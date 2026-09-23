@@ -1,4 +1,40 @@
-
-=== attempt 1 Wed Sep 23 18:29:30 2026 ===
-[18:29:30] INFO     Experiment:                         experiment_runner.py:287
-                    isic2018_fedavg_a0.5_K20_E2_s43                             
+                    (fraction=0.00) | device=cuda                               
+[18:30:20] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 16 | train=98 local_test=0          client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[18:30:22] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 17 | train=234 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[18:30:24] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 18 | train=166 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[18:30:26] INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 19 | train=850 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+           INFO     Running initial centralized evaluation       simulate.py:194
+                    (Round 0)                                                   
+[18:30:37] INFO     Round   0 | val F1=0.0270 acc=0.0984 |     server_app.py:144
+                    test F1=0.0477 acc=0.1336                                   
+FL rounds | isic2018_fedavg_a0.5_K20_E2_s43:   0%|          | 0/50 [00:00<?, ?round/s]            INFO     Round 1/50 | sampled clients (10/20): 6, 12, simulate.py:264
+                    13, 4, 8, 3, 11, 10, 9, 15                                  
+           INFO       Client 6 training ...                      simulate.py:277
+[18:30:56] INFO       Client 6 done | train_loss=0.7915 |        simulate.py:283
+                    n_train=952 | local_test_macro_f1=nan                       
+           INFO       Client 12 training ...                     simulate.py:277
+[18:31:05] INFO       Client 12 done | train_loss=1.3790 |       simulate.py:283
+                    n_train=255 | local_test_macro_f1=nan                       
+           INFO       Client 13 training ...                     simulate.py:277
+[18:31:20] INFO       Client 13 done | train_loss=1.0914 |       simulate.py:283
+                    n_train=1165 | local_test_macro_f1=nan                      
+           INFO       Client 4 training ...                      simulate.py:277
+[18:31:30] INFO       Client 4 done | train_loss=1.3733 |        simulate.py:283
+                    n_train=122 | local_test_macro_f1=nan                       
+           INFO       Client 8 training ...                      simulate.py:277
