@@ -1,40 +1,40 @@
-[12:56:51] INFO       Client 1 done | train_loss=0.0034 |        simulate.py:283
+[13:00:20] INFO       Client 1 done | train_loss=0.0064 |        simulate.py:283
                     n_train=3906 | local_test_macro_f1=nan                      
-           INFO       Client 8 training ...                      simulate.py:277
-[12:56:57] INFO       Client 8 done | train_loss=1.3951 |        simulate.py:283
-                    n_train=104 | local_test_macro_f1=nan                       
-           INFO       Client 7 training ...                      simulate.py:277
-[12:57:26] INFO       Client 7 done | train_loss=0.0027 |        simulate.py:283
-                    n_train=1819 | local_test_macro_f1=nan                      
            INFO       Client 2 training ...                      simulate.py:277
-[12:57:35] INFO       Client 2 done | train_loss=0.1071 |        simulate.py:283
+[13:00:30] INFO       Client 2 done | train_loss=0.1185 |        simulate.py:283
                     n_train=363 | local_test_macro_f1=nan                       
            INFO       Aggregating (fedavg)                       simulate.py:301
-[12:57:42] INFO     Round  47 | val F1=0.5083 acc=0.7772 |     server_app.py:144
-                    test F1=0.5011 acc=0.7275                                   
-FL rounds | isic2018_fedavg_a0.5_K10_E5_s44:  94%|█████████▍| 47/50 [1:20:38<05:13, 104.65s/round] , tF1=0.501, vF1=0.508           INFO     Round 48/50 | sampled clients (5/10): 5, 8,  simulate.py:264
-                    0, 2, 4                                                     
+[13:00:37] INFO     Round  49 | val F1=0.5403 acc=0.8031 |     server_app.py:144
+                    test F1=0.5550 acc=0.7540                                   
+FL rounds | isic2018_fedavg_a0.5_K10_E5_s44:  98%|█████████▊| 49/50 [1:23:33<01:42, 102.06s/round] , tF1=0.555, vF1=0.540           INFO     Round 50/50 | sampled clients (5/10): 6, 5,  simulate.py:264
+                    8, 4, 1                                                     
+           INFO       Client 6 training ...                      simulate.py:277
+[13:00:46] INFO       Client 6 done | train_loss=0.9756 |        simulate.py:283
+                    n_train=289 | local_test_macro_f1=nan                       
            INFO       Client 5 training ...                      simulate.py:277
-[12:58:05] INFO       Client 5 done | train_loss=0.0614 |        simulate.py:283
+[13:01:08] INFO       Client 5 done | train_loss=0.0570 |        simulate.py:283
                     n_train=1288 | local_test_macro_f1=nan                      
            INFO       Client 8 training ...                      simulate.py:277
-[12:58:11] INFO       Client 8 done | train_loss=1.3633 |        simulate.py:283
+[13:01:13] INFO       Client 8 done | train_loss=1.1850 |        simulate.py:283
                     n_train=104 | local_test_macro_f1=nan                       
-           INFO       Client 0 training ...                      simulate.py:277
-[12:58:35] INFO       Client 0 done | train_loss=0.2254 |        simulate.py:283
-                    n_train=1270 | local_test_macro_f1=nan                      
-           INFO       Client 2 training ...                      simulate.py:277
-[12:58:45] INFO       Client 2 done | train_loss=0.0873 |        simulate.py:283
-                    n_train=363 | local_test_macro_f1=nan                       
            INFO       Client 4 training ...                      simulate.py:277
-[12:58:54] INFO       Client 4 done | train_loss=1.3046 |        simulate.py:283
+[13:01:22] INFO       Client 4 done | train_loss=1.2618 |        simulate.py:283
                     n_train=258 | local_test_macro_f1=nan                       
+           INFO       Client 1 training ...                      simulate.py:277
+[13:02:18] INFO       Client 1 done | train_loss=0.0061 |        simulate.py:283
+                    n_train=3906 | local_test_macro_f1=nan                      
            INFO       Aggregating (fedavg)                       simulate.py:301
-[12:58:59] INFO     Round  48 | val F1=0.5562 acc=0.8083 |     server_app.py:144
-                    test F1=0.6302 acc=0.7956                                   
-FL rounds | isic2018_fedavg_a0.5_K10_E5_s44:  96%|█████████▌| 48/50 [1:21:56<03:24, 102.47s/round] , tF1=0.630, vF1=0.556           INFO     Round 49/50 | sampled clients (5/10): 8, 5,  simulate.py:264
-                    3, 1, 2                                                     
-           INFO       Client 8 training ...                      simulate.py:277
-[12:59:06] INFO       Client 8 done | train_loss=1.3325 |        simulate.py:283
-                    n_train=104 | local_test_macro_f1=nan                       
-           INFO       Client 5 training ...                      simulate.py:277
+[13:02:25] INFO     Round  50 | val F1=0.5247 acc=0.7927 |     server_app.py:144
+                    test F1=0.5384 acc=0.7500                                   
+FL rounds | isic2018_fedavg_a0.5_K10_E5_s44: 100%|██████████| 50/50 [1:25:21<00:00, 102.55s/round] , tF1=0.538, vF1=0.525FL rounds | isic2018_fedavg_a0.5_K10_E5_s44: 100%|██████████| 50/50 [1:25:21<00:00, 102.43s/round] , tF1=0.538, vF1=0.525
+[13:02:35] INFO     Selected round 8 (best validation macro-F1)  simulate.py:336
+                    | val F1=0.6308 | test F1=0.6181 acc=0.7579                 
+           INFO     Results saved to                            strategies.py:93
+                    /workspace/results_r1/isic2018_fedavg_a0.5_                 
+                    K10_E5_s44/summary.json                                     
+           INFO     Simulation complete. Results in              simulate.py:369
+                    /workspace/results_r1/isic2018_fedavg_a0.5_K                
+                    10_E5_s44/                                                  
+           INFO     Done. Results in                    experiment_runner.py:321
+                    /workspace/results_r1/isic2018_feda                         
+                    vg_a0.5_K10_E5_s44/                                         

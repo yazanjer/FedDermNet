@@ -1,0 +1,40 @@
+                    Device: cuda                                                
+           INFO     Client 7 | train=2104 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:00:00] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 8 | train=1962 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+[13:00:02] INFO     Model: vgg16_bn | Classes: 8 | Params:          build.py:266
+                    14,789,832 total (14,789,832 trainable) |                   
+                    Device: cuda                                                
+           INFO     Client 9 | train=1918 local_test=0         client_app.py:155
+                    (fraction=0.00) | device=cuda                               
+           INFO     Running initial centralized evaluation       simulate.py:194
+                    (Round 0)                                                   
+[13:00:25] INFO     Round   0 | val F1=0.0377 acc=0.0699 |     server_app.py:144
+                    test F1=0.0424 acc=0.0773                                   
+FL rounds | isic2019_fedavg_a100_K10_E2_s42:   0%|          | 0/50 [00:00<?, ?round/s]            INFO     Round 1/50 | sampled clients (5/10): 1, 6,   simulate.py:264
+                    5, 7, 8                                                     
+           INFO       Client 1 training ...                      simulate.py:277
+[13:00:53] INFO       Client 1 done | train_loss=1.2299 |        simulate.py:283
+                    n_train=1902 | local_test_macro_f1=nan                      
+           INFO       Client 6 training ...                      simulate.py:277
+[13:01:14] INFO       Client 6 done | train_loss=1.2693 |        simulate.py:283
+                    n_train=2152 | local_test_macro_f1=nan                      
+           INFO       Client 5 training ...                      simulate.py:277
+[13:01:36] INFO       Client 5 done | train_loss=1.2408 |        simulate.py:283
+                    n_train=2035 | local_test_macro_f1=nan                      
+           INFO       Client 7 training ...                      simulate.py:277
+[13:01:58] INFO       Client 7 done | train_loss=1.2292 |        simulate.py:283
+                    n_train=2104 | local_test_macro_f1=nan                      
+           INFO       Client 8 training ...                      simulate.py:277
+[13:02:20] INFO       Client 8 done | train_loss=1.2771 |        simulate.py:283
+                    n_train=1962 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[13:02:33] INFO     Round   1 | val F1=0.3873 acc=0.5744 |     server_app.py:144
+                    test F1=0.3598 acc=0.5718                                   
+FL rounds | isic2019_fedavg_a100_K10_E2_s42:   2%|▏         | 1/50 [02:08<1:44:41, 128.19s/round] , tF1=0.360, vF1=0.387           INFO     Round 2/50 | sampled clients (5/10): 5, 4,   simulate.py:264
+                    9, 2, 1                                                     
+           INFO       Client 5 training ...                      simulate.py:277

@@ -27,3 +27,5 @@ remote:
 [queue] 36 jobs, 4 concurrent
 cannot delete non-empty directory: _logs_tail
 cannot delete non-empty directory: _logs_tail
+[queue] isic2018_fedavg_a0.5_K10_E5_s42: rc=0 83.1 min
+cannot delete non-empty directory: _logs_tail
