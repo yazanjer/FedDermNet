@@ -1,9 +1,3 @@
-[13:07:22] INFO       Client 5 done | train_loss=0.1205 |        simulate.py:283
-                    n_train=3672 | local_test_macro_f1=nan                      
-           INFO       Client 6 training ...                      simulate.py:277
-[13:07:29] INFO       Client 6 done | train_loss=0.5927 |        simulate.py:283
-                    n_train=806 | local_test_macro_f1=nan                       
-           INFO       Client 0 training ...                      simulate.py:277
 [13:07:33] INFO       Client 0 done | train_loss=0.5300 |        simulate.py:283
                     n_train=382 | local_test_macro_f1=nan                       
            INFO       Client 9 training ...                      simulate.py:277
@@ -38,3 +32,9 @@
 [13:08:46] INFO       Client 7 done | train_loss=0.9167 |        simulate.py:283
                     n_train=233 | local_test_macro_f1=nan                       
            INFO       Client 0 training ...                      simulate.py:277
+[13:08:49] INFO       Client 0 done | train_loss=0.4506 |        simulate.py:283
+                    n_train=382 | local_test_macro_f1=nan                       
+           INFO       Client 9 training ...                      simulate.py:277
+[13:08:55] INFO       Client 9 done | train_loss=0.2511 |        simulate.py:283
+                    n_train=1514 | local_test_macro_f1=nan                      
+           INFO       Client 2 training ...                      simulate.py:277
