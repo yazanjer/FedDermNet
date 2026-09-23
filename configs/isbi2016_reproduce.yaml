@@ -1,0 +1,24 @@
+# ISBI2016 Reproduction — matches the paper's setup THEN switches to proper FL
+# Goal: reproduce paper's 92.08% accuracy / 76.92% F1 under disjoint Dirichlet partition
+
+experiment:
+  resume: true
+  name: isbi2016_reproduce
+  dataset: isbi2016
+  backbone: vgg16_bn
+  partition: dirichlet
+  alpha: 0.5
+  num_clients: 4          # matches paper's 4-client setup
+  num_rounds: 50          # corrected: 50 not 3
+  local_epochs: 2         # corrected: 2 not 10
+  fraction_fit: 0.5
+  strategy: fedavg
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 32
+  early_stop_patience: 5
+  seed: 42
+  mode: federated
+  use_wandb: false
+  num_workers: 2
+

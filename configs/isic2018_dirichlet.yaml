@@ -1,0 +1,23 @@
+# ISIC2019 Primary Benchmark — Dirichlet(100) mild heterogeneity (~near-IID), 10 clients
+
+experiment:
+  resume: true
+  name: isic2018_dirichlet
+  dataset: isic2018
+  backbone: vgg16_bn
+  partition: dirichlet
+  alpha: 100.0
+  num_clients: 10
+  num_rounds: 50
+  local_epochs: 2
+  fraction_fit: 0.5
+  strategy: fedavg
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 32
+  early_stop_patience: 5
+  seed: 42
+  mode: federated
+  use_wandb: false
+  num_workers: 2
+
