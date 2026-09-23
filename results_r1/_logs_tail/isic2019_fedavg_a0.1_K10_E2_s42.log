@@ -1,0 +1,40 @@
+[12:40:06] INFO       Client 3 done | train_loss=0.0459 |        simulate.py:283
+                    n_train=2549 | local_test_macro_f1=nan                      
+           INFO       Client 2 training ...                      simulate.py:277
+[12:40:35] INFO       Client 2 done | train_loss=0.0629 |        simulate.py:283
+                    n_train=4863 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[12:40:45] INFO     Round  49 | val F1=0.3323 acc=0.6739 |     server_app.py:144
+                    test F1=0.3054 acc=0.6638                                   
+FL rounds | isic2019_fedavg_a0.1_K10_E2_s42:  98%|█████████▊| 49/50 [1:03:38<01:20, 80.08s/round] , tF1=0.305, vF1=0.332           INFO     Round 50/50 | sampled clients (5/10): 4, 9,  simulate.py:264
+                    2, 0, 5                                                     
+           INFO       Client 4 training ...                      simulate.py:277
+[12:41:02] INFO       Client 4 done | train_loss=0.3141 |        simulate.py:283
+                    n_train=3057 | local_test_macro_f1=nan                      
+           INFO       Client 9 training ...                      simulate.py:277
+[12:41:04] INFO       Client 9 done | train_loss=3.3418 |        simulate.py:283
+                    n_train=7 | local_test_macro_f1=nan                         
+           INFO       Client 2 training ...                      simulate.py:277
+[12:41:37] INFO       Client 2 done | train_loss=0.0605 |        simulate.py:283
+                    n_train=4863 | local_test_macro_f1=nan                      
+           INFO       Client 0 training ...                      simulate.py:277
+[12:41:40] INFO       Client 0 done | train_loss=2.1378 |        simulate.py:283
+                    n_train=236 | local_test_macro_f1=nan                       
+           INFO       Client 5 training ...                      simulate.py:277
+[12:41:44] INFO       Client 5 done | train_loss=0.7345 |        simulate.py:283
+                    n_train=170 | local_test_macro_f1=nan                       
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[12:41:55] INFO     Round  50 | val F1=0.4465 acc=0.6901 |     server_app.py:144
+                    test F1=0.4429 acc=0.6756                                   
+FL rounds | isic2019_fedavg_a0.1_K10_E2_s42: 100%|██████████| 50/50 [1:04:47<00:00, 79.21s/round] , tF1=0.443, vF1=0.446FL rounds | isic2019_fedavg_a0.1_K10_E2_s42: 100%|██████████| 50/50 [1:04:47<00:00, 77.75s/round] , tF1=0.443, vF1=0.446
+[12:42:10] INFO     Selected round 47 (best validation macro-F1) simulate.py:336
+                    | val F1=0.4504 | test F1=0.4320 acc=0.5667                 
+           INFO     Results saved to                            strategies.py:93
+                    /workspace/results_r1/isic2019_fedavg_a0.1_                 
+                    K10_E2_s42/summary.json                                     
+           INFO     Simulation complete. Results in              simulate.py:369
+                    /workspace/results_r1/isic2019_fedavg_a0.1_K                
+                    10_E2_s42/                                                  
+           INFO     Done. Results in                    experiment_runner.py:321
+                    /workspace/results_r1/isic2019_feda                         
+                    vg_a0.1_K10_E2_s42/                                         
