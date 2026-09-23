@@ -254,6 +254,10 @@ def build_model(
     if device is None:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+    import os
+
+    if os.environ.get("SKINFL_NO_PRETRAINED", "").strip() in ("1", "true", "yes"):
+        pretrained = False  # offline smoke tests only
     model = SkinFLNet(backbone_name=backbone_name, num_classes=num_classes, pretrained=pretrained)
     model = model.to(device)
 

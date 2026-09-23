@@ -37,6 +37,9 @@ def experiment_config_digest(cfg: ExperimentConfig) -> str:
             cfg.local_epochs,
             cfg.fraction_fit,
             f"{cfg.client_local_eval_fraction:.6f}",
+            f"{getattr(cfg, 'fedprox_mu', 0.0):.6g}",
+            f"{getattr(cfg, 'fedadam_eta', 0.0):.6g}",
+            f"{getattr(cfg, 'lr', 0.0):.6g}",
         )
     )
     # Centralized-only; omit when default so existing checkpoints keep matching.
@@ -156,6 +159,10 @@ def hydrate_tracker_after_resume(tracker: Any, payload: dict[str, Any]) -> None:
     tracker.rounds_without_improvement = int(t["rounds_without_improvement"])
     tracker.should_stop = bool(t["should_stop"])
     rebuild_tracker_history_from_json(tracker)
+    best = [(h.get("val", {}).get("macro_f1", -1.0), int(h.get("round", -1))) for h in tracker.history]
+    if best:
+        f1, r = max(best, key=lambda x: (x[0], -x[1]))
+        tracker.best_round = r
 
 
 def save_centralized_checkpoint(

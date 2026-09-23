@@ -112,6 +112,8 @@ class SkinDataset(Dataset):
         """Rebuild ``path`` from ``image_id`` + dataset layout next to the manifest."""
         df = df.copy()
         root = manifest_path.resolve().parent
+        if root.name == "partitions":  # per-run manifests live in <DS>/partitions/
+            root = root.parent
         folder = root.name
 
         if folder == "ISIC2019":
@@ -283,6 +285,7 @@ def make_dataloader(
     num_workers: int = 4,
     pin_memory: bool = True,
     rng_seed: Optional[int] = None,
+    persistent_workers: bool = False,
 ) -> DataLoader:
     """Create a DataLoader with optional WeightedRandomSampler.
 
@@ -316,6 +319,6 @@ def make_dataloader(
         generator=dl_generator,
         num_workers=num_workers,
         pin_memory=pin_memory,
-        persistent_workers=(num_workers > 0),
+        persistent_workers=(num_workers > 0 and persistent_workers),
         worker_init_fn=worker_init_fn,
     )

@@ -304,8 +304,8 @@ def run_federated_simulation(cfg: ExperimentConfig) -> None:
                 if journal_round_bar is not None and server.tracker.history:
                     lm = server.tracker.history[-1]
                     journal_round_bar.set_postfix(
-                        Acc=f"{lm.get('accuracy', float('nan')):.3f}",
-                        F1=f"{lm.get('macro_f1', float('nan')):.3f}",
+                        vF1=f"{lm.get('val', {}).get('macro_f1', float('nan')):.3f}",
+                        tF1=f"{lm.get('test', {}).get('macro_f1', float('nan')):.3f}",
                         refresh=False,
                     )
 
@@ -314,8 +314,8 @@ def run_federated_simulation(cfg: ExperimentConfig) -> None:
                     progress.update(
                         round_task,
                         advance=1,
-                        acc=f"{latest_metrics.get('accuracy', float('nan')):.3f}",
-                        f1=f"{latest_metrics.get('macro_f1', float('nan')):.3f}",
+                        acc=f"{latest_metrics.get('val', {}).get('accuracy', float('nan')):.3f}",
+                        f1=f"{latest_metrics.get('val', {}).get('macro_f1', float('nan')):.3f}",
                     )
 
                 if server.tracker.should_stop:
@@ -330,7 +330,14 @@ def run_federated_simulation(cfg: ExperimentConfig) -> None:
 
     _hist = server.tracker.history
     _last_r = max(int(h.get("round", -1)) for h in _hist) if _hist else -1
+    selected = server.finalize()
+    logger.info(
+        "Selected round %d (best validation macro-F1) | val F1=%.4f | test F1=%.4f acc=%.4f",
+        selected["best_round"], selected["val"]["macro_f1"],
+        selected["test"]["macro_f1"], selected["test"]["accuracy"],
+    )
     server.tracker.save_summary(
+        selected=selected,
         experiment={
             "mode": "federated",
             "dataset": cfg.dataset,
@@ -343,6 +350,13 @@ def run_federated_simulation(cfg: ExperimentConfig) -> None:
             "partition": cfg.partition,
             "alpha": float(cfg.alpha),
             "seed": cfg.seed,
+            "fedprox_mu": float(cfg.fedprox_mu),
+            "fedadam_eta": float(cfg.fedadam_eta),
+            "fedadam_tau": float(cfg.fedadam_tau),
+            "lr": float(cfg.lr),
+            "batch_size": int(cfg.batch_size),
+            "client_local_eval_fraction": float(cfg.client_local_eval_fraction),
+            "n_train_per_client": [int(c.n_train) for c in clients],
         },
         stopped={
             "early_stop": bool(server.tracker.should_stop),
