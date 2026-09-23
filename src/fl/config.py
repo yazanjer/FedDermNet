@@ -32,6 +32,10 @@ class ExperimentConfig:
     fraction_fit: float = 0.5          # fraction of clients selected per round
     strategy: str = "fedavg"          # 'fedavg' | 'fedprox' | 'fedadam'
     fedprox_mu: float = 0.01
+    fedadam_eta: float = 1e-3          # FedAdam server learning rate (tuned on validation)
+    fedadam_tau: float = 1e-3          # FedAdam adaptivity / epsilon
+    fedadam_beta1: float = 0.9
+    fedadam_beta2: float = 0.99
 
     # ── Optimizer ────────────────────────────────────────────────────────────
     lr: float = 1e-4
@@ -61,7 +65,9 @@ class ExperimentConfig:
     ignore_completed_early_stop: bool = False
 
     # ── Client local evaluation (held-out fraction of client's train shard) ───
-    client_local_eval_fraction: float = 0.2
+    # 0.0 (revision default) = clients train on their whole shard, so the union of
+    # client training data equals the centralized pool exactly.
+    client_local_eval_fraction: float = 0.0
 
     # ── Centralized only: which split drives best-checkpoint + early stopping ──
     # "val" (default) is the honest protocol. "test" matches federated logging
@@ -70,6 +76,12 @@ class ExperimentConfig:
 
     # ── Worker threads ───────────────────────────────────────────────────────
     num_workers: int = 4
+
+    # ── Revision R1 additions ────────────────────────────────────────────────
+    amp: bool = True                   # bf16 autocast on CUDA (speed only)
+    eval_test_every_round: bool = True # log test curves; SELECTION always uses val
+    run_manifest: str = ""             # per-run partitioned manifest (set by the runner)
+    save_best_global: bool = True      # keep weights of the best-validation round
 
 
 # Global config singleton ─────────────────────────────────────────────────────
@@ -92,6 +104,15 @@ def get_config(context=None) -> ExperimentConfig:
 def num_classes_for(dataset: str) -> int:
     """Return the number of output classes for a given dataset."""
     return {"isic2019": 8, "isic2018": 7, "isbi2016": 2}[dataset.lower()]
+
+
+def manifest_path_for(cfg: "ExperimentConfig"):
+    """Per-run partitioned manifest if set, else the dataset's base manifest."""
+    from pathlib import Path
+
+    if getattr(cfg, "run_manifest", ""):
+        return Path(cfg.run_manifest)
+    return Path(cfg.data_root) / dataset_folder_for(cfg.dataset) / "manifest.csv"
 
 
 def dataset_folder_for(dataset: str) -> str:

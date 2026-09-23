@@ -26,14 +26,13 @@ from tqdm import tqdm
 
 from src.data.datasets import SkinDataset, make_dataloader, dataloader_rng_seed
 from src.data.transforms import get_train_transforms, get_val_transforms
-from src.eval.calibration import plot_reliability_diagram
-from src.eval.metrics import evaluate_model
+from src.eval.metrics import evaluate_model, predict_proba
 from src.fl.checkpoint_io import (
     centralized_checkpoint_path,
     load_centralized_checkpoint,
     save_centralized_checkpoint,
 )
-from src.fl.config import ExperimentConfig, dataset_folder_for, num_classes_for
+from src.fl.config import ExperimentConfig, dataset_folder_for, manifest_path_for, num_classes_for
 from src.fl.simulate import seed_everything
 from src.models.build import build_model, freeze_backbone
 from src.train.losses import get_loss_fn
@@ -56,7 +55,7 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
     num_classes = num_classes_for(cfg.dataset)
 
     # ── Data ─────────────────────────────────────────────────────────────────
-    manifest_path = Path(cfg.data_root) / dataset_folder_for(cfg.dataset) / "manifest.csv"
+    manifest_path = manifest_path_for(cfg)
 
     train_ds = SkinDataset(
         manifest_path=manifest_path,
@@ -81,6 +80,7 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
         weighted_sampling=True,
         num_workers=cfg.num_workers,
         rng_seed=dataloader_rng_seed(cfg.seed, None, slot=21),
+        persistent_workers=True,
     )
     val_loader = make_dataloader(
         val_ds,
@@ -98,9 +98,11 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
     )
 
     best_on = str(getattr(cfg, "centralized_best_on", "val")).lower().strip()
-    if best_on not in ("val", "test"):
-        raise ValueError(f"centralized_best_on must be 'val' or 'test', got {best_on!r}")
-    selection_loader = test_loader if best_on == "test" else val_loader
+    if best_on != "val":
+        raise ValueError(
+            "Revision R1: centralized checkpoint selection must use the validation split "
+            f"(centralized_best_on='val'); got {best_on!r}."
+        )
 
     logger.info(
         "Centralized | %d train | %d val | %d test samples | best_checkpoint_on=%s",
@@ -124,8 +126,14 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
 
     history: list[dict] = []
     best_val_f1 = -1.0
+    best_round = -1
     patience_counter = 0
-    total_epochs = cfg.num_rounds * cfg.local_epochs  # match FL compute budget
+    # Revision R1: match the federated SAMPLE budget. One FL round processes, in
+    # expectation, fraction_fit * local_epochs passes over the pooled training data
+    # (half of the clients x E local epochs), so one centralized "virtual round" is
+    # that many epochs (1 epoch for the default recipe).
+    epochs_per_round = max(1, int(round(cfg.fraction_fit * cfg.local_epochs)))
+    total_epochs = cfg.num_rounds * epochs_per_round
     patience = cfg.early_stop_patience
 
     resume_payload: dict | None = None
@@ -138,6 +146,8 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
             history = list(resume_payload.get("history", []))
             best_val_f1 = float(resume_payload.get("best_val_f1", -1.0))
             patience_counter = int(resume_payload.get("patience_counter", 0))
+            if history:
+                best_round = int(max(history, key=lambda h: h["val"]["macro_f1"])["round"])
             last_completed_epoch = int(resume_payload["last_completed_epoch"])
             start_epoch = last_completed_epoch + 1
             if cfg.ignore_completed_early_stop:
@@ -185,7 +195,7 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
             freeze_backbone(model)
 
             # Cosine LR (map epoch to round)
-            virtual_round_lr = (epoch - 1) // cfg.local_epochs + 1
+            virtual_round_lr = (epoch - 1) // epochs_per_round + 1
             lr = cfg.lr * 0.5 * (
                 1.0
                 + math.cos(
@@ -204,9 +214,11 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
             for images, labels in tqdm(train_loader, desc=f"Epoch {epoch}/{total_epochs}", leave=False):
                 images = images.to(device, non_blocking=True)
                 labels = labels.to(device, non_blocking=True)
-                optimizer.zero_grad()
-                logits = model(images)
-                loss = loss_fn(logits, labels)
+                optimizer.zero_grad(set_to_none=True)
+                with torch.autocast(device_type="cuda", dtype=torch.bfloat16,
+                                    enabled=bool(cfg.amp) and device.type == "cuda"):
+                    logits = model(images)
+                loss = loss_fn(logits.float(), labels)
                 loss.backward()
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                 optimizer.step()
@@ -216,40 +228,26 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
             avg_loss = ep_loss / max(n_batches, 1)
             epoch_pbar.set_postfix(tLoss=f"{avg_loss:.4f}", refresh=False)
 
-            # Evaluate on val every `local_epochs` epochs (= one FL round)
-            if epoch % cfg.local_epochs == 0:
-                virtual_round = epoch // cfg.local_epochs
-                selection_metrics = evaluate_model(
-                    model, selection_loader, device, num_classes
-                )
-                selection_metrics["epoch"] = epoch
-                selection_metrics["virtual_round"] = virtual_round
-                selection_metrics["train_loss"] = ep_loss / max(n_batches, 1)
-                selection_metrics["centralized_best_on"] = best_on
-                history.append(selection_metrics)
-
-                _tag = "Test" if best_on == "test" else "Val"
+            # Evaluate once per virtual round: VALIDATION drives selection and early
+            # stopping; TEST is logged for curves only.
+            if epoch % epochs_per_round == 0:
+                virtual_round = epoch // epochs_per_round
+                val_m = evaluate_model(model, val_loader, device, num_classes, amp=cfg.amp)
+                rec = {"val": val_m, "epoch": epoch, "round": virtual_round,
+                       "train_loss": ep_loss / max(n_batches, 1)}
+                if cfg.eval_test_every_round:
+                    rec["test"] = evaluate_model(model, test_loader, device, num_classes, amp=cfg.amp)
+                history.append(rec)
                 logger.info(
-                    "Epoch %d/%d (round %d) | TrainLoss=%.4f | %sAcc=%.4f | %sF1=%.4f",
-                    epoch, total_epochs, virtual_round,
-                    selection_metrics["train_loss"],
-                    _tag, selection_metrics["accuracy"],
-                    _tag, selection_metrics["macro_f1"],
+                    "Epoch %d/%d (round %d) | TrainLoss=%.4f | val F1=%.4f | test F1=%.4f",
+                    epoch, total_epochs, virtual_round, rec["train_loss"], val_m["macro_f1"],
+                    rec.get("test", {}).get("macro_f1", float("nan")),
                 )
-
-                epoch_pbar.set_postfix(
-                    vAcc=f"{selection_metrics['accuracy']:.3f}",
-                    vF1=f"{selection_metrics['macro_f1']:.3f}",
-                    refresh=True,
-                )
-
-                # Save round JSON
                 with open(results_dir / f"round_{virtual_round:03d}.json", "w") as f:
-                    json.dump(selection_metrics, f, indent=2)
-
-                # Early stopping (macro-F1 on selection split: val or test)
-                if selection_metrics["macro_f1"] > best_val_f1 + 1e-4:
-                    best_val_f1 = selection_metrics["macro_f1"]
+                    json.dump(rec, f, indent=2)
+                if val_m["macro_f1"] > best_val_f1 + 1e-4:
+                    best_val_f1 = val_m["macro_f1"]
+                    best_round = virtual_round
                     patience_counter = 0
                     torch.save(model.state_dict(), results_dir / "best_model.pth")
                 else:
@@ -279,27 +277,22 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
             sd = torch.load(best_ckpt, map_location=device)
         model.load_state_dict(sd)
 
-    test_metrics = evaluate_model(model, test_loader, device, num_classes)
-    test_metrics["history"] = history
-
-    # Calibration plot
-    model.eval()
-    all_logits, all_labels = [], []
-    with torch.no_grad():
-        for imgs, lbls in test_loader:
-            all_logits.append(model(imgs.to(device)).cpu())
-            all_labels.append(lbls)
-    logits_cat = torch.cat(all_logits)
-    labels_cat = torch.cat(all_labels).numpy()
-    probs = torch.softmax(logits_cat, dim=1).numpy()
-    preds = logits_cat.argmax(1).numpy()
-    confidence = probs.max(axis=1)
-    ece = plot_reliability_diagram(
-        confidence, preds, labels_cat,
-        save_path=figures_dir / "calibration_final.png",
-        title=f"{cfg.run_name} – Final",
+    val_metrics = evaluate_model(model, val_loader, device, num_classes, amp=cfg.amp)
+    test_metrics = evaluate_model(model, test_loader, device, num_classes, amp=cfg.amp)
+    probs, labels = predict_proba(model, test_loader, device, amp=cfg.amp)
+    import numpy as np
+    np.savez_compressed(
+        results_dir / "test_predictions_best.npz",
+        probs=probs.astype(np.float32), labels=labels.astype(np.int16),
+        image_id=np.asarray(test_ds.df["image_id"].astype(str)),
     )
-    test_metrics["ece"] = ece
+    if best_round < 0 and history:
+        best_round = max(history, key=lambda h: h["val"]["macro_f1"])["round"]
+    test_metrics["history"] = history
+    test_metrics["selected"] = {"best_round": best_round, "val": val_metrics, "test": dict(test_metrics)}
+    test_metrics["selected"]["test"].pop("history", None)
+    test_metrics["best_round"] = best_round
+    test_metrics["selection"] = "validation macro-F1 (test never used for selection)"
 
     _lr = -1
     if history:
@@ -320,6 +313,8 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
         "alpha": float(cfg.alpha),
         "seed": cfg.seed,
         "centralized_best_on": best_on,
+        "epochs_per_round": epochs_per_round,
+        "n_train": len(train_ds),
     }
     test_metrics["stopped"] = {
         "early_stop": stopped_early,
@@ -337,8 +332,8 @@ def train_centralized(cfg: ExperimentConfig) -> dict:
         )
 
     logger.info(
-        "Centralized FINAL | Acc=%.4f | F1=%.4f | AUROC=%.4f | ECE=%.4f",
-        test_metrics["accuracy"], test_metrics["macro_f1"],
-        test_metrics.get("auroc", float("nan")), ece,
+        "Centralized FINAL (round %d) | Acc=%.4f | F1=%.4f | AUROC=%.4f",
+        best_round, test_metrics["accuracy"], test_metrics["macro_f1"],
+        test_metrics.get("auroc", float("nan")),
     )
     return test_metrics

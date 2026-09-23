@@ -22,7 +22,7 @@ import torch.nn as nn
 
 from src.data.datasets import SkinDataset, dataloader_rng_seed, make_dataloader
 from src.data.transforms import get_val_transforms
-from src.eval.metrics import evaluate_model
+from src.eval.metrics import evaluate_model, predict_proba
 from src.fl.config import dataset_folder_for
 from src.models.build import build_model
 
@@ -200,6 +200,28 @@ def build_model_and_load(
     return model
 
 
+def _exclude_seen(df_eval, other_manifest: Path, other_splits: tuple[str, ...]):
+    """Drop evaluation rows whose image or lesion occurs in the other release's data.
+
+    ISIC 2019 training data contain the HAM10000 (ISIC 2018 Task 3 training) images, so
+    without this filter a model could be scored on images or lesions it was trained on.
+    """
+    import pandas as pd
+
+    other = pd.read_csv(other_manifest)
+    other = other[other["split"].isin(other_splits)]
+    seen_img = set(other["image_id"].astype(str))
+    seen_les = set(other["lesion_key"].astype(str)) if "lesion_key" in other.columns else set()
+    seen_les = {k for k in seen_les if not k.startswith("img:")}
+    m_img = df_eval["image_id"].astype(str).isin(seen_img)
+    m_les = df_eval["lesion_key"].astype(str).isin(seen_les) if "lesion_key" in df_eval.columns else m_img & False
+    drop = m_img | m_les
+    return df_eval[~drop].reset_index(drop=True), {
+        "n_dropped_seen_image": int(m_img.sum()),
+        "n_dropped_seen_lesion_only": int((m_les & ~m_img).sum()),
+    }
+
+
 def eval_2019_model_on_2018_test(
     *,
     data_root: Path | str,
@@ -234,12 +256,11 @@ def eval_2019_model_on_2018_test(
     if not manifest.is_file():
         raise FileNotFoundError(f"ISIC2018 manifest missing: {manifest}")
 
-    ds = SkinDataset(
-        manifest_path=manifest,
-        split="test",
-        client_id=None,
-        transform=get_val_transforms(img_size),
+    df_full = SkinDataset.load_filtered_manifest_df(manifest, split="test", client_id=None)
+    df, excl = _exclude_seen(
+        df_full, data_root / dataset_folder_for("isic2019") / "manifest.csv", ("train", "val")
     )
+    ds = SkinDataset.from_dataframe(manifest, df, transform=get_val_transforms(img_size))
     loader = make_dataloader(
         ds,
         batch_size=batch_size,
@@ -248,16 +269,20 @@ def eval_2019_model_on_2018_test(
         rng_seed=dataloader_rng_seed(seed, None, slot=9101),
     )
 
-    metrics = evaluate_model(model, loader, device, num_classes=7)
+    metrics = evaluate_model(model, loader, device, num_classes=7, amp=True)
     meta = {
         "direction": "isic2019_on_isic2018_test",
         "checkpoint": str(Path(checkpoint_path).resolve()),
         "manifest": str(manifest.resolve()),
         "n_test": len(ds),
+        "n_test_before_filter": len(df_full),
+        **excl,
         "logit_slice": "[:, :7]",
         "shared_class_names": SHARED_SEVEN_CLASS_NAMES,
     }
-    return {"metrics": metrics, "meta": meta}
+    probs, labels = predict_proba(model, loader, device, amp=True)
+    return {"metrics": metrics, "meta": meta, "probs": probs, "labels": labels,
+            "image_id": ds.df["image_id"].astype(str).tolist()}
 
 
 def eval_2018_model_on_2019_test_no_scc(
@@ -296,6 +321,9 @@ def eval_2018_model_on_2019_test_no_scc(
     n_before = len(df_full)
     df = df_full[df_full["label"].astype(int) != 7].reset_index(drop=True)
     n_scc_dropped = n_before - len(df)
+    df, excl = _exclude_seen(
+        df, data_root / dataset_folder_for("isic2018") / "manifest.csv", ("train", "val", "test")
+    )
     if len(df) == 0:
         raise RuntimeError("After removing SCC (label 7), no ISIC2019 test rows remain.")
 
@@ -308,9 +336,10 @@ def eval_2018_model_on_2019_test_no_scc(
         rng_seed=dataloader_rng_seed(seed, None, slot=9102),
     )
 
-    metrics = evaluate_model(model, loader, device, num_classes=7)
+    metrics = evaluate_model(model, loader, device, num_classes=7, amp=True)
     meta = {
         "direction": "isic2018_on_isic2019_test_no_scc",
+        **excl,
         "checkpoint": str(Path(checkpoint_path).resolve()),
         "manifest": str(manifest.resolve()),
         "n_test": len(ds),
@@ -318,4 +347,6 @@ def eval_2018_model_on_2019_test_no_scc(
         "n_scc_dropped": n_scc_dropped,
         "shared_class_names": SHARED_SEVEN_CLASS_NAMES,
     }
-    return {"metrics": metrics, "meta": meta}
+    probs, labels = predict_proba(model, loader, device, amp=True)
+    return {"metrics": metrics, "meta": meta, "probs": probs, "labels": labels,
+            "image_id": ds.df["image_id"].astype(str).tolist()}

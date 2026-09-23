@@ -36,6 +36,14 @@ def _assert_disjoint(df: pd.DataFrame, split: str = "train") -> None:
     )
 
 
+def _assert_lesion_disjoint(df: pd.DataFrame, patient_col: str) -> None:
+    """Raise AssertionError if any lesion is split across two clients."""
+    tr = df[(df["split"] == "train") & df[patient_col].notna()]
+    n = tr.groupby(patient_col)["client_id"].nunique()
+    bad = n[n > 1]
+    assert len(bad) == 0, f"{len(bad)} lesions span several clients: {bad.index.tolist()[:10]}"
+
+
 def _assign_clients_from_map(
     df: pd.DataFrame, image_to_client: dict[str, int]
 ) -> pd.DataFrame:
@@ -122,47 +130,24 @@ def dirichlet_partition(
     image_to_client: dict[str, int] = {}
 
     if patient_col and patient_col in train_df.columns:
-        # Patient-level partitioning
-        # Build patient → (primary label) table for class-conditional Dirichlet
-        patient_label = (
-            train_df.dropna(subset=[patient_col])
-            .groupby(patient_col)["label"]
-            .agg(lambda x: x.mode()[0])  # majority class for multi-label patients
-        )
-        # Handle images with no patient ID — treat each image as its own "patient"
-        no_patient = train_df[train_df[patient_col].isna() | (train_df[patient_col] == "")]
-        orphan_labels = no_patient.set_index("image_id")["label"]
+        # Lesion-level partitioning: every view of a lesion goes to one client.
+        # Rows without an identifier form singleton groups (one image = one lesion).
+        key = train_df[patient_col].astype("object")
+        key = key.where(key.notna() & (key.astype(str) != ""), "img:" + train_df["image_id"].astype(str))
+        train_df = train_df.assign(_gkey=key.astype(str).values)
+        group_images = train_df.groupby("_gkey")["image_id"].apply(list).to_dict()
+        group_label = train_df.groupby("_gkey")["label"].agg(lambda x: x.mode()[0])
 
-        units = patient_label  # patient_id → label
-        orphan_units = orphan_labels  # image_id → label (fallback)
-
-        for cls in train_df["label"].unique():
-            # Patients whose primary class is cls
-            cls_patients = list(units[units == cls].index.values)
-            rng.shuffle(cls_patients)
+        for cls in sorted(train_df["label"].unique()):
+            cls_groups = sorted(group_label[group_label == cls].index.tolist())
+            rng.shuffle(cls_groups)
             proportions = rng.dirichlet(alpha * np.ones(n_clients))
-            splits = _proportional_split(proportions, len(cls_patients))
-
+            splits = _proportional_split(proportions, len(cls_groups))
             idx = 0
             for client_id, count in enumerate(splits):
-                for patient in cls_patients[idx: idx + count]:
-                    patient_images = train_df[
-                        train_df[patient_col] == patient
-                    ]["image_id"].values
-                    for img in patient_images:
+                for gk in cls_groups[idx: idx + count]:
+                    for img in group_images[gk]:
                         image_to_client[img] = client_id
-                idx += count
-
-            # Orphan images for this class
-            cls_orphans = list(orphan_units[orphan_units == cls].index.values)
-            rng.shuffle(cls_orphans)
-            o_proportions = rng.dirichlet(alpha * np.ones(n_clients))
-            o_splits = _proportional_split(o_proportions, len(cls_orphans))
-
-            idx = 0
-            for client_id, count in enumerate(o_splits):
-                for img in cls_orphans[idx: idx + count]:
-                    image_to_client[img] = client_id
                 idx += count
     else:
         # Image-level partitioning (used for ISBI2016)
@@ -180,6 +165,8 @@ def dirichlet_partition(
 
     df = _assign_clients_from_map(df, image_to_client)
     _assert_disjoint(df)
+    if patient_col and patient_col in df.columns:
+        _assert_lesion_disjoint(df, patient_col)
 
     client_counts = {
         cid: (df[(df["split"] == "train") & (df["client_id"] == cid)]).shape[0]

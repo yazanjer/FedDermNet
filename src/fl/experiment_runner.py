@@ -40,6 +40,10 @@ def _use_plain_logging(force_rich_logging: bool | None) -> bool:
         return False
     if force_rich_logging is False:
         return True
+    import sys
+
+    if not sys.stderr.isatty():
+        return True
     return bool(os.environ.get("JPY_PARENT_PID")) or _in_ipython()
 
 
@@ -82,18 +86,15 @@ def _ensure_manifests(cfg: ExperimentConfig) -> None:
 
 
 def _apply_partition(cfg: ExperimentConfig) -> None:
+    """Partition the base manifest into a PER-RUN manifest (safe for concurrent runs)."""
     from src.data.partition import partition
     from src.fl.config import dataset_folder_for
 
-    dataset_folder = dataset_folder_for(cfg.dataset)
-    manifest_path = Path(cfg.data_root) / dataset_folder / "manifest.csv"
-
-    df = pd.read_csv(manifest_path)
-
-    patient_col = None
-    if "lesion_id" in df.columns and cfg.dataset in ("isic2019", "isic2018"):
-        patient_col = "lesion_id"
-
+    base = Path(cfg.data_root) / dataset_folder_for(cfg.dataset) / "manifest.csv"
+    df = pd.read_csv(base)
+    patient_col = "lesion_key" if "lesion_key" in df.columns else (
+        "lesion_id" if "lesion_id" in df.columns else None
+    )
     df_partitioned = partition(
         df=df,
         scheme=cfg.partition,
@@ -102,16 +103,19 @@ def _apply_partition(cfg: ExperimentConfig) -> None:
         seed=cfg.seed,
         patient_col=patient_col,
     )
-
-    df_partitioned.to_csv(manifest_path, index=False)
+    out = base.parent / "partitions" / f"{cfg.run_name}.csv"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    df_partitioned.to_csv(out, index=False)
+    cfg.run_manifest = str(out)
+    # Archive the client assignment next to the results (reproducibility manifest).
+    rdir = Path(cfg.results_dir) / cfg.run_name
+    rdir.mkdir(parents=True, exist_ok=True)
+    cols = [c for c in ("image_id", "label", "split", "lesion_key", "client_id") if c in df_partitioned.columns]
+    df_partitioned[df_partitioned["split"] == "train"][cols].to_csv(rdir / "client_assignment.csv.gz", index=False)
     logger.info(
-        "Partition '%s' applied (alpha=%.2f, K=%d, seed=%d)",
-        cfg.partition,
-        cfg.alpha,
-        cfg.num_clients,
-        cfg.seed,
+        "Partition '%s' applied (alpha=%.2f, K=%d, seed=%d) -> %s",
+        cfg.partition, cfg.alpha, cfg.num_clients, cfg.seed, out,
     )
-
     _save_partition_figure(df_partitioned, cfg)
 
 
@@ -230,9 +234,9 @@ def run_experiment_from_yaml(
         ignore_es = bool(exp.get("ignore_completed_early_stop", False))
 
     _cbo = str(exp.get("centralized_best_on", "val")).lower().strip()
-    if _cbo not in ("val", "test"):
+    if _cbo != "val":
         raise ValueError(
-            f"experiment.centralized_best_on must be 'val' or 'test', got {_cbo!r}"
+            f"experiment.centralized_best_on must be 'val' (test-set selection is not allowed), got {_cbo!r}"
         )
 
     cfg = ExperimentConfig(
@@ -248,6 +252,12 @@ def run_experiment_from_yaml(
         fraction_fit=float(exp.get("fraction_fit", 0.5)),
         strategy=exp.get("strategy", "fedavg"),
         fedprox_mu=float(exp.get("fedprox_mu", 0.01)),
+        fedadam_eta=float(exp.get("fedadam_eta", 1e-3)),
+        fedadam_tau=float(exp.get("fedadam_tau", 1e-3)),
+        fedadam_beta1=float(exp.get("fedadam_beta1", 0.9)),
+        fedadam_beta2=float(exp.get("fedadam_beta2", 0.99)),
+        amp=bool(exp.get("amp", True)),
+        eval_test_every_round=bool(exp.get("eval_test_every_round", True)),
         lr=float(exp.get("lr", 1e-4)),
         weight_decay=float(exp.get("weight_decay", 1e-4)),
         batch_size=int(exp.get("batch_size", 32)),
@@ -261,7 +271,7 @@ def run_experiment_from_yaml(
         resume=do_resume,
         save_weights_archive=save_wa,
         ignore_completed_early_stop=ignore_es,
-        client_local_eval_fraction=float(exp.get("client_local_eval_fraction", 0.2)),
+        client_local_eval_fraction=float(exp.get("client_local_eval_fraction", 0.0)),
         centralized_best_on=_cbo,
         num_workers=int(exp.get("num_workers", 4)),
     )

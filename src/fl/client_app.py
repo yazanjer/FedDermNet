@@ -24,7 +24,7 @@ from sklearn.model_selection import train_test_split
 from src.data.datasets import SkinDataset, dataloader_rng_seed, make_dataloader
 from src.data.transforms import get_train_transforms, get_val_transforms
 from src.eval.metrics import evaluate_model
-from src.fl.config import ExperimentConfig, dataset_folder_for, num_classes_for
+from src.fl.config import ExperimentConfig, dataset_folder_for, manifest_path_for, num_classes_for
 from src.models.build import build_model, freeze_backbone
 from src.train.losses import get_loss_fn
 
@@ -61,12 +61,12 @@ class SkinFLClient:
         self.num_classes = num_classes_for(cfg.dataset)
 
         frac = cfg.client_local_eval_fraction
-        if not (0.0 < frac < 1.0):
+        if not (0.0 <= frac < 1.0):
             raise ValueError(
-                f"client_local_eval_fraction must be in (0, 1), got {frac}"
+                f"client_local_eval_fraction must be in [0, 1), got {frac}"
             )
 
-        manifest_path = Path(cfg.data_root) / dataset_folder_for(cfg.dataset) / "manifest.csv"
+        manifest_path = manifest_path_for(cfg)
 
         base_df = SkinDataset.load_filtered_manifest_df(
             manifest_path,
@@ -74,11 +74,13 @@ class SkinFLClient:
             client_id=partition_id,
         )
 
-        if len(base_df) == 0:
-            logger.warning(
-                "Client %d has 0 training samples. Check manifest partitioning.",
-                partition_id,
-            )
+        if frac == 0.0 or len(base_df) == 0:
+            # Revision default: the whole shard trains (union of shards = centralized pool).
+            if len(base_df) == 0:
+                logger.warning(
+                    "Client %d has 0 training samples (possible at small alpha).",
+                    partition_id,
+                )
             train_df = base_df
             test_df = base_df.iloc[:0].copy()
         elif len(base_df) < 2:
@@ -164,6 +166,9 @@ class SkinFLClient:
         server_round: int
     ) -> tuple[dict[str, torch.Tensor], int, dict]:
         """Load global model, train locally, evaluate on local holdout, return updates."""
+        if self.n_train == 0:
+            return ({k: v.clone() for k, v in global_state_dict.items()}, 0,
+                    {"train_loss": float("nan"), "n_local_train": 0, "n_local_test": 0, "local_test": {}})
         self.model.load_state_dict(global_state_dict)
 
         freeze_backbone(self.model)
@@ -189,6 +194,7 @@ class SkinFLClient:
                 self.local_test_loader,
                 self.device,
                 self.num_classes,
+                amp=self.cfg.amp,
             )
 
         metrics_out = {
@@ -236,9 +242,11 @@ class SkinFLClient:
                 images = images.to(self.device, non_blocking=True)
                 labels = labels.to(self.device, non_blocking=True)
 
-                optimizer.zero_grad()
-                logits = self.model(images)
-                loss = self.loss_fn(logits, labels)
+                optimizer.zero_grad(set_to_none=True)
+                with torch.autocast(device_type="cuda", dtype=torch.bfloat16,
+                                    enabled=bool(self.cfg.amp) and self.device.type == "cuda"):
+                    logits = self.model(images)
+                loss = self.loss_fn(logits.float(), labels)
                 if global_anchor is not None:
                     prox = torch.zeros((), device=self.device, dtype=loss.dtype)
                     for name, p in self.model.named_parameters():
