@@ -15,3 +15,20 @@
                     /workspace/data/ISIC2018/partitions                         
                     /isic2018_fedavg_a0.5_K10_E2_lr5e-5                         
                     _s42.csv                                                    
+[12:34:29] INFO     Partition figure saved:             experiment_runner.py:160
+                    /workspace/figures_r1/partition_isi                         
+                    c2018_dirichlet_K10_a0.5.png                                
+           INFO     Running FEDERATED simulation        experiment_runner.py:308
+[12:34:31] INFO     Starting custom simulation | Run:            simulate.py:129
+                    isic2018_fedavg_a0.5_K10_E2_lr5e-5_s42 |                    
+                    Dataset: isic2018 | Backbone: vgg16_bn |                    
+                    Clients: 10 | Rounds: 50 | Strategy: fedavg                 
+                    | Partition: dirichlet(α=0.50)                              
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[12:34:33] WARNING  Warning: You are sending unauthenticated        _http.py:993
+                    requests to the HF Hub. Please set a HF_TOKEN               
+                    to enable higher rate limits and faster                     
+                    downloads.                                                  
+           INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
+                    14,789,703 total (14,789,703 trainable) |                   
+                    Device: cuda                                                
