@@ -265,6 +265,7 @@ def eval_2019_model_on_2018_test(
         ds,
         batch_size=batch_size,
         weighted_sampling=False,
+        shuffle=False,
         num_workers=num_workers,
         rng_seed=dataloader_rng_seed(seed, None, slot=9101),
     )
@@ -332,6 +333,7 @@ def eval_2018_model_on_2019_test_no_scc(
         ds,
         batch_size=batch_size,
         weighted_sampling=False,
+        shuffle=False,
         num_workers=num_workers,
         rng_seed=dataloader_rng_seed(seed, None, slot=9102),
     )

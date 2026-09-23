@@ -58,6 +58,7 @@ class SkinFLServer:
                 ds,
                 batch_size=cfg.batch_size * 4,
                 weighted_sampling=False,
+                shuffle=False,
                 num_workers=cfg.num_workers,
                 rng_seed=dataloader_rng_seed(cfg.seed, None, slot=slot),
             )

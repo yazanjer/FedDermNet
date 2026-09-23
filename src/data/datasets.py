@@ -286,6 +286,7 @@ def make_dataloader(
     pin_memory: bool = True,
     rng_seed: Optional[int] = None,
     persistent_workers: bool = False,
+    shuffle: Optional[bool] = None,
 ) -> DataLoader:
     """Create a DataLoader with optional WeightedRandomSampler.
 
@@ -308,7 +309,9 @@ def make_dataloader(
         shuffle = False
         dl_generator = None
     else:
-        shuffle = len(dataset) > 0
+        # Evaluation loaders must keep manifest order (predictions are archived
+        # against image_id); callers pass shuffle=False for val/test.
+        shuffle = (len(dataset) > 0) if shuffle is None else bool(shuffle)
         dl_generator = generator
 
     return DataLoader(

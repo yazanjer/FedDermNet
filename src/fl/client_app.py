@@ -137,6 +137,7 @@ class SkinFLClient:
             local_test_ds,
             batch_size=cfg.batch_size * 2,
             weighted_sampling=False,
+            shuffle=False,
             num_workers=cfg.num_workers,
             rng_seed=dataloader_rng_seed(cfg.seed, partition_id, slot=2),
         )
