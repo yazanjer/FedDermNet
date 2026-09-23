@@ -19,3 +19,8 @@
                     /workspace/figures_r1/partition_isi                         
                     c2019_dirichlet_K10_a0.5.png                                
            INFO     Running FEDERATED simulation        experiment_runner.py:307
+[10:05:15] INFO     Starting custom simulation | Run:            simulate.py:127
+                    isic2019_fedprox_a0.5_K10_E2_mu0.01_s42 |                   
+                    Dataset: isic2019 | Backbone: vgg16_bn |                    
+                    Clients: 10 | Rounds: 50 | Strategy: fedprox                
+                    | Partition: dirichlet(α=0.50)                              

@@ -1,0 +1,8 @@
+
+=== attempt 1 Wed Sep 23 10:05:14 2026 ===
+[10:05:15] INFO     Experiment:                         experiment_runner.py:286
+                    isic2019_fedprox_a0.5_K10_E2_mu0.1_                         
+                    s42                                                         
+           INFO     ISIC2019 manifest already exists at    manifest_build.py:352
+                    /workspace/data/ISIC2019/manifest.csv                       
+                    (skipping)                                                  

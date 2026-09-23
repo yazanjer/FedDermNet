@@ -1,14 +1,3 @@
-           INFO       Client 6 training ...                      simulate.py:275
-[10:03:14] INFO       Client 6 done | train_loss=0.5064 |        simulate.py:281
-                    n_train=806 | local_test_macro_f1=nan                       
-           INFO       Client 4 training ...                      simulate.py:275
-[10:03:36] INFO       Client 4 done | train_loss=0.3423 |        simulate.py:281
-                    n_train=3342 | local_test_macro_f1=nan                      
-           INFO       Client 8 training ...                      simulate.py:275
-[10:03:45] INFO       Client 8 done | train_loss=0.4645 |        simulate.py:281
-                    n_train=1288 | local_test_macro_f1=nan                      
-           INFO       Client 0 training ...                      simulate.py:275
-[10:03:49] INFO       Client 0 done | train_loss=0.5585 |        simulate.py:281
                     n_train=382 | local_test_macro_f1=nan                       
            INFO       Aggregating (fedavg)                       simulate.py:299
 [10:03:58] INFO     Round   9 | val F1=0.4335 acc=0.6546 |     server_app.py:144
@@ -38,3 +27,14 @@
            INFO     Early stopping triggered, breaking           simulate.py:322
                     simulation loop.                                            
 FL rounds | isic2019_fedavg_a0.5_K10_E2_lr5e-5_s42:  16%|█▋        | 8/49 [11:22<58:20, 85.37s/round] , tF1=0.426, vF1=0.476
+[10:05:14] INFO     Selected round 5 (best validation macro-F1)  simulate.py:334
+                    | val F1=0.5095 | test F1=0.4246 acc=0.6646                 
+           INFO     Results saved to                            strategies.py:93
+                    /workspace/results_r1/isic2019_fedavg_a0.5_                 
+                    K10_E2_lr5e-5_s42/summary.json                              
+           INFO     Simulation complete. Results in              simulate.py:367
+                    /workspace/results_r1/isic2019_fedavg_a0.5_K                
+                    10_E2_lr5e-5_s42/                                           
+           INFO     Done. Results in                    experiment_runner.py:320
+                    /workspace/results_r1/isic2019_feda                         
+                    vg_a0.5_K10_E2_lr5e-5_s42/                                  
