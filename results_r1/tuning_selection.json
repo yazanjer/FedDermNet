@@ -1,0 +1,38 @@
+{
+  "isic2019|fedavg": {
+    "param": "lr",
+    "value": 0.0002,
+    "val_macro_f1": 0.5691995984011433,
+    "run": "isic2019_fedavg_a0.5_K10_E2_lr0.0002_s42"
+  },
+  "isic2019|fedprox": {
+    "param": "fedprox_mu",
+    "value": 0.1,
+    "val_macro_f1": 0.5634948283999283,
+    "run": "isic2019_fedprox_a0.5_K10_E2_mu0.1_s42"
+  },
+  "isic2019|fedadam": {
+    "param": "fedadam_eta",
+    "value": 0.001,
+    "val_macro_f1": 0.544697942063634,
+    "run": "isic2019_fedadam_a0.5_K10_E2_eta0.001_s42"
+  },
+  "isic2018|fedavg": {
+    "param": "lr",
+    "value": 0.0001,
+    "val_macro_f1": 0.6871068290366485,
+    "run": "isic2018_fedavg_a0.5_K10_E2_s42"
+  },
+  "isic2018|fedprox": {
+    "param": "fedprox_mu",
+    "value": 0.001,
+    "val_macro_f1": 0.6766011213772408,
+    "run": "isic2018_fedprox_a0.5_K10_E2_mu0.001_s42"
+  },
+  "isic2018|fedadam": {
+    "param": "fedadam_eta",
+    "value": 0.001,
+    "val_macro_f1": 0.6170494864612512,
+    "run": "isic2018_fedadam_a0.5_K10_E2_eta0.001_s42"
+  }
+}
