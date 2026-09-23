@@ -1,34 +1,40 @@
-
-=== attempt 1 Wed Sep 23 12:34:26 2026 ===
-[12:34:26] INFO     Experiment:                         experiment_runner.py:287
-                    isic2018_fedavg_a0.5_K10_E2_lr5e-5_                         
-                    s42                                                         
-[12:34:27] INFO     ISIC2018 manifest already exists at    manifest_build.py:365
-                    /workspace/data/ISIC2018/manifest.csv                       
-                    (skipping)                                                  
-[12:34:28] INFO     Dirichlet(alpha=0.50) partition: 10         partition.py:175
-                    clients, sizes={0: 755, 1: 1034, 2: 1087,                   
-                    3: 524, 4: 863, 5: 326, 6: 1129, 7: 338, 8:                 
-                    2368, 9: 1591}                                              
-           INFO     Partition 'dirichlet' applied       experiment_runner.py:115
-                    (alpha=0.50, K=10, seed=42) ->                              
-                    /workspace/data/ISIC2018/partitions                         
-                    /isic2018_fedavg_a0.5_K10_E2_lr5e-5                         
-                    _s42.csv                                                    
-[12:34:29] INFO     Partition figure saved:             experiment_runner.py:160
-                    /workspace/figures_r1/partition_isi                         
-                    c2018_dirichlet_K10_a0.5.png                                
-           INFO     Running FEDERATED simulation        experiment_runner.py:308
-[12:34:31] INFO     Starting custom simulation | Run:            simulate.py:129
-                    isic2018_fedavg_a0.5_K10_E2_lr5e-5_s42 |                    
-                    Dataset: isic2018 | Backbone: vgg16_bn |                    
-                    Clients: 10 | Rounds: 50 | Strategy: fedavg                 
-                    | Partition: dirichlet(α=0.50)                              
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[12:34:33] WARNING  Warning: You are sending unauthenticated        _http.py:993
-                    requests to the HF Hub. Please set a HF_TOKEN               
-                    to enable higher rate limits and faster                     
-                    downloads.                                                  
-           INFO     Model: vgg16_bn | Classes: 7 | Params:          build.py:266
-                    14,789,703 total (14,789,703 trainable) |                   
-                    Device: cuda                                                
+[13:07:49] INFO       Client 3 done | train_loss=0.2926 |        simulate.py:283
+                    n_train=524 | local_test_macro_f1=nan                       
+           INFO       Client 2 training ...                      simulate.py:277
+[13:07:57] INFO       Client 2 done | train_loss=0.0519 |        simulate.py:283
+                    n_train=1087 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[13:08:02] INFO     Round  49 | val F1=0.5254 acc=0.7720 |     server_app.py:144
+                    test F1=0.6472 acc=0.7824                                   
+FL rounds | isic2018_fedavg_a0.5_K10_E2_lr5e-5_s42:  98%|█████████▊| 49/50 [33:03<00:40, 40.70s/round] , tF1=0.647, vF1=0.525           INFO     Round 50/50 | sampled clients (5/10): 4, 9,  simulate.py:264
+                    2, 0, 5                                                     
+           INFO       Client 4 training ...                      simulate.py:277
+[13:08:08] INFO       Client 4 done | train_loss=0.2155 |        simulate.py:283
+                    n_train=863 | local_test_macro_f1=nan                       
+           INFO       Client 9 training ...                      simulate.py:277
+[13:08:19] INFO       Client 9 done | train_loss=0.1268 |        simulate.py:283
+                    n_train=1591 | local_test_macro_f1=nan                      
+           INFO       Client 2 training ...                      simulate.py:277
+[13:08:26] INFO       Client 2 done | train_loss=0.0477 |        simulate.py:283
+                    n_train=1087 | local_test_macro_f1=nan                      
+           INFO       Client 0 training ...                      simulate.py:277
+[13:08:31] INFO       Client 0 done | train_loss=0.2286 |        simulate.py:283
+                    n_train=755 | local_test_macro_f1=nan                       
+           INFO       Client 5 training ...                      simulate.py:277
+[13:08:35] INFO       Client 5 done | train_loss=0.4308 |        simulate.py:283
+                    n_train=326 | local_test_macro_f1=nan                       
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[13:08:39] INFO     Round  50 | val F1=0.5102 acc=0.7824 |     server_app.py:144
+                    test F1=0.6504 acc=0.7844                                   
+FL rounds | isic2018_fedavg_a0.5_K10_E2_lr5e-5_s42: 100%|██████████| 50/50 [33:40<00:00, 40.40s/round] , tF1=0.650, vF1=0.510FL rounds | isic2018_fedavg_a0.5_K10_E2_lr5e-5_s42: 100%|██████████| 50/50 [33:40<00:00, 40.41s/round] , tF1=0.650, vF1=0.510
+[13:08:45] INFO     Selected round 47 (best validation macro-F1) simulate.py:336
+                    | val F1=0.6101 | test F1=0.6666 acc=0.7910                 
+           INFO     Results saved to                            strategies.py:93
+                    /workspace/results_r1/isic2018_fedavg_a0.5_                 
+                    K10_E2_lr5e-5_s42/summary.json                              
+           INFO     Simulation complete. Results in              simulate.py:369
+                    /workspace/results_r1/isic2018_fedavg_a0.5_K                
+                    10_E2_lr5e-5_s42/                                           
+           INFO     Done. Results in                    experiment_runner.py:321
+                    /workspace/results_r1/isic2018_feda                         
+                    vg_a0.5_K10_E2_lr5e-5_s42/                                  

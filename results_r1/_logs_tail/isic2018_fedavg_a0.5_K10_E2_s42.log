@@ -1,20 +1,40 @@
-
-=== attempt 1 Wed Sep 23 12:34:30 2026 ===
-[12:34:30] INFO     Experiment:                         experiment_runner.py:287
-                    isic2018_fedavg_a0.5_K10_E2_s42                             
-[12:34:31] INFO     ISIC2018 manifest already exists at    manifest_build.py:365
-                    /workspace/data/ISIC2018/manifest.csv                       
-                    (skipping)                                                  
-[12:34:32] INFO     Dirichlet(alpha=0.50) partition: 10         partition.py:175
-                    clients, sizes={0: 755, 1: 1034, 2: 1087,                   
-                    3: 524, 4: 863, 5: 326, 6: 1129, 7: 338, 8:                 
-                    2368, 9: 1591}                                              
-           INFO     Partition 'dirichlet' applied       experiment_runner.py:115
-                    (alpha=0.50, K=10, seed=42) ->                              
-                    /workspace/data/ISIC2018/partitions                         
-                    /isic2018_fedavg_a0.5_K10_E2_s42.cs                         
-                    v                                                           
-[12:34:33] INFO     Partition figure saved:             experiment_runner.py:160
-                    /workspace/figures_r1/partition_isi                         
-                    c2018_dirichlet_K10_a0.5.png                                
-           INFO     Running FEDERATED simulation        experiment_runner.py:308
+[13:07:49] INFO       Client 3 done | train_loss=0.1882 |        simulate.py:283
+                    n_train=524 | local_test_macro_f1=nan                       
+           INFO       Client 2 training ...                      simulate.py:277
+[13:07:56] INFO       Client 2 done | train_loss=0.0164 |        simulate.py:283
+                    n_train=1087 | local_test_macro_f1=nan                      
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[13:08:01] INFO     Round  49 | val F1=0.5164 acc=0.7720 |     server_app.py:144
+                    test F1=0.6013 acc=0.7665                                   
+FL rounds | isic2018_fedavg_a0.5_K10_E2_s42:  98%|█████████▊| 49/50 [32:59<00:40, 40.44s/round] , tF1=0.601, vF1=0.516           INFO     Round 50/50 | sampled clients (5/10): 4, 9,  simulate.py:264
+                    2, 0, 5                                                     
+           INFO       Client 4 training ...                      simulate.py:277
+[13:08:06] INFO       Client 4 done | train_loss=0.1396 |        simulate.py:283
+                    n_train=863 | local_test_macro_f1=nan                       
+           INFO       Client 9 training ...                      simulate.py:277
+[13:08:17] INFO       Client 9 done | train_loss=0.0759 |        simulate.py:283
+                    n_train=1591 | local_test_macro_f1=nan                      
+           INFO       Client 2 training ...                      simulate.py:277
+[13:08:24] INFO       Client 2 done | train_loss=0.0182 |        simulate.py:283
+                    n_train=1087 | local_test_macro_f1=nan                      
+           INFO       Client 0 training ...                      simulate.py:277
+[13:08:29] INFO       Client 0 done | train_loss=0.1631 |        simulate.py:283
+                    n_train=755 | local_test_macro_f1=nan                       
+           INFO       Client 5 training ...                      simulate.py:277
+[13:08:32] INFO       Client 5 done | train_loss=0.3699 |        simulate.py:283
+                    n_train=326 | local_test_macro_f1=nan                       
+           INFO       Aggregating (fedavg)                       simulate.py:301
+[13:08:37] INFO     Round  50 | val F1=0.4870 acc=0.7617 |     server_app.py:144
+                    test F1=0.6486 acc=0.7824                                   
+FL rounds | isic2018_fedavg_a0.5_K10_E2_s42: 100%|██████████| 50/50 [33:34<00:00, 40.07s/round] , tF1=0.649, vF1=0.487FL rounds | isic2018_fedavg_a0.5_K10_E2_s42: 100%|██████████| 50/50 [33:34<00:00, 40.30s/round] , tF1=0.649, vF1=0.487
+[13:08:44] INFO     Selected round 35 (best validation macro-F1) simulate.py:336
+                    | val F1=0.6871 | test F1=0.6142 acc=0.7738                 
+           INFO     Results saved to                            strategies.py:93
+                    /workspace/results_r1/isic2018_fedavg_a0.5_                 
+                    K10_E2_s42/summary.json                                     
+           INFO     Simulation complete. Results in              simulate.py:369
+                    /workspace/results_r1/isic2018_fedavg_a0.5_K                
+                    10_E2_s42/                                                  
+           INFO     Done. Results in                    experiment_runner.py:321
+                    /workspace/results_r1/isic2018_feda                         
+                    vg_a0.5_K10_E2_s42/                                         
