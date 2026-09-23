@@ -179,6 +179,37 @@ def fig_sweep(plt, res, runs_df, ds, tags, labels, name, out, title):
     plt.close(fig)
 
 
+def fig_sweep_grid(plt, res, runs_df, ds, rows, name, out):
+    """One figure per dataset: rows = (tags, labels, title); columns = validation / test."""
+    fig, axes = plt.subplots(len(rows), 2, figsize=(7.0, 1.75 * len(rows)), sharex=True)
+    for ri, (tags, labels, title) in enumerate(rows):
+        for ci, split in enumerate(("val", "test")):
+            ax = axes[ri, ci]
+            for c, (tag, lab) in enumerate(zip(tags, labels)):
+                sub = runs_df[(runs_df.dataset == ds) & (runs_df.tag == tag)].sort_values("seed")
+                if sub.empty:
+                    continue
+                cs = [curve(res, r, split) for r in sub.run]
+                L = min(len(x[0]) for x in cs)
+                rr = cs[0][0][:L]
+                M = np.stack([x[1][:L] for x in cs]) * 100
+                ax.plot(rr, M.mean(0), color=MUTED[c % len(MUTED)], label=lab)
+                if len(cs) > 1:
+                    ax.fill_between(rr, M.min(0), M.max(0), color=MUTED[c % len(MUTED)], alpha=0.15, lw=0)
+            ax.grid(axis="y", lw=0.3, alpha=0.5)
+            letter = "abcdefghij"[2 * ri + ci]
+            ax.set_title(f"({letter}) {title}: {'validation' if split == 'val' else 'test'}", loc="left")
+            if ci == 0:
+                ax.set_ylabel("Macro-F1 (%)")
+            if ri == len(rows) - 1:
+                ax.set_xlabel("Communication round")
+            if ci == 1:
+                ax.legend(frameon=False, loc="lower right", ncol=2 if len(tags) > 3 else 1)
+    fig.tight_layout()
+    save(fig, out, name)
+    plt.close(fig)
+
+
 def fig_confusion(plt, res, runs_df, ds, tags, labels, name, out):
     k = len(CLASSES[ds])
     fig, axes = plt.subplots(1, len(tags), figsize=(3.4 * len(tags), 3.0))
@@ -477,6 +508,17 @@ def main() -> None:
         if tags:
             fig_sweep(plt, res, runs, ds, tags, ["FedAvg", "FedProx", "FedAdam"][: len(tags)], f"{ds}_strategy_curves", F,
                       f"{nice}: aggregation rules (tuned)")
+        st2 = stats.get("strategy_tags", {}).get(ds, {})
+        rows = [
+            (["fedavg_a0.1_K10_E2", ref, "fedavg_a1_K10_E2", "fedavg_a100_K10_E2", "centralized"],
+             [r"$\alpha=0.1$", r"$\alpha=0.5$", r"$\alpha=1.0$", r"$\alpha=100$", "Centralized"], "Label skew"),
+            (["fedavg_a0.5_K5_E2", ref, "fedavg_a0.5_K20_E2"], ["$K=5$", "$K=10$", "$K=20$"], "Federation size"),
+            (["fedavg_a0.5_K10_E1", ref, "fedavg_a0.5_K10_E5", "fedavg_a0.5_K10_E10"],
+             ["$E=1$", "$E=2$", "$E=5$", "$E=10$"], "Local epochs"),
+            ([st2.get(x) for x in ("fedavg", "fedprox", "fedadam") if st2.get(x)],
+             ["FedAvg", "FedProx", "FedAdam"], "Aggregation rule"),
+        ]
+        fig_sweep_grid(plt, res, runs, ds, rows, f"{ds}_curves", F)
         fig_confusion(plt, res, runs, ds, [ref, "centralized"], [r"Federated ($\alpha=0.5$)", "Centralized"], f"{ds}_confusion", F)
         fig_partition(plt, res, ds, F)
     print(f"wrote {out}")
